@@ -1,0 +1,35 @@
+project:
+  type: book
+
+book:
+  title: "3rd year report"
+  author: "Susana Roman Garcia"
+  date: now
+  date-format: long
+  chapters:
+    - index.qmd
+    - 10-intro.qmd
+    - 20-progress.md
+    - 30-alan_enrichment.md
+    - 40-future.md
+    - references.qmd
+
+bibliography: 
+- references.bib
+link-citations: true
+
+format:
+  html:
+    theme: pulse
+  pdf:
+    documentclass: scrreprt
+    include-in-header: 
+      text: |
+        \usepackage{makeidx}
+        \makeindex
+    include-after-body: 
+      text: |
+        \printindex
+
+
+
