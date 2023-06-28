@@ -2,16 +2,15 @@ project:
   type: book
 
 book:
-  title: "3rd year report"
+  title: "3rd Year Report"
   author: "Susana Roman Garcia"
   date: now
   date-format: long
   chapters:
     - index.qmd
-    - 10-intro.qmd
-    - 20-progress.md
-    - 30-alan_enrichment.md
-    - 40-future.md
+    - 10-involvement.qmd
+    - 20-enrichment.md
+    - 30-quarto_thesis.md
     - references.qmd
 
 bibliography: 
