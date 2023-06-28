@@ -40,5 +40,3 @@ This project was the catalyst for a few things coming forward, as it taught me a
 - I organised a one-day symposium on data hazards, ethics and reproducibility (more on this [later](#collaborations)).
 
 - I am now writing my thesis using [Quarto](https://quarto.org/), an open-source scientific and technical publishing system which enables me to create a working document which can include dynamic code, among many other great qualities.
-
-

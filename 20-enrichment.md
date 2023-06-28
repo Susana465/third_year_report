@@ -4,13 +4,15 @@
 
 Some of my main goals when starting the Enrichment scheme were to broaden my knowledge on how other people are focusing their efforts into creating more accessible, ethical and reproducible research. In order to do so, I joined various courses, collaborated with different teams and got involved with the community through different routes, as described below.
 
+My placement as an Enrichment student started in October 2022 and ends in June 2023. It was not an interruption of my PhD but rather an experience to make my PhD more rich in collaborations and skills. Which I really think is what happened, as I am now finishing my time here, I leave with so many more skills on organising events, creating accessible spaces and research, creating more reproducible code, and great collaborations and friendships have flourished from my time at the Alan Turing Institute.
+
 ## Courses:
 
-**[Turing Commons: AI Ethics and Governance course](https://www.eventsforce.net/turingevents/frontend/reg/thome.csp?pageID=81509&eventID=232&traceRedir=2)**. 
+### **[Turing Commons: AI Ethics and Governance course](https://www.eventsforce.net/turingevents/frontend/reg/thome.csp?pageID=81509&eventID=232&traceRedir=2)**. 
 
 This was a 2 weeks course. Some of the main learning outcomes in this course were to get acquainted with topics such as AI harms and values, stakeholder engagement process and impact assessment and fairness, bias mitigation, governance, and accountability.
 
-**[Research Software Engineering with Python](https://alan-turing-institute.github.io/rse-course/html/index.html)**.
+### **[Research Software Engineering with Python](https://alan-turing-institute.github.io/rse-course/html/index.html)**.
 
 This was a 5 days deep-dive into learning how to construct reliable, readable, efficient research software in a collaborative environment. The emphasis is on practical techniques, tips, and technologies to effectively build and maintain complex code. 
 
@@ -18,13 +20,13 @@ These topics were never directly and fully taught to me in any university module
 
 ## Collaborations:
 
-**[Open Science & Reproducibility: The Turing Way Workshop](https://zenodo.org/record/7704563#.ZAdfCLTP2CM).**
+### **[Open Science & Reproducibility: The Turing Way Workshop](https://zenodo.org/record/7704563#.ZAdfCLTP2CM).**
 
 Together with Anne Lee Steele, community manager at the Turing Way, I helped facilitate this workshop. It was presented at Newcastle University's conference from 6-7 March 2023: "Data Science Perspectives - Multidisciplinary PhD Conference".
 
 I was able to include my previous work for the bias and reproducibility poster mentioned above, as well as network with other PhD students that were interested in these topics too. 
 
-**[Data Ethics and Reproducible Research (DERR) Symposium](https://www.eventbrite.co.uk/e/online-data-hazards-ethics-and-reproducibility-one-day-symposium-tickets-517490858087?keep_tld=1)**
+### **[Data Ethics and Reproducible Research (DERR) Symposium](https://www.eventbrite.co.uk/e/online-data-hazards-ethics-and-reproducibility-one-day-symposium-tickets-517490858087?keep_tld=1)**
 
 **Awarded: £2000 Grassroots Funding (GFT) from Alan Turing Institute.**
 
@@ -41,7 +43,7 @@ We were the first people to request this funding, as it was a new type of fundin
 
 We hosted this event as a hybrid in order to make it more accessible. We ended up having 18 participants in person and 11 online. In order to create an output from this event, we joined the Turing Way Bookdash this May 2023, to add a chapter in the [Turing Way Book](https://the-turing-way.netlify.app/index.html) about Data Hazards, as well as to talk about our symposium as a case study to apply thinking about these topics.
 
-**Turing Way Book Dash**
+### **Turing Way Book Dash**
 
 As per the Turing Way's definition of what a book dash is: 
 
@@ -54,7 +56,7 @@ Our current chapter is in draft form [here](https://hackmd.io/@7D_si7-qQwKdepUrj
 
 ## Community involvement:
 
-**Community Champion for the Enrichment 2022 cohort**
+### **Community Champion for the Enrichment 2022 cohort**
 
 I applied to become one of the community champions, whose role aims to play an active part in promoting engagement and cohort building among the students and the rest of the Turing community. During my time as an community champion, I:
 
@@ -66,7 +68,7 @@ I applied to become one of the community champions, whose role aims to play an a
 
 - Encouraged / supported other students with Grassroots Training Fund activities. 
 
-**Volunteer at AI UK**
+### **Volunteer at AI UK**
 
 At AI UK, hosted by the Alan Turing Institute, I volunteered to help around on the day as well as a facilitator in the Data Hazards stand, where I had a poster for people to think about what hazards apply to my project:
 
