@@ -13,6 +13,9 @@ book:
     - 30-quarto_thesis.md
     - 40-future.md
     - references.qmd
+    
+  downloads: [pdf]
+  page-navigation: true
 
 bibliography: 
 - references.bib
