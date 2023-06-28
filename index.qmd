@@ -5,3 +5,9 @@ This year has been mostly focused on building up knowledge on how to put into ac
 At this point in time I am in a place where I have started writing my thesis in ways which allow me to keep good version control, which helps manage the source code and documents by keeping track of all the version modifications. In fact, I am using this year's annual report as an exercise to write an example book using Quarto, which allows for a dynamic implementation of markdown files and python code all in one project, which can be version controlled via Git. 
 
 This document is written using a Quarto book. To learn more about Quarto books visit <https://quarto.org/docs/books>.
+
+The GitHub repo where this book lives can be found [here](https://github.com/Susana465/third_year_report).
+
+If you are viewing this document in your browser through a url, you can download this book as a pdf by clicking on the Adobe pdf icon on the top left corner of this site, as per the screenshot below:
+
+![](pdf_adobe.PNG)
