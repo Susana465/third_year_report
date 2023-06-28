@@ -4,4 +4,4 @@ This year has been mostly focused on building up knowledge on how to put into ac
 
 At this point in time I am in a place where I have started writing my thesis in ways which allow me to keep good version control, which helps manage the source code and documents by keeping track of all the version modifications. In fact, I am using this year's annual report as an exercise to write an example book using Quarto, which allows for a dynamic implementation of markdown files and python code all in one project, which can be version controlled via Git. 
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+This document is written using a Quarto book. To learn more about Quarto books visit <https://quarto.org/docs/books>.

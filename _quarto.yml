@@ -11,6 +11,7 @@ book:
     - 10-involvement.qmd
     - 20-enrichment.md
     - 30-quarto_thesis.md
+    - 40-future.md
     - references.qmd
 
 bibliography: 

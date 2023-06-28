@@ -42,20 +42,3 @@ This project was the catalyst for a few things coming forward, as it taught me a
 - I am now writing my thesis using [Quarto](https://quarto.org/), an open-source scientific and technical publishing system which enables me to create a working document which can include dynamic code, among many other great qualities.
 
 
----
-Co-authored draft paper for facct with Data Hazards team
-
-Written thesis using quarto, talk about quarto?
-
-camkii modelled as a dodecamer and reproducible model code success - under what definitions? explain how this is reproducible.
-
-
-General topics:
-
-Reproducing models - hexamer reproducibility.
-
-Meta-reproducibility vs specific reproducibility. 
-
-chapter on reproducing a model + accessibility
-
-
