@@ -6,8 +6,9 @@ At this point in time I am in a place where I have started writing my thesis in 
 
 This document is written using a Quarto book. To learn more about Quarto books visit <https://quarto.org/docs/books>.
 
-The GitHub repo where this book lives can be found [here](https://github.com/Susana465/third_year_report).
+## Different modes to view this report
+- **In an internet browser**: through this [url](https://susana465.quarto.pub/3rd-year-report).
 
-If you are viewing this document in your browser through a url, you can download this book as a pdf by clicking on the Adobe pdf icon on the top left corner of this site, as per the screenshot below:
+- **In `.pdf` format**:  If you are viewing this document in your browser through a url, you can click on the top right icons of the document to download it.
 
-![](pdf_adobe.PNG)
+- **Source code in GitHub**: You can also click on the top right icons of the document to access the [source code](https://github.com/Susana465/third_year_report).

@@ -13,7 +13,8 @@ book:
     - 30-quarto_thesis.md
     - 40-future.md
     - references.qmd
-    
+
+  repo-url: https://github.com/Susana465/third_year_report
   downloads: [pdf]
   page-navigation: true
 
