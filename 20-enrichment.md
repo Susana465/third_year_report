@@ -70,6 +70,8 @@ I applied to become one of the community champions, whose role aims to play an a
 
 ### **Volunteer at AI UK**
 
-At AI UK, hosted by the Alan Turing Institute, I volunteered to help around on the day as well as a facilitator in the Data Hazards stand, where I had a poster for people to think about what hazards apply to my project:
+At AI UK, hosted by the Alan Turing Institute, I volunteered to help around on the day as well as a facilitator in the Data Hazards stand, where I had a poster for people to think about what hazards apply to my project.
+
+The poster I presented can be found [here](https://github.com/Susana465/DH_Project_CaseStudy).
 
 ![The volunteer team facing the camera with Nina in a screen behind them because she could not attend in person. The team is wearing high-viz vests with the Data Hazards logo on their chest.](DH_group.JPG "Data Hazards Volunteer team")
