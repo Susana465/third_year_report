@@ -1,9 +1,8 @@
 # Quarto Report
 
-This is a report written using Quarto books.
+This is a report written using [Quarto book](https://quarto.org/docs/books/). Quarto Books are combinations of multiple documents (chapters) into a single manuscript. 
 
-## What is in here?
-
+## Structure of this book
 
 ### YAML files
 
@@ -40,10 +39,10 @@ If you wanted to specify a custom format of referencing, you can use CSL [(Citat
 - A tool to run Quarto with. I use VS Code, but you could use others like RStudio, Jupyter, Neovim, or your preferred text editor.
 - If you don't have a TeX installation present on your system, the following needs to be executed once after the installation of Quarto: `quarto install tinytex`.
 
-## If you want to run and use this report as a template:
+## If you want to run and use this report as a template
 
 - [Fork it](https://docs.github.com/en/get-started/quickstart/fork-a-repo#use-someone-elses-project-as-a-starting-point-for-your-own-idea), then use it as a template for your own work. This way you can give credit to where your own repo came from.
 
-## LICENSE:
+## License:
 
 'License to be confirmed'
