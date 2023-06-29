@@ -1,6 +1,6 @@
 # Quarto Report
 
-This is a report written using [Quarto book](https://quarto.org/docs/books/). Quarto Books are combinations of multiple documents (chapters) into a single manuscript. 
+This is a report written using a [Quarto book](https://quarto.org/docs/books/). Quarto Books are combinations of multiple documents (chapters) into a single manuscript. 
 
 ## Structure of this book
 
