@@ -6,7 +6,7 @@ I am very happy to report that I feel like I have very much accomplished this. N
 
 Moreover, I have also managed to create dodecamer model of CaMKII (not publicly available at the moment)! 
 
-## Goals for year ahead in relation to thesis:
+## Goals for year ahead in relation to the PhD thesis:
 
 Although I am not entirely sure yet how I will merge the work I have been doing with ethics and reproducibility into my thesis, this is something that I'd like to embed. For example, I think this PhD thesis could be used as a case study of someone who worked with computational models and created research that took into account ethics in the process and tried to make the work reproducible. To prove such efforts are possible and necessary. 
 
