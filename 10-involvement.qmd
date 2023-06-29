@@ -1,8 +1,25 @@
 # What work have I been involved with?
 
-## ICSB and COMBINE conferences
+As this is a third year report, and not the final thesis, I have decided to focus it on the work that I have completed throughout the last year, which is very much revolves around ethics and reproducibility.
 
-In October 2022, I attended, together with one of my supervisors, Melanie Stefan, [COMBINE 2022](https://co.mbine.org/author/combine-2022/) satellite event and the International Conference on Systems Biology [(ICSB) conference](https://hi.converia.de/frontend/index.php?sub=93).
+## What is my PhD research question?
+Before we get into the work I have been doing, as some background, the biological question that started this PhD was how do CaMKII and NMDA receptors in the postsynaptic neuron interact and enable the processes of learning and memory?
+
+When studying learning and memory at the molecular level, in health and disease, it has been shown that N-methyl-D-aspartate receptor (NMDAR) and Calcium/calmodulin-dependent protein kinase II (CaMKII) together with their interactions with other proteins within neuronal spines, can influence their shape and size [@fink2002MolecularMechanismsCaMKII]. Long-term modifications of synaptic strength, such as LTD (Long Term Depression) and LTP (Long Term Potentiation) involve diverse chemical pathways and have been the primary mechanisms used to study the molecular basis of learning and memory [@blundon2008DissectingComponentsLongTerm]. So what exactly is happening at the cellular and molecular level during memory formation? 
+
+These are the biological prompts that I look at when creating 3D models of the molecules in question. I use mainly [mcell](https://mcell.org/) and python to do so.
+
+**TLDR: I create 3D models which simulate interactions between proteins important for understanding how memory works in animal brains.**
+
+But as time went by, I realised more and more how important looking at the ethics of the research that we do is. How biased science actually is, and how we continue to carry these if we don't look at them in the face. Additionally, how much research time and money is wasted by doing experiments which cannot be reproduced or replicated later on. Hence my emphasis on these topics. 
+
+I have made it a purpose of this PhD project to highlight and talk about some of the things I care most in research: making it transparent, inclusive, and accessible.
+
+## Conferences: ICSB and COMBINE
+
+So, now that is out of the way, let's begin where I left off last year: October 2022. At this time, I attended, together with one of my supervisors, Melanie Stefan, [COMBINE 2022](https://co.mbine.org/author/combine-2022/) satellite event and the International Conference on Systems Biology [(ICSB) conference](https://hi.converia.de/frontend/index.php?sub=93).
+
+As these were very much about the topics I am involved with: Systems Biology and standards in Computational Modelling Biology.
 
 
 ### Data Hazards workshop:
@@ -39,4 +56,4 @@ This project was the catalyst for a few things coming forward, as it taught me a
 
 - I organised a one-day symposium on data hazards, ethics and reproducibility (more on this [later](#collaborations)).
 
-- I am now writing my thesis using [Quarto](https://quarto.org/), an open-source scientific and technical publishing system which enables me to create a working document which can include dynamic code, among many other great qualities.
+- I am now writing my thesis using [Quarto](https://quarto.org/), an open-source scientific and technical publishing system which enables me to create a working document which can include dynamic code, among many other great qualities. More on this also [later](./30-quarto_thesis.md).
