@@ -9,6 +9,6 @@ This document is written using a Quarto book. To learn more about Quarto books v
 ## Different modes to view this report
 - **In an internet browser**: through this [url](https://susana465.quarto.pub/3rd-year-report).
 
-- **In `.pdf` format**:  If you are viewing this document in your browser through a url, you can click on the top right icons of the document to download it.
+- **In `.pdf` format**:  If you are viewing this document in your browser through a url, you can click on the top left icons of the document to download it.
 
-- **Source code in GitHub**: You can also click on the top right icons of the document to access the [source code](https://github.com/Susana465/third_year_report).
+- **Source code in GitHub**: You can also click on the top left icons of the document to access the [source code](https://github.com/Susana465/third_year_report).
