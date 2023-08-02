@@ -23,6 +23,8 @@ The different dimensions of reproducible research described in the matrix above 
 ## Ethics and philosophy of Computational Neuroscience
 When reading articles or interacting with academics in science in general, and especially in the field of Computational Modelling of systems biology, Ethics tends to be taken mostly into account if human animal data is directly involved in the research, then mentioned briefly if non-human animals are involved, and it becomes more difficult to find a discussion on ethical matters if none of these are involved at all, for example, if data discussed involves a protein removed from who/where it came from. This scientific reductionism, where complex interactions and sum of their constituent parts are "reduced" to smaller sections in order to potentially make it easier to study, has been discussed to have a variety of problems (and advantages to a degree) [REFERENCE]. One such problem is that we forget to ask where has the data **really** come from. The data we use, for example when creating computer models, has come from animals like mice or rabbits, yet in order to get a successful publication we find ourselves making big statements of how this model could potentially be useful to aid in how Alzheimers works in humans. 
 
+https://plato.stanford.edu/entries/reduction-biology/#AlteReduMoviBeyoDich
+
 issues with racism
 
 issues with sexism
