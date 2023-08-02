@@ -8,10 +8,8 @@ book:
   date-format: long
   chapters:
     - index.qmd
-    - 10-involvement.qmd
-    - 20-enrichment.md
-    - 30-quarto_thesis.md
-    - 40-future.md
+    - section1.md
+    - section2.md
     - references.qmd
 
   repo-url: https://github.com/Susana465/third_year_report

@@ -2,7 +2,7 @@
 
 The work I have carried out through this PhD so far, has had a very heavy focus on thinking about Ethics and Reproducibility as part of my research, not as a last minute add-on. This is because I truly believe it is of utmost importance there is a shift in how we proceed with science that currently works under a capitalistic world which advocates for mass production of positivist, fast research.
 
-We are currently living in a period where many have started to talk about a "Reproducibility Crisis" [@baker2016500ScientistsLift], . In fact, the number of articles that appear in a Google Scholar search with those key words, from 2016 to now, goes to a total of 158 papers, versus just 36 papers mentioning these words in the title from 2000 to 2016, and no articles showing up as a result from 1900 to the 2000s. 
+We are currently living in a period where many have started to talk about a "Reproducibility Crisis" [@baker2016500ScientistsLift], [@treves2022Best]. In fact, the number of articles that appear in a Google Scholar search with those key words, from 2016 to now, goes to a total of 158 papers, versus just 36 papers mentioning these words in the title from 2000 to 2016, and no articles showing up as a result from 1900 to the 2000s. 
 
 
 During my PhD work so far, one aspect of the research that has come with quite a lot of struggle is to find accurate parametrization of values for protein dynamics. This is a known issue for most of us who create computational models of biological systems. @wieber2020ModelsParameterizationSoftware call it an “epistemic opacity” when talking about lack of clarity in Computational Chemistry, where this opacity is entangled in methods and software alike. 
