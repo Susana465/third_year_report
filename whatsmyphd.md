@@ -5,24 +5,19 @@ When studying learning and memory at the molecular level, in health and disease,
 
 These are the biological prompts that I look at when creating 3D models of the molecules in question. I use mainly [mcell](https://mcell.org/) and python to do so.
 
-**TLDR: I create 3D models which simulate interactions between proteins important for understanding how memory works in animal brains.**
+**TLDR: I create 3D models which simulate interactions between CaMKII and NMDAR in the postsynaptic neuron, to understand how memory works in animal brains.**
 
 ![Alt text](image.png)
 
-|Aims of this PhD:| 
+|Overview of this PhD| 
 |:---------|
+|**Aims of this PhD:**| 
 | - Explain how specific molecules work together during memory.<br> - Develop new ways of 3D modelling to look at time and space dynamics of molecular interactions.|
-
-|Type of data used:| 
-|:---------|
+|**Type of data used:**| 
 | - Kinetic rates of molecule interactions, molecular concentrations collected frm literature and databases. <br> - Numbers obtained from either wet-pab experiments or mathematically calculated.|
-
-|Methods:| 
-|:---------|
+|**Methods:**| 
 | - Models written with standardised open source languages: python, bionetgen Language. <br> - Numbers obtained from either wet-pab experiments or mathematically calculated. <br> - Run locally or in cluster if simulations are more computationally expensive. |
-
-|Applications and significance:| 
-|:---------|
+|**Applications and significance:**| 
 | - Other researchers can build from these models to create further predictions for potential pharmacological applications. <br> - The molecules I look at have been shown to be dysfunctional in Alzheimer's and Huntington's disease. |
 
 ## Why use Computational Modelling to study biological systems?
