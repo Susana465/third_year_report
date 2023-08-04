@@ -8,10 +8,10 @@ book:
   date-format: long
   chapters:
     - index.qmd
-    - whatsmyphd.md
-    - section1.md
-    - section3.md
-    - section2.md
+    - 10-whatsmyphd.md
+    - 20-ethics_reproducible.md
+    - 30-data_hazards.md
+    - 40-section2.md
     - references.qmd
 
   repo-url: https://github.com/Susana465/third_year_report
