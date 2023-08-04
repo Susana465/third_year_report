@@ -9,29 +9,21 @@ These are the biological prompts that I look at when creating 3D models of the m
 
 ![Alt text](image.png)
 
-|Score:|Questions:| 
-|--     |:---------|
-|Aim and significance of this PhD:      | Are the mathematical expressions described in the manuscript/supplementary material?|
-|Type of data:     |- Kinetic rates of molecule interactions, molecular concentrations collected frm literature and databases. - Numbers obtained from either wet-pab experiments or mathematically calculated.|
-|3      |Are simulation conditions including software/programming environment, algorithm, changes in parameters/concentration/states and any data normalization described under each simulation figure or attached as a supplementary material?|
-|4      |Are the model code(s) for the mathematical expression and simulation shared publicly?|
+|Aims of this PhD:| 
+|:---------|
+| - Explain how specific molecules work together during memory.<br> - Develop new ways of 3D modelling to look at time and space dynamics of molecular interactions.|
 
-## Aim and significance of this PhD:
-- Explain how specific molecules work together during memory.
-- Develop new ways of 3D modelling to look at time and space dynamics of molecular interactions.
-- The molecules I look at have been shown to be dysfunctional in Alzheimer's and Huntington's disease.
+|Type of data used:| 
+|:---------|
+| - Kinetic rates of molecule interactions, molecular concentrations collected frm literature and databases. <br> - Numbers obtained from either wet-pab experiments or mathematically calculated.|
 
-## Type of data:
-- Kinetic rates of molecule interactions, molecular concentrations collected frm literature and databases.
-- Numbers obtained from either wet-pab experiments or mathematically calculated.
+|Methods:| 
+|:---------|
+| - Models written with standardised open source languages: python, bionetgen Language. <br> - Numbers obtained from either wet-pab experiments or mathematically calculated. <br> - Run locally or in cluster if simulations are more computationally expensive. |
 
-## Methods:
-- Models written with standardised open source languages: python, bionetgen Language.
-- Simulations run using free, open source modelling tools: MCell, CellBlender.
-- Run locally or in cluster if simulations are more computationally expensive.
-
-## Applications:
-- Other researchers can build from these models to create further predictions for potential pharmacological applications.
+|Applications and significance:| 
+|:---------|
+| - Other researchers can build from these models to create further predictions for potential pharmacological applications. <br> - The molecules I look at have been shown to be dysfunctional in Alzheimer's and Huntington's disease. |
 
 ## Why use Computational Modelling to study biological systems?
 
