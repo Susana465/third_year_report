@@ -8,7 +8,9 @@ book:
   date-format: long
   chapters:
     - index.qmd
+    - whatsmyphd.md
     - section1.md
+    - section3.md
     - section2.md
     - references.qmd
 
