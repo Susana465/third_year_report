@@ -36,6 +36,7 @@ format:
         \printindex
         
 execute:
-  freeze: auto
+  freeze: auto # Re-compute previously generated computational output only in case their source file changes
+  echo: false # do not include source code in output
 
 
