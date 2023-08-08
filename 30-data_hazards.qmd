@@ -41,11 +41,11 @@ To help visualize where and when Data Hazards can be used in your workflow, belo
 ## Application into my PhD project:
 In order to showcase how Data Hazards can be reflected upon during a PhD, and taking the self-reflection described above into consideration, I have been implementing thinking about the vocabulary they provide into my own work. In line with this work, I made twwo posters, described below:
 
-- A [Case Study poster](#presenting-my-phd-as-a-case-study-at-ai-uk-conference) that summarised aims of my PhD, for people to be able to say which labels they thought applied to my project. This poster was part of an exhibition stand with the Data Hazards Team, at [AI UK 2023](https://ai-uk.turing.ac.uk/programme/).
+- **A Case Study for Data Hazards poster (@sec-case-study-poster)** that summarised aims of my PhD, for people to be able to say which labels they thought applied to my project. This poster was part of an exhibition stand with the Data Hazards Team, at [AI UK 2023](https://ai-uk.turing.ac.uk/programme/).
 
-- A [Bias and Reproducibility in a PhD poster](#presenting-bias-and-reproducibility-in-a-computational-neurobiology-phds-journey-at-icsb-conference), where I give examples of how to think and implement these topics into a PhD.
+- **A Bias and Reproducibility in a PhD poster (@sec-bias-repro-poster)**, where I give examples of how to think and implement these topics into a PhD.
 
-### Presenting my PhD as a case study at AI UK conference
+### Presenting my PhD as a case study at AI UK conference {#sec-case-study-poster}
 
 When creating the poster below, I was able to both do some self-reflection and collaborative reflection, as described below.
 
@@ -103,7 +103,7 @@ Interestingly,
 TALK ABOUT RESULTS OBTAINED. TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.
 
 
-### Presenting Bias and reproducibility in a computational neurobiology PhD's journey at ICSB conference
+### Presenting Bias and reproducibility in a computational neurobiology PhD's journey at ICSB conference {#sec-bias-repro-poster}
 
 In relation to this workflow, back in October 2022 I presented a poster at ICSB - International Conference on Systems Biology and was selected for a flash talk to showcase my work. I created this poster because I wanted to showcase, at a conference full of scientists at different stages of their research, how I take into account bias an reproducibility in my research.
 
