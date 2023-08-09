@@ -6,7 +6,8 @@ The Data Hazards Project has created a community-developed shared vocabulary of 
 
 ## Example label: high environmental cost
 
-<center><img src="https://datahazards.com/_images/environment.png"  width="200" height=""></center>
+!["High Environmental Impact" Data Hazard Label](environment.png){width="200" #fig-environment}
+
 
 ### Description
 
@@ -99,8 +100,7 @@ plt.show()
 ```
 
 
-Interestingly, 
-TALK ABOUT RESULTS OBTAINED. TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.TALK ABOUT RESULTS OBTAINED.
+Interestingly, not all labels were chosen as applicable to my project (@fig-barchart). Only 6 of the 11 current labels were chosen as relevant, with "difficult to understand" being the most prevalent one.  
 
 
 ### Presenting Bias and reproducibility in a computational neurobiology PhD's journey at ICSB conference {#sec-bias-repro-poster}
