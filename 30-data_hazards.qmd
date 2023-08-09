@@ -1,4 +1,8 @@
-# Data Hazards
+---
+title: "Data Hazards"
+format: html
+tbl-colwidths: [15,40,55]
+---
 
 Following on the idea that scientists are great at selling the gains in efficiency and accuracy of their work, but less well-practiced in thinking about the ethical implications of our work, I present a framework developed to think about "Data Hazards". The ethical implications that ought to be considered go beyond most ethics Institutional Review Boards, to questions about the wider societal impact of data science and algorithms work. This is where a project like the [Data Hazards Project](https://datahazards.com/) comes in handy. Data Hazards is a project made to help us in thinking about worst-case scenarios and ways to mitigate these. 
 
@@ -50,32 +54,36 @@ In order to showcase how Data Hazards can be reflected upon during a PhD, and ta
 
 When creating this poster (@fig-posterAIUK) for AI UK, I was able to both do some self-reflection and collaborative reflection, as described below.
 
-- **Self-reflection:**
+- **Self-reflection (*what is my project and how will it be used?*):**
 
-I followed the prompt questions available in the Data Hazards website for project owners who would like their projects to be discussed for data hazards, they are as below:
+When making the poster, this kind of self-reflection questions are useful for oneself to think about, but also for external people who are not involved with your project to understand what potential data hazards it might have. The final poster can be seen below in (@fig-posterAIUK). I followed the prompt questions available in the Data Hazards website for project owners who would like their projects to be discussed for data hazards:
 
- - The overall objective of the project
- - Fairly detailed description of the variables in the dataset they are using (and what is not included)
- - How and when the data was collected
- - Any statistical/algorithmic methods being used
- - Who has input on the project
- - What outputs are expected, and how these will be shared
+-- The overall objective of the project.
 
-This kind of self-reflection questions are useful for oneself to think about, but also for external people who are not involved with your project to understand what potential data hazards it might have. The final poster can be seen below in (@fig-posterAIUK).
+-- Fairly detailed description of the variables in the dataset they are using (and what is not included).
 
-- **Collaborative reflection:**
+-- How and when the data was collected.
 
-During the poster presentation, people would come over and talk about the project, have a look at the poster, and decide by adding stickers to a list of hazards, to say which ones applied to it. You can see below how it looked (@fig-DHCS_AIUK). 
+-- Any statistical/algorithmic methods being used.
 
-So, as can be seen in @fig-DHCS_AIUK (before end of the day), people chose which data hazard labels applied to my PhD project. At the end of the day, I recorded final numbers and the results can be seen below @fig-barchart. 
+-- Who has input on the project.
 
-[![Data Hazards Project - Case Study, to see GitHub repo, click on this figure](poster_AIUK.png){#fig-posterAIUK}](https://github.com/Susana465/DH_Project_CaseStudy)
+-- What outputs are expected, and how these will be shared.
 
-![Data Hazards Case Study Poster at AI UK](DHCS_AIUK.jpeg){#fig-DHCS_AIUK}
+- **Collaborative reflection (*what data hazards may apply to my project?*):**
+
+Then, during the poster presentation, people would come over and talk about the project, have a look at the poster, and decide by adding stickers to a list of hazards, to say which ones applied to it. You can see below how it looked (@fig-DHCS_AIUK). 
+
+So, as can be seen in the photo of me happily posing next to the poster @fig-DHCS_AIUK (before end of the day), people were adding stickers to record which data hazard labels they thought applied to my PhD project. At the end of the day, I recorded final numbers and the results can be seen in the barchart below @fig-barchart. 
+
+[![PhD Project decription - Case Study, to see GitHub repo, click on this figure.](poster_AIUK.png){width="300" fig-pos="h" #fig-posterAIUK}](https://github.com/Susana465/DH_Project_CaseStudy)
+
+![Data Hazards Case Study Poster at AI UK](DHCS_AIUK.jpeg){width="300" fig-pos="h" #fig-DHCS_AIUK}
 
 ```{python}
 #| label: fig-barchart
-#| fig-cap: "Data Hazards labels that may apply to my PhD"
+#| fig-cap: "Data Hazards labels that may apply to my PhD."
+#| fig-pos: 't'
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -99,9 +107,52 @@ plt.title("Data Hazards labels that may apply to my PhD")
 plt.show()
 ```
 
+- **Difficult to understand Label was chosen the most**
+Interestingly, not all labels were chosen as applicable to my project (@fig-barchart). Only 6 of the 11 current labels were chosen as relevant, with "difficult to understand" being the most prevalent one, chosen by 6 people. High environmental impact and danger of misuse follow in closely with 5 people having chosen these ones. Of course these numbers are small and hold, more than anything, illustrative value as to how and why people may think certain labels apply to a project. In the case of my PhD project, which involves understanding of very specific molecules, as well as knowledge of programming and computer modelling software, it makes sense that the "difficult to understand" label was the one people chose the most.
 
-Interestingly, not all labels were chosen as applicable to my project (@fig-barchart). Only 6 of the 11 current labels were chosen as relevant, with "difficult to understand" being the most prevalent one.  
+- find and explain mitigaions for these hardas. show examples of how im thinking to mitigate them.
 
+MAKE A TABLE OF  DATA HAZARDS -md or html or python?
+
+blablabla
+
+```{=html}
+<table>
+  <caption>As described in the section above, Quarto tables are great.</caption>
+  <thead>
+    <tr>
+      <th style="width:15%"> </th>
+      <th style="width:15%"> Data Hazard Description</th>
+      <th style="width:15%"> Safety Precautions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td><img src="difficult-to-understand.png" width="100" />
+    </td>
+      <td><b>Difficult to understand</b>. There is a danger that the technology is difficult to understand. This could be because of the technology itself is hard to interpret (e.g. neural nets), or problems with it’s implementation (i.e. code is not provided, or not documented). Depending on the circumstances of its use, this could mean that incorrect results are hard to identify, or that the technology is inaccessible to people (difficult to implement or use).
+      </td>
+      <td>Mitigations</td>
+    </tr>
+    <tr>
+    <td><img src="difficult-to-understand.png" width="100" />
+    </td>
+      <td style="width:40%"><b>Difficult to understand</b>. There is a danger that the technology is difficult to understand. This could be because of the technology itself is hard to interpret (e.g. neural nets), or problems with it’s implementation (i.e. code is not provided, or not documented). Depending on the circumstances of its use, this could mean that incorrect results are hard to identify, or that the technology is inaccessible to people (difficult to implement or use).
+      </td>
+      <td style="width:55%">Mitigations</td>
+    </tr>
+    <tr>
+    <td><img src="difficult-to-understand.png" width="100" />
+    </td>
+      <td><b>Difficult to understand</b>. There is a danger that the technology is difficult to understand. This could be because of the technology itself is hard to interpret (e.g. neural nets), or problems with it’s implementation (i.e. code is not provided, or not documented). Depending on the circumstances of its use, this could mean that incorrect results are hard to identify, or that the technology is inaccessible to people (difficult to implement or use).
+      </td>
+      <td>Mitigations</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+{{< pagebreak >}}
 
 ### Presenting Bias and reproducibility in a computational neurobiology PhD's journey at ICSB conference {#sec-bias-repro-poster}
 
@@ -111,8 +162,5 @@ As a preview, you can see it below, please click on it if you'd like to view a b
 
 Find GitHub repository [here](https://github.com/Susana465/Bias-and-Reproducibility-Poster).
 
-[![Poster about bias and reproducibility, showing research cycle as a journey which starts with design, then data collection, data analysis and final reporting, and compares this through images to growing an apple tree, collecting the apples and then selling them.][1]][2]
 
-[1]: ./20221006_poster_phd_journey.jpg
-
-[2]: https://github.com/Susana465/Bias-and-Reproducibility-Poster/blob/main/20221006_poster_phd_journey.jpg
+[![Poster about bias and reproducibility, showing research cycle as a journey which starts with design, then data collection, data analysis and final reporting, and compares this through images to growing an apple tree, collecting the apples and then selling them.](20221006_poster_phd_journey.jpg){width="300" fig-pos="h" #fig-posterPhDjourney}](https://github.com/Susana465/Bias-and-Reproducibility-Poster/blob/main/20221006_poster_phd_journey.jpg)
