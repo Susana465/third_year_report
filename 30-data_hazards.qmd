@@ -48,7 +48,7 @@ In order to showcase how Data Hazards can be reflected upon during a PhD, and ta
 
 ### Presenting my PhD as a case study at AI UK conference {#sec-case-study-poster}
 
-When creating the poster below, I was able to both do some self-reflection and collaborative reflection, as described below.
+When creating this poster (@fig-posterAIUK) for AI UK, I was able to both do some self-reflection and collaborative reflection, as described below.
 
 - **Self-reflection:**
 
@@ -69,7 +69,7 @@ During the poster presentation, people would come over and talk about the projec
 
 So, as can be seen in @fig-DHCS_AIUK (before end of the day), people chose which data hazard labels applied to my PhD project. At the end of the day, I recorded final numbers and the results can be seen below @fig-barchart. 
 
-![Data Hazards Project - Case Study, to see GitHub repo, click on this figure](poster_AIUK.png){#fig-posterAIUK}
+[![Data Hazards Project - Case Study, to see GitHub repo, click on this figure](poster_AIUK.png){#fig-posterAIUK}](https://github.com/Susana465/DH_Project_CaseStudy)
 
 ![Data Hazards Case Study Poster at AI UK](DHCS_AIUK.jpeg){#fig-DHCS_AIUK}
 
