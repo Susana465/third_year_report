@@ -1,8 +1,27 @@
-# Ethics and Reproducibility emphasis in this PhD and why it matters
+---
+title: "Ethics and Reproducibility emphasis in this PhD and why it matters"
+---
+The work I have carried out through this PhD so far, has had a very heavy focus on thinking about Ethics and Reproducibility as an embedded part of my research, not as a last minute add-on. This is because I truly believe it is of utmost importance that there is a shift in how we proceed with science. A science that currently works under a capitalistic mechanism which advocates for mass production of positivist, fast research that historically mostly only benefits a few (usually cis-male, white, able-bodied individuals [^1]) [@webb2022Addressing], [@diogo2023Not], [@branch2022Discussions]. 
 
-The work I have carried out through this PhD so far, has had a very heavy focus on thinking about Ethics and Reproducibility as an embedded part of my research, not as a last minute add-on. This is because I truly believe it is of utmost importance that there is a shift in how we proceed with science. A science that currently works under a capitalistic mechanism which advocates for mass production of positivist, fast research.
+[^1]: This bias towards benefiting cis-male, white, able-bodied people does not mean they do not suffer, and does not negate the existence of the issues they may experience too. For more information on how society is biased in a way that provides privileges in a certain order/hierarchy, please have a look at [@diangelo2018White],or [@delgado2022Owning].  
 
-We are living in a time-period where many have started to talk about a "Reproducibility Crisis" [@baker2016500ScientistsLift], [@treves2022Best], where we find that there is an increasing awareness of this issue, as work is done into trying (and failing) to reproduce previous published results. The reproducibility or replicability crisis (more on these terms [below](#defining-reproducibility-vs-replicability)) undermines the credibility of theories scientific knowledge; as an essential part of the scientific part of the scientific method is to be able to repeat and reproduce or falsify empirical results and theories. The issues encountered around reproducibility vary, of course, depending on the field. In this report I focus more, although not solely, on the issues around computational modelling of systems biology, generally from a neuroscience angle.
+## Science for profit of whom?
+
+There is a historical heritage of monetary incentivization to move towards drug discovery and the profit that comes from this, and how this has played a key role in biasing research towards drug discovery to "fix" individuals, without their wellbeing being necessarily at the forefront [@dosi2023Big].
+
+There are many examples of how companies move scientific research in a way that is driven by economic profit,  as well as how there's a constant pull to publish more and publish first. It is not the point of this report to go in depth into how or why this has happened, but I can offer you a few good places to start, if you are interested. 
+
+The book *Warp and Weft* by @fennenWarpWeft, with a focus on psychiatry and neuroscience, looks at some of their history and examines the ways these sciences have been, and continue to be used as a colonial force. Enforcing a global North science on to the world, as well as describing how many times this enforcement has been led by economic profit for only a few. One good example it cross-references is the "The Mega-Marketing of Depression in Japan" by GlaxoSmithKline, originally spoken about in the book *Crazy Like Us* by @watters2010Crazy, which is another good place to find examples of this kind.
+
+### Historical oppressive biases:
+ If we ignore thinking about the ethics, philosophy and history of the research that we do, we may forget where certain ontologies and basis of knowledge come from; and therefore we will continue to pretend that these topics are not necessary to think about, whilst a privileged group continues to perpetuate oppressive biases towards historically marginalized groups. In the article published by @branch2022Discussions, they eloquently articulate how a desire to quantify and establish hierarchies among organisms was not purely for scientific interest (Allen1983), but that there is extensive evidence in the fact that the roots of evolutionary biology, which serves as a baseline for many other disciplines like neuroscience, are steeped in histories of white-supremacism, eugenics,and scientific racism. They discuss the definition of the “Not-So-Fit”, and how ableism limits the diverse thought and investigative potential in evolutionary biology. And the list goes on, Pandora's Box opens up as soon as you start looking into structural sexism, ableism, racism, speciesism embedded in the science we create.
+
+## Slowing down...
+As a response to a fast-paced, profit-driven science, a few Slow Science Manifestos have been published, notably *Another Science is Possible: A Manifesto for Slow Science* by @stengers2018Another maintains that in order to make higher quality education and science, it needs to serve society as a whole, and calls for, among other things, an "Accountability in the knowledge society versus profitability in the knowledge economy". 
+
+Moreover, in the context of fast-science,  we are experiencing a "Reproducibility Crisis" [@baker2016500ScientistsLift], [@treves2022Best], where we find that, as work is done into trying to reproduce previous published results, this is not possible. The reproducibility or replicability crisis (more on these terms [below](#defining-reproducibility-vs-replicability)) undermines the credibility of theories scientific knowledge; as an essential part of the scientific part of the scientific method is to be able to repeat and reproduce or falsify empirical results and theories. There is an argument to be made that making research more reproducible and ethical takes more time. And it does. This is precisely why slowing down can help in creating higher quality research that serves all in society.
+
+## Ethics and Reproducibility go together
 
 ## Defining reproducibility vs replicability
 There is a long history of these terms being used interchangeably, or their meanings being swapped depending on the field of study [@claerbout1992ElectronicDocumentsGive], [@ivie2018ReproducibilityScientificComputing], [@plesser2018ReproducibilityVsReplicability]. For example, a review on the usage of reproducible/replicable meanings [@barba2018TerminologiesReproducibleResearch] showed that most papers and disciplines use the terminology as defined by Claerbout and Karrenbach, whereas microbiology, immunology and computer science tend to follow the Associtation for Computing Machinery use of reproducibility and replication given by Ivie and Thain, 2018. In political science and economics literature, both terms are used interchangeably. So this quickly shows how having a lack of agreement on such definitions can add even more confusion to the mix. 
@@ -46,3 +65,13 @@ Making an effort into creating research that is reproducible can help to avoid w
 Working with ethics, philosophy, reproducibility (waste issues) and oppenness to discuss the wider context of where our research rests, may add a bit of time to the research timeline, but can very much enrich a fuller and more complex understanding of the shortcomings of our research and how to do better moving forward. 
 
 LINK TO DATA HAZARDS
+
+### Presenting Bias and reproducibility in a computational neurobiology PhD's journey at ICSB conference {#sec-bias-repro-poster}
+
+In relation to this workflow, back in October 2022 I presented a poster at ICSB - International Conference on Systems Biology and was selected for a flash talk to showcase my work. I created this poster because I wanted to showcase, at a conference full of scientists at different stages of their research, how I take into account bias an reproducibility in my research.
+
+As a preview, you can see it below, please click on it if you'd like to view a bigger version of this image.
+
+Find GitHub repository [here](https://github.com/Susana465/Bias-and-Reproducibility-Poster).
+
+[![Poster about bias and reproducibility, showing research cycle as a journey which starts with design, then data collection, data analysis and final reporting, and compares this through images to growing an apple tree, collecting the apples and then selling them.](20221006_poster_phd_journey.jpg){#fig-posterPhDjourney width="300" fig-pos="h"}](https://github.com/Susana465/Bias-and-Reproducibility-Poster/blob/main/20221006_poster_phd_journey.jpg)
