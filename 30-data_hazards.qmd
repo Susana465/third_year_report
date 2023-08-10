@@ -1,7 +1,5 @@
 ---
 title: "Data Hazards"
-format: html
-tbl-colwidths: [15,40,55]
 ---
 
 Following on the idea that scientists are great at selling the gains in efficiency and accuracy of their work, but less well-practiced in thinking about the ethical implications of our work, I present a framework developed to think about "Data Hazards". The ethical implications that ought to be considered go beyond most ethics Institutional Review Boards, to questions about the wider societal impact of data science and algorithms work. This is where a project like the [Data Hazards Project](https://datahazards.com/) comes in handy. Data Hazards is a project made to help us in thinking about worst-case scenarios and ways to mitigate these.
@@ -116,51 +114,16 @@ plt.show()
 
 MAKE A TABLE OF DATA HAZARDS -md or html or python?
 
-|                                                         | Data Hazard Description                                                                                                                                                                                                                                                                                                                                                                                                                                                | Safety Precautions |
-|---------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| \<img src="difficult-to-understand.png" width="100" /\> | **Difficult to understand.** There is a danger that the technology is difficult to understand. This could be because of the technology itself is hard to interpret (e.g. neural nets), or problems with it\'s implementation (i.e. code is not provided, or not documented). Depending on the circumstances of its use, this could mean that incorrect results are hard to identify, or that the technology is inaccessible to people (difficult to implement or use). | Mitigation         |
-| image                                                   | description                                                                                                                                                                                                                                                                                                                                                                                                                                                            | mitigation         |
-| image                                                   | description                                                                                                                                                                                                                                                                                                                                                                                                                                                            | mitigation         |
+|                                  | Data Hazard Description                                                                                                                                                                                                                                                                                                                                                                                                                                               | Safety Precautions |
+|------------|--------------------------------------------|----------------|
+| ![](difficult-to-understand.png) | **Difficult to understand.** There is a danger that the technology is difficult to understand. This could be because of the technology itself is hard to interpret (e.g. neural nets), or problems with it's implementation (i.e. code is not provided, or not documented). Depending on the circumstances of its use, this could mean that incorrect results are hard to identify, or that the technology is inaccessible to people (difficult to implement or use). | Mitigation         |
+| ![](environment.png)             | description                                                                                                                                                                                                                                                                                                                                                                                                                                                           | mitigation         |
+| ![](misuse.png)                  | description                                                                                                                                                                                                                                                                                                                                                                                                                                                           | mitigation         |
 
 : Caption
 
 blablabla
 
-```{=html}
-<table>
-  <caption>As described in the section above, Quarto tables are great.</caption>
-  <thead>
-    <tr>
-      <th style="width:15%"> </th>
-      <th style="width:15%"> Data Hazard Description</th>
-      <th style="width:15%"> Safety Precautions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-    <td><img src="difficult-to-understand.png" width="100" />
-    </td>
-      <td><b>Difficult to understand</b>. There is a danger that the technology is difficult to understand. This could be because of the technology itself is hard to interpret (e.g. neural nets), or problems with it’s implementation (i.e. code is not provided, or not documented). Depending on the circumstances of its use, this could mean that incorrect results are hard to identify, or that the technology is inaccessible to people (difficult to implement or use).
-      </td>
-      <td>Mitigations</td>
-    </tr>
-    <tr>
-    <td><img src="difficult-to-understand.png" width="100" />
-    </td>
-      <td style="width:40%"><b>Difficult to understand</b>. There is a danger that the technology is difficult to understand. This could be because of the technology itself is hard to interpret (e.g. neural nets), or problems with it’s implementation (i.e. code is not provided, or not documented). Depending on the circumstances of its use, this could mean that incorrect results are hard to identify, or that the technology is inaccessible to people (difficult to implement or use).
-      </td>
-      <td style="width:55%">Mitigations</td>
-    </tr>
-    <tr>
-    <td><img src="difficult-to-understand.png" width="100" />
-    </td>
-      <td><b>Difficult to understand</b>. There is a danger that the technology is difficult to understand. This could be because of the technology itself is hard to interpret (e.g. neural nets), or problems with it’s implementation (i.e. code is not provided, or not documented). Depending on the circumstances of its use, this could mean that incorrect results are hard to identify, or that the technology is inaccessible to people (difficult to implement or use).
-      </td>
-      <td>Mitigations</td>
-    </tr>
-  </tbody>
-</table>
-```
 {{< pagebreak >}}
 
 ### Presenting Bias and reproducibility in a computational neurobiology PhD's journey at ICSB conference {#sec-bias-repro-poster}
