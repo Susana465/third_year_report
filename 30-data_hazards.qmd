@@ -37,7 +37,7 @@ This spells LARD 🧈, which makes it pretty easy to remember! It is however an 
 
 As part of a [Turing Way Book Dash](https://the-turing-way.netlify.app/community-handbook/bookdash.html) hosted in May 2023, I worked together with a team to create a chapter on Data Hazards for the Turing Way Book. This chapter is still in [draft form](https://hackmd.io/ZoJpaBsnTBuAfwGWnMCwGg), but one of the fun things got to do was to work with an artist from Scriberia, to make an illustration of the Data Hazards application (@fig-DH_application).
 
-![Data Hazards Application Cycle.](DH_application.jpg){#fig-DH_application width="450" fig-pos="h"}
+![Data Hazards Application Cycle [@community2023Illustrations].](DH_application.jpg){#fig-DH_application width="450" fig-pos="h"}
 
 ## Application example into Research life-cycle
 
