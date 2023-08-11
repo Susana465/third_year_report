@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3rd Year Report - 3&nbsp; Data Hazards</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./40-models.html" rel="next">
+<link href="./20-ethics_reproducible.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./30-data_hazards.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Hazards</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">3rd Year Report</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/Susana465/third_year_report" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./3rd-Year-Report.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-whatsmyphd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is my PhD research question?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-ethics_reproducible.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Ethics and Reproducibility emphasis in this PhD and why it matters</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30-data_hazards.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Hazards</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./40-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Computer models of CaMKII/NMDAR interactions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./50-activities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Activities</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./60-thesis_layout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Thesis layout</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#example-label-high-environmental-cost" id="toc-example-label-high-environmental-cost" class="nav-link active" data-scroll-target="#example-label-high-environmental-cost"><span class="header-section-number">3.1</span> Example label: high environmental cost</a>
+  <ul class="collapse">
+  <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description"><span class="header-section-number">3.1.1</span> Description</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><span class="header-section-number">3.1.2</span> Examples</a></li>
+  <li><a href="#safety-precautions" id="toc-safety-precautions" class="nav-link" data-scroll-target="#safety-precautions"><span class="header-section-number">3.1.3</span> Safety Precautions</a></li>
+  </ul></li>
+  <li><a href="#how-to-use-the-data-hazards-project" id="toc-how-to-use-the-data-hazards-project" class="nav-link" data-scroll-target="#how-to-use-the-data-hazards-project"><span class="header-section-number">3.2</span> How to use the Data Hazards Project</a></li>
+  <li><a href="#application-example-into-research-life-cycle" id="toc-application-example-into-research-life-cycle" class="nav-link" data-scroll-target="#application-example-into-research-life-cycle"><span class="header-section-number">3.3</span> Application example into Research life-cycle</a>
+  <ul class="collapse">
+  <li><a href="#design" id="toc-design" class="nav-link" data-scroll-target="#design"><span class="header-section-number">3.3.1</span> Design:</a></li>
+  <li><a href="#data-collection-and-analysis" id="toc-data-collection-and-analysis" class="nav-link" data-scroll-target="#data-collection-and-analysis"><span class="header-section-number">3.3.2</span> Data Collection and Analysis:</a></li>
+  <li><a href="#reporting" id="toc-reporting" class="nav-link" data-scroll-target="#reporting"><span class="header-section-number">3.3.3</span> Reporting:</a></li>
+  </ul></li>
+  <li><a href="#application-into-my-phd-project-presenting-my-phd-as-a-case-study-at-ai-uk-conference" id="toc-application-into-my-phd-project-presenting-my-phd-as-a-case-study-at-ai-uk-conference" class="nav-link" data-scroll-target="#application-into-my-phd-project-presenting-my-phd-as-a-case-study-at-ai-uk-conference"><span class="header-section-number">3.4</span> Application into my PhD project: Presenting my PhD as a case study at AI UK conference</a>
+  <ul class="collapse">
+  <li><a href="#results-from-collaborative-reflections" id="toc-results-from-collaborative-reflections" class="nav-link" data-scroll-target="#results-from-collaborative-reflections"><span class="header-section-number">3.4.1</span> Results from collaborative reflections:</a></li>
+  </ul></li>
+  <li><a href="#data-hazards-workshops" id="toc-data-hazards-workshops" class="nav-link" data-scroll-target="#data-hazards-workshops"><span class="header-section-number">3.5</span> Data Hazards Workshops</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-data-hazards" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Hazards</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>The ethical implications that ought to be considered when doing research, usually go beyond what most ethics Institutional Review Boards propose; they should include questions about the wider societal impact of how data science and algorithms work. This is where a project like the <a href="https://datahazards.com/">Data Hazards Project</a> comes in handy. Data Hazards is a project made to help us in thinking about worst-case scenarios and ways to mitigate these.</p>
+<p>The Data Hazards Project has created a community-developed shared vocabulary of data science risks. The vocabulary presents data ethics concepts in the form of <a href="https://datahazards.com/contents/data-hazards.html">Data Hazard Labels</a>, similarly to chemical hazard labels. This project exists to facilitate material for interdisciplinary discussions and self-reflection about all kinds of data ethics risks. So, how do these labels look like and how can they be implemeted, I hear you ask? Let’s go through some examples to answer these questions.</p>
+<section id="example-label-high-environmental-cost" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="example-label-high-environmental-cost"><span class="header-section-number">3.1</span> Example label: high environmental cost</h2>
+<div id="fig-environment" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="environment.png" class="img-fluid figure-img" width="150"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.1: “High Environmental Impact” Data Hazard Label</figcaption>
+</figure>
+</div>
+<section id="description" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="description"><span class="header-section-number">3.1.1</span> Description</h3>
+<p>This hazard is appropriate where methodologies are energy-hungry, data-hungry (requiring more and more computation), or require special hardware that require rare materials.</p>
+</section>
+<section id="examples" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="examples"><span class="header-section-number">3.1.2</span> Examples</h3>
+<ul>
+<li>Example: Running computer models in super computers requires vast energy usage.</li>
+</ul>
+</section>
+<section id="safety-precautions" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="safety-precautions"><span class="header-section-number">3.1.3</span> Safety Precautions</h3>
+<ul>
+<li>Consider in what circumstances it is worthwhile to use this type of methodology.
+<ul>
+<li>To communicate the scale of the issue to other stakeholders, you may want to <a href="">convert units of energy into more relatable units</a>.</li>
+<li>Find out <a href="">if your cloud provider uses renewable energy</a>.</li>
+<li>Consider profiling your code, and rewriting it to use less energy.</li>
+</ul></li>
+<li>Consider future work that would reduce the need to use increasingly more resources.</li>
+</ul>
+</section>
+</section>
+<section id="how-to-use-the-data-hazards-project" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="how-to-use-the-data-hazards-project"><span class="header-section-number">3.2</span> How to use the Data Hazards Project</h2>
+<p>There are four steps to using the Data Hazard labels:</p>
+<ul>
+<li><strong>Learning</strong>: familiarising yourself with the Data Hazard labels.</li>
+<li><strong>Applying</strong>: deciding which Hazard labels are relevant to your project.</li>
+<li><strong>Reflecting</strong>: on what to do differently and what mitigations to make.</li>
+<li><strong>Display</strong>: displaying the labels alongside your work can help you to communicate that you’ve thought about these broad ethical issues and how you’d like others to use your work.</li>
+</ul>
+<p>This spells LARD 🧈, which makes it pretty easy to remember! It is however an unfortunate word it shortens to, as lard comes from dead pigs, so I like to manifest it’s a plant-based LARD 🌱.</p>
+<p>As part of a <a href="https://the-turing-way.netlify.app/community-handbook/bookdash.html">Turing Way Book Dash</a> hosted in May 2023, I worked together with a team to create a chapter on Data Hazards for the Turing Way Book. This chapter is still in <a href="https://hackmd.io/ZoJpaBsnTBuAfwGWnMCwGg">draft form</a>, but one of the fun things got to do was to work with an artist from Scriberia, to make an illustration of the Data Hazards application (<a href="#fig-DH_application">Figure&nbsp;<span>3.2</span></a>).</p>
+<div id="fig-DH_application" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="DH_application.jpg" class="img-fluid figure-img" width="450"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.2: Data Hazards Application Cycle <span class="citation" data-cites="community2023Illustrations">(<a href="references.html#ref-community2023Illustrations" role="doc-biblioref">Community and Scriberia 2023</a>)</span>.</figcaption>
+</figure>
+</div>
+</section>
+<section id="application-example-into-research-life-cycle" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="application-example-into-research-life-cycle"><span class="header-section-number">3.3</span> Application example into Research life-cycle</h2>
+<p>To help visualize where and when Data Hazards can be used in your workflow, below is an example assuming four main stages of workflow: design, data collection, data analysis and reporting. This is a generalised example, but something like this is what it looks like for me when I work on my PhD.</p>
+<section id="design" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="design"><span class="header-section-number">3.3.1</span> Design:</h3>
+<ul>
+<li>Are you using data? Then doing some reflection on <a href="https://the-turing-way.netlify.app/ethical-research/self-reflection/sr-positionality.html?highlight=bias">identity and positionality</a> could help you think of what Data Hazards labels you might encounter as you design your project, for example <a href="https://datahazards.com/contents/hazards/ranks-classifies.html">“ranks of classifies people hazard”</a> or <a href="https://datahazards.com/contents/hazards/risk-to-privacy.html">“risk to privacy”</a> could apply at this stage.</li>
+<li>In this part of the workflow, you might want to prepare to avoid certain Data Hazards if you can, and if you can’t avoid them because of where your data has come from, you may want to acknowledge this. For example, if you a <a href="https://the-turing-way.netlify.app/project-design/sdp.html">sensitive data project</a>, what Data Hazard labels will apply, and/or what can you do to design your project in a way that avoids certain harms?</li>
+</ul>
+</section>
+<section id="data-collection-and-analysis" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="data-collection-and-analysis"><span class="header-section-number">3.3.2</span> Data Collection and Analysis:</h3>
+<ul>
+<li>As you are collecting and analyzing your data, you might want to iteratively think of the potential Data Hazards that exist in the information you are collecting. To then apply the labels as you perform the next step of the process: reporting.</li>
+</ul>
+</section>
+<section id="reporting" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="reporting"><span class="header-section-number">3.3.3</span> Reporting:</h3>
+<ul>
+<li>When reporting your results, you can think of applying and reporting the Data Hazard labels that are relevant for your project; examples of how others have done this can be found here [link to self reflection and case studie(s)]. Labeling your project with Data Hazards should also include considerations of mitigations to these risks. This would then be helpful for people who see your outputs in the future. They can be aware of potential risks as they proceed with the project, and continue to think of solutions to any issues related to the research topic.</li>
+</ul>
+</section>
+</section>
+<section id="application-into-my-phd-project-presenting-my-phd-as-a-case-study-at-ai-uk-conference" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="application-into-my-phd-project-presenting-my-phd-as-a-case-study-at-ai-uk-conference"><span class="header-section-number">3.4</span> Application into my PhD project: Presenting my PhD as a case study at AI UK conference</h2>
+<p>In order to showcase how Data Hazards can be reflected upon during a PhD, and taking the self-reflection described above into consideration, I have been implementing thinking about the vocabulary they provide into my own work. In line with this work, I made a poster that summarised aims of my PhD, for people to be able to say which labels they thought applied to my project. This poster was part of an exhibition stand with the Data Hazards Team, at <a href="https://ai-uk.turing.ac.uk/programme/">AI UK 2023</a>.When creating this poster (<a href="#fig-posterAIUK">Figure&nbsp;<span>3.3</span></a>), I was able to both do some self-reflection and collaborative reflection, as described below.</p>
+<ul>
+<li><strong>Self-reflection (<em>what is my project and how will it be used?</em>):</strong></li>
+</ul>
+<p>When making the poster, this kind of self-reflection questions are useful for oneself to think about, but also for external people who are not involved with your project to understand what potential data hazards it might have. The final poster can be seen below in (<a href="#fig-posterAIUK">Figure&nbsp;<span>3.3</span></a>). I followed the prompt questions available in the Data Hazards website for project owners who would like their projects to be discussed for data hazards:</p>
+<p>– The overall objective of the project.</p>
+<p>– Fairly detailed description of the variables in the dataset they are using (and what is not included).</p>
+<p>– How and when the data was collected.</p>
+<p>– Any statistical/algorithmic methods being used.</p>
+<p>– Who has input on the project.</p>
+<p>– What outputs are expected, and how these will be shared.</p>
+<ul>
+<li><strong>Collaborative reflection (<em>what data hazards may apply to my project?</em>):</strong></li>
+</ul>
+<p>Then, during the poster presentation, people would come over and talk about the project, have a look at the poster, and decide by adding stickers to a list of hazards, to say which ones applied to it. You can see below how it looked (<a href="#fig-DHCS_AIUK">Figure&nbsp;<span>3.4</span></a>).</p>
+<p>So, as can be seen in the photo of me happily posing next to the poster <a href="#fig-DHCS_AIUK">Figure&nbsp;<span>3.4</span></a> (before end of the day), people were adding stickers to record which data hazard labels they thought applied to my PhD project. At the end of the day, I recorded final numbers and the results can be seen in the barchart below <a href="#fig-barchart">Figure&nbsp;<span>3.5</span></a>.</p>
+<div id="fig-posterAIUK" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><a href="https://github.com/Susana465/DH_Project_CaseStudy"><img src="poster_AIUK.png" class="img-fluid figure-img" width="300"></a></p>
+<figcaption class="figure-caption">Figure&nbsp;3.3: PhD Project decription - Case Study, to see GitHub repo, click on this figure.</figcaption>
+</figure>
+</div>
+<div id="fig-DHCS_AIUK" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="DHCS_AIUK.jpeg" class="img-fluid figure-img" width="300"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.4: Data Hazards Case Study Poster at AI UK</figcaption>
+</figure>
+</div>
+<section id="results-from-collaborative-reflections" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="results-from-collaborative-reflections"><span class="header-section-number">3.4.1</span> Results from collaborative reflections:</h3>
+<ul>
+<li><p><strong>Difficult to understand Label was chosen the most</strong> Interestingly, not all labels were chosen as applicable to my project (<a href="#fig-barchart">Figure&nbsp;<span>3.5</span></a>). Only 6 of the 11 current labels were chosen as relevant, with “difficult to understand” being the most prevalent one, chosen by 6 people. High environmental impact and danger of misuse follow in closely with 5 people having chosen these ones. Of course these numbers are small and hold, more than anything, illustrative value as to how and why people may think certain labels apply to a project. In the case of my PhD project, which involves understanding of very specific molecules, as well as knowledge of programming and computer modelling software, it makes sense that the “difficult to understand” label was the one people chose the most.</p></li>
+<li><p>find and explain mitigaions for these hardas. show examples of how im thinking to mitigate them.</p></li>
+</ul>
+<div class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div id="fig-barchart" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="30-data_hazards_files/figure-html/fig-barchart-output-1.png" width="588" height="542" class="figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.5: Data Hazards labels that may apply to my PhD.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>MAKE A TABLE OF DATA HAZARDS -md or html or python?</p>
+<table class="table">
+<caption>Caption</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th>Data Hazard Description</th>
+<th>Safety Precautions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="difficult-to-understand.png" class="img-fluid"></td>
+<td><strong>Difficult to understand.</strong> There is a danger that the technology is difficult to understand. This could be because of the technology itself is hard to interpret (e.g.&nbsp;neural nets), or problems with it’s implementation (i.e.&nbsp;code is not provided, or not documented). Depending on the circumstances of its use, this could mean that incorrect results are hard to identify, or that the technology is inaccessible to people (difficult to implement or use).</td>
+<td><ul>
+<li><p>Make research code Open Source with <a href="https://choosealicense.com/">an appropriate software license</a> where possible. Your local <a href="https://society-rse.org/">Research Software Engineering</a> group may be able to help you with this.</p></li>
+<li><p>Compare results to white box (explainable) methods such as <a href="https://en.wikipedia.org/wiki/Random_forest">Random Forest</a> or <a href="https://en.wikipedia.org/wiki/Regression_analysis">Regression</a>, which may perform just as well.</p></li>
+<li><p>Ensure code is well documented with accompanying and/or inline documentation.</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><img src="environment.png" class="img-fluid"></td>
+<td><strong>High environmental impact.</strong> There is a danger that the technology is difficult to understand. This could be because of the technology itself is hard to interpret (e.g.&nbsp;neural nets), or problems with it’s implementation (i.e.&nbsp;code is not provided, or not documented). Depending on the circumstances of its use, this could mean that incorrect results are hard to identify, or that the technology is inaccessible to people (difficult to implement or use).</td>
+<td><ul>
+<li><p>Make research code Open Source with <a href="https://choosealicense.com/">an appropriate software license</a> where possible. Your local <a href="https://society-rse.org/">Research Software Engineering</a> group may be able to help you with this.</p></li>
+<li><p>Compare results to white box (explainable) methods such as <a href="https://en.wikipedia.org/wiki/Random_forest">Random Forest</a> or <a href="https://en.wikipedia.org/wiki/Regression_analysis">Regression</a>, which may perform just as well.</p></li>
+<li><p>Ensure code is well documented with accompanying and/or inline documentation.</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><img src="misuse.png" class="img-fluid"></td>
+<td><strong>Danger of misuse.</strong> There is a danger that the technology is difficult to understand. This could be because of the technology itself is hard to interpret (e.g.&nbsp;neural nets), or problems with it’s implementation (i.e.&nbsp;code is not provided, or not documented). Depending on the circumstances of its use, this could mean that incorrect results are hard to identify, or that the technology is inaccessible to people (difficult to implement or use).</td>
+<td><ul>
+<li><p>Make research code Open Source with <a href="https://choosealicense.com/">an appropriate software license</a> where possible. Your local <a href="https://society-rse.org/">Research Software Engineering</a> group may be able to help you with this.</p></li>
+<li><p>Compare results to white box (explainable) methods such as <a href="https://en.wikipedia.org/wiki/Random_forest">Random Forest</a> or <a href="https://en.wikipedia.org/wiki/Regression_analysis">Regression</a>, which may perform just as well.</p></li>
+<li><p>Ensure code is well documented with accompanying and/or inline documentation.</p></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+<p>blablabla where does text and table render in pdf? text to test this</p>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="data-hazards-workshops" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="data-hazards-workshops"><span class="header-section-number">3.5</span> Data Hazards Workshops</h2>
+<p>Talk about application of DH into different workshop setups, in COMBINE and Turing Institute.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-community2023Illustrations" class="csl-entry" role="listitem">
+Community, The Turing Way, and Scriberia. 2023. <em>Illustrations from <span>The Turing Way</span>: <span>Shared</span> Under <span>CC-BY</span> 4.0 for Reuse</em>. <span>Zenodo</span>. <a href="https://doi.org/10.5281/zenodo.8169292">https://doi.org/10.5281/zenodo.8169292</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./20-ethics_reproducible.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Ethics and Reproducibility emphasis in this PhD and why it matters</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./40-models.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Computer models of CaMKII/NMDAR interactions</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
