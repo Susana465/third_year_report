@@ -28,7 +28,7 @@ ADD ETHICS, REPRODUCIBLE OBJECTIVES.
 
 So that you can get a better idea of what the modelling might look like, I drew @fig-cellblender, which shows a somewhat simplified version of what the graphical user interface of CellBlender can look like. It includes molecules and reactions going in, as well as placement in a 3D cell.
 
-![A 3D model of a postsynaptic dendritic head, in a schematic of what CellBlender looks like, simplified](image.png){#fig-cellblender}
+![A 3D model of a postsynaptic dendritic head, in a schematic of what CellBlender looks like, simplified.](mcell_doodle.jpg){#fig-cellblender}
 
 **TLDR: I create 3D models which simulate interactions between CaMKII and NMDAR in the postsynaptic neuron, to understand how memory works in animal brains.**
 

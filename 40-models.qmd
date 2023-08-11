@@ -1,0 +1,51 @@
+# Computer models of CaMKII/NMDAR interactions
+
+## Software used: MCell and Bionetgen
+
+MCell (Monte Carlo Cell) is a biochemistry simulation tool that uses spatially realistic 3D cellular models and stochastic Monte Carlo algorithms to simulate the movements and interactions of discrete molecules within and between cells, [@bartol2000Monte], [@kerr2008FAST], [@bartol2015Computational]. MCell is a particle-based simulator that represents molecules as point particles in 3D space. At every time step in an MCell simulation, each particle can move, collide with other particles or surfaces, and undergo bimolecular and unimolecular reactions. The basic elements of a simulation step are as seen in @fig-mcell_comp taken from @gupta2018Spatial.
+
+![MCell Components. (A) Volume Molecules diffusing in free space. (B) Mesh Object defined by a Plane with Surface Molecules diffusing on it. (C) Mesh Object defined by a complex closed mesh with multiple defined Surface  Regions, in which Surface Molecules have different diffusion constants, as defined by corresponding Surface Classes.](mcell_comp.png){#fig-mcell_comp} 
+
+Briefly, MCell operates as follows: as a volume molecule diffuses, all molecules within a given radius along its trajectory, or at the point of collision on a surface, are considered for a reaction. For surface molecules (in membranes), the molecule first diffuses, and then its neighbours are evaluated for reaction. 
+
+There is no volume exclusion for molecules diffusing in 3D volumes, and molecules on surfaces occupy a  fixed area. MCell allows defining arbitrary geometry @fig-mcell_comp (C), and complex models such as a 180μm3 3DEM reconstruction of hippocampal neuropil have been used to construct a geometrically-precise simulation of 100s of neuronal synapses at once [@bartol2015Computational]. A detailed description of mathematical foundations of MCell’s algorithms can be found here: @bartol2000Monte, @kerr2008FAST, @bartol2015Computational.
+
+MCell4, version used for this project, provides a versatile Python interface, which is very useful for writing models with said interface and running mcell models this way.  MCell 4 provides two different user experiences, one through its visual interface as an add-on in Blender 2.93, known as CellBlender (see back at @fig-cellblender), the other user experience one through a new Python interface. This provides users with the flexibility to change between both experiences, or to run the simulations using Python and visualize the simulations in Blender. 
+
+Testing to see if I can make a visual diagram of how this works.
+```{mermaid}
+flowchart LR
+  A(Python code 'model.py')--> |execute model with|B(MCell)
+  B--> |can visualize|C[CellBlender]
+  D(BioNetGen model 'model.bngl')--> A(Python code 'model.py')
+```
+
+
+## Model description
+
+I have constructed the models at different scales to validate CaMKII interactions with other molecules like calmodulin and NMDARs, at increasing levels of complexity. First I re-created a model of CaMKII as a monomer that was previously completed in 2017. The model created uses cBNGL and represents CaMKII as monomers to serve as a proof of concept as well as a starting validation point, as dynamics of this model were previously shown to be within biologically accurate limits. Secondly, I created a model of CaMKII as a hexamer since modelling this molecule as a dodecamer gave rise to a combinatorial explosion due to the high number of possible states and the network of interactions generated. This is currently in the works of being resolved as I run the model using the network-free simulation using MCell. We will then be able to model CaMKII as a dodecamer. Finally, I aim to validate this work against a model from Ordyan et al., 2020, where they successfully modelled CaMKII as a twelve subunit holoenzyme using BioNetGen simulations. 
+
+As explained in the introduction of this report, CaMKII is a dodecameric molecule, meaning it’s composed of twelve subunits. Ideally, I would like to model CaMKII as a dodecamer since this would allow us to infer more accurately any emergent behaviour of the protein. However, due to combinatorial explosion, running a CaMKII as a dodecamer takes a really long time: 6+ hours without finalising run time, using a cBNG, SSA simulation. These simulations include only calcium binding to CaM, and CaM binding to CaMKII as a dodecamer, without further reactions added to avoid further complexity. The machine being used for these simulations is a x64-based laptop, with specs: 11th Gen Intel® Core™ i5-1145G7@2.60GHz, 1498Mhz, 4Core(s), 8 Logical Processors. SSA simulations generate a full network of reactions and causes the simulation to slow down considerably. At the moment, compartmental BNGL does not allow for NFsim simulations to be ran. This can be overcome by running the model with MCell as it provides a network free simulation capability. An alternative so far has also been to run the model with CaMKII as a hexamer. However, it still causes combinatorial explosion when generating network reactions. This should be resolved by running the model as a network free simulation in MCell.
+
+### Model of CaMKII as a dodecamer
+
+## Model development and validation
+Following from what I did last year, show results, copy what's on github https://github.com/Susana465/CaMKII_hexa_bgnl_to_mcell
+
+Develop the description of how the models work – model description and results. Biologist friendly description of the model. 
+
+talk about roustness, generalisable, environments
+
+Write abstract for each chapter, then merge them altogether.  
+
+### A reproducible model
+
+The same processes used in software development can also be applied to biological model development. Therefore, when developing the models in this project, four main points were considered throughout, as suggested by @husar2022MCell4:
+
+1.	Create incremental development where the model is built step by step, relying on solid foundations of modelling done and validated before, 
+
+2.	Create a modularity that provides the capability to create self-contained, reusable libraries,
+
+3.	Perform unit testing and validation to verify that parts of the model behave as expected and,
+
+4.	Create human-readable and writable model code that can be stored using git or other code version control software which also allows code reviews so that other team members can inspect the latest changes to the model.

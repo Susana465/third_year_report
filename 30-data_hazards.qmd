@@ -107,14 +107,15 @@ data = {'Reinforces existing biases':4, 'High environmental impact':5,
 courses = list(data.keys())
 values = list(data.values())
   
-fig = plt.figure(figsize = (19, 5))
+fig = plt.figure(figsize = (6, 5))
+plt.xticks(rotation=30,ha="right")
  
 # Creating the bar plot
 plt.bar(courses, values, color ='tab:red',
         width = 0.4)
  
 plt.xlabel("Data Hazard Labels")
-plt.ylabel("No. of times label was chosen as relevant for my PhD project")
+plt.ylabel("No. of times label was chosen as \n relevant for my PhD project")
 plt.title("Data Hazards labels that may apply to my PhD")
 plt.show()
 ```

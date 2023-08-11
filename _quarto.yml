@@ -11,7 +11,7 @@ book:
     - 10-whatsmyphd.md
     - 20-ethics_reproducible.md
     - 30-data_hazards.qmd
-    - 40-models.md
+    - 40-models.qmd
     - 50-activities.md
     - 60-thesis_layout.md
     - references.qmd
@@ -27,6 +27,8 @@ link-citations: true
 format:
   html:
     theme: pulse
+    mermaid: 
+      theme: forest
   pdf:
     documentclass: scrreprt
     include-in-header: 
