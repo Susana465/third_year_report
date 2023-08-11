@@ -1,12 +1,12 @@
 # Data Hazards {#sec-data-hazards}
 
-Following on the idea that scientists are great at selling the gains in efficiency and accuracy of their work, but less well-practiced in thinking about the ethical implications of our work, I present a framework developed to think about dangers or risks involved with your data and research: Data Hazard Labels. The ethical implications that ought to be considered go beyond most ethics Institutional Review Boards, to questions about the wider societal impact of data science and algorithms work. This is where a project like the [Data Hazards Project](https://datahazards.com/) comes in handy. Data Hazards is a project made to help us in thinking about worst-case scenarios and ways to mitigate these.
+The ethical implications that ought to be considered when doing research, usually go beyond what most ethics Institutional Review Boards propose; they should include questions about the wider societal impact of how data science and algorithms work. This is where a project like the [Data Hazards Project](https://datahazards.com/) comes in handy. Data Hazards is a project made to help us in thinking about worst-case scenarios and ways to mitigate these.
 
-The Data Hazards Project has created a community-developed shared vocabulary of data science risks. The vocabulary presents data ethics concepts in the form of [Data Hazard Labels](https://datahazards.com/contents/data-hazards.html), similarly to chemical hazard labels. This project exists to facilitate material for interdisciplinary discussions and self-reflection about all kinds of data ethics risks.
+The Data Hazards Project has created a community-developed shared vocabulary of data science risks. The vocabulary presents data ethics concepts in the form of [Data Hazard Labels](https://datahazards.com/contents/data-hazards.html), similarly to chemical hazard labels. This project exists to facilitate material for interdisciplinary discussions and self-reflection about all kinds of data ethics risks. So, how do these labels look like and how can they be implemeted, I hear you ask? Let's go through some examples to answer these questions. 
 
 ## Example label: high environmental cost
 
-!["High Environmental Impact" Data Hazard Label](environment.png){#fig-environment width="200"}
+!["High Environmental Impact" Data Hazard Label](environment.png){#fig-environment width="150"}
 
 ### Description
 
@@ -14,7 +14,7 @@ This hazard is appropriate where methodologies are energy-hungry, data-hungry (r
 
 ### Examples
 
--   Example 1: Running computer models in super computers requires vast energy usage.
+-   Example: Running computer models in super computers requires vast energy usage.
 
 ### Safety Precautions
 
@@ -23,6 +23,21 @@ This hazard is appropriate where methodologies are energy-hungry, data-hungry (r
     -   Find out [if your cloud provider uses renewable energy]().
     -   Consider profiling your code, and rewriting it to use less energy.
 -   Consider future work that would reduce the need to use increasingly more resources.
+
+## How to use the Data Hazards Project
+
+There are four steps to using the Data Hazard labels:
+
+- **Learning**: familiarising yourself with the Data Hazard labels.
+- **Applying**: deciding which Hazard labels are relevant to your project.
+- **Reflecting**: on what to do differently and what mitigations to make.
+- **Display**: displaying the labels alongside your work can help you to communicate that you’ve thought about these broad ethical issues and how you’d like others to use your work.
+
+This spells LARD 🧈, which makes it pretty easy to remember! It is however an unfortunate word it shortens to, as lard comes from dead pigs, so I like to manifest it's a plant-based LARD 🌱.
+
+As part of a [Turing Way Book Dash](https://the-turing-way.netlify.app/community-handbook/bookdash.html) hosted in May 2023, I worked together with a team to create a chapter on Data Hazards for the Turing Way Book. This chapter is still in [draft form](https://hackmd.io/ZoJpaBsnTBuAfwGWnMCwGg), but one of the fun things got to do was to work with an artist from Scriberia, to make an illustration of the Data Hazards application (@fig-DH_application).
+
+![Data Hazards Application Cycle.](DH_application.jpg){#fig-DH_application width="450" fig-pos="h"}
 
 ## Application example into Research life-cycle
 
@@ -130,6 +145,10 @@ MAKE A TABLE OF DATA HAZARDS -md or html or python?
 
 : Caption
 
-blablabla
+blablabla where does text and table render in pdf? text to test this
 
 {{< pagebreak >}}
+
+## Data Hazards Workshops
+
+Talk about application of DH into different workshop setups, in COMBINE and Turing Institute.

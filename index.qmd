@@ -1,21 +1,21 @@
 # Preface {.unnumbered}
 
-This year has been mostly focused on building up knowledge on how to put into action the idea of making a more ethical and reproducible PhD. In order to understand the progress I have made this year in my PhD, let's look at it through a timeline, starting in October 2022, up until now in June/July.
+This year has been mostly focused on building up knowledge on how to put into action the idea of making a more ethical and reproducible PhD. In order to understand the progress I have made this year, I describe in the following capters the importance of thinking about ethics and reproducibility, what are and how to use Data Hazards, as well as a breakdown of creating reproducible computer models.
 
 At this point in time I am in a place where I have started writing my thesis in ways which allow me to keep good version control, which helps manage the source code and documents by keeping track of all the version modifications. In fact, I am using this year's annual report as an exercise to write an example book using Quarto, which allows for a dynamic implementation of markdown files and python code all in one project, which can be version controlled via Git. 
 
 
 ## This is a Quarto Book:
 
-This document is written using a Quarto book. To learn more about Quarto books visit <https://quarto.org/docs/books>. Quarto allows for a dynamic implementation of markdown files and python code all in one project, which can be version controlled via Git. 
+This document is written using a Quarto book. Quarto allows for a dynamic implementation of different types of files that can be version controlled, which is extremely helpful to create a pipeline of work all in one place and that is traceable too. 
 
 Quarto® is an open-source scientific and technical publishing system built on [Pandoc](https://pandoc.org/). It allows you to weave together narrative text and code to produce elegantly formatted output as documents, web pages, blog posts, books and more. 
 
 Quarto is at its core multi-language and multi-engine (supporting Knitr, Jupyter, and Observable today and potentially other engines in the future); where you can have all your code and narrative text in one. For a full breakdown and FAQs of how Quarto works, you can have a look [here](https://quarto.org/docs/faq/rmarkdown.html).
 
-The good thing for me personally, is that, thanks to Quarto, I can write my thesis chapters using [markdown](https://www.markdownguide.org/getting-started/) (which is a lot more intuitive than LaTeX, in my opinion). Moreover, I can keep track of version control of each file and allows for helpful traceability of materials included in the document I am writing; which in itself has many benefits as it immensely helps to be able to go back to a previous version where everything was working before I broke the code (yet again).
+The good thing for me personally, is that, thanks to Quarto, I can write my thesis chapters using [markdown](https://www.markdownguide.org/getting-started/) -which is a lot more intuitive than LaTeX, in my opinion. Moreover, it allows for much better version control compared to Microsoft Word, and allows for helpful traceability of materials included in the document I am writing; which in itself has many benefits as it immensely helps to be able to go back to a previous version where everything was working before I broke the code (yet again).
 
-Part of my work includes work which runs with different python scripts, and using Quarto means that I can embed python code if needed to explain how certain functionalities of the models work. It also allows for code using R to run within a Quarto document, as well as jupyter notebooks too!
+Part of my work includes work which runs with different python scripts, and using Quarto means that I can embed python code if needed to explain how certain functionalities of the models work. It also allows for code using R to run within a Quarto document, as well as jupyter notebooks, and includes HTML implementations, which can all help with functionalities such as creating tables, adding images, and rendering the document in different formats (website html, or pdf, for example).
 
 ## Different modes to view this report
 - **In an internet browser**: through this [url](https://susana465.quarto.pub/3rd-year-report).
