@@ -12,7 +12,7 @@ This is a report written using a [Quarto book](https://quarto.org/docs/books/). 
 
 ### Output directory:
 
-- [`__book`](__book): By default, [quarto book output](https://quarto.org/docs/books/book-output.html) is written to the _book directory of your project, this is where the final rendered [`.pdf`](/_book/3rd-Year-Report.pdf) lives.
+- [`/_book`](/_book/): By default, [quarto book output](https://quarto.org/docs/books/book-output.html) is written to the _book directory of your project, this is where the final rendered [`.pdf`](/_book/3rd-Year-Report.pdf) lives.
 
 ### Markdown files
 
