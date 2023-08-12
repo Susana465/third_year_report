@@ -82,9 +82,9 @@ Then, during the poster presentation, people would come over and talk about the 
 
 So, as can be seen in the photo of me happily posing next to the poster @fig-DHCS_AIUK (before end of the day), people were adding stickers to record which data hazard labels they thought applied to my PhD project. At the end of the day, I recorded final numbers and the results can be seen in the barchart below @fig-barchart.
 
-[![PhD Project decription - Case Study, to see GitHub repo, click on this figure.](poster_AIUK.png){#fig-posterAIUK width="300" fig-pos="h"}](https://github.com/Susana465/DH_Project_CaseStudy)
+[![PhD Project decription - Case Study, to see GitHub repo, click on this figure.](poster_AIUK.png){#fig-posterAIUK fig-pos="t"}](https://github.com/Susana465/DH_Project_CaseStudy)
 
-![Data Hazards Case Study Poster at AI UK](DHCS_AIUK.jpeg){#fig-DHCS_AIUK width="300" fig-pos="h"}
+![Data Hazards Case Study Poster at AI UK](DHCS_AIUK.jpeg){#fig-DHCS_AIUK width="400" fig-pos="t"}
 
 ### Results from collaborative reflections:
 
