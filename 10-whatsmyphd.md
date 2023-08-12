@@ -11,18 +11,16 @@ When studying learning and memory at the molecular level, in health and disease,
 
 These are the biological prompts that I look at when creating 3D models of the molecules in question. I use mainly [mcell](https://mcell.org/) and python to do so. In order to give you a better overview of the aims, types of data used, methods and applications of this research, please see below @tbl-overview. In addition to the biological aspects of this PhD, as mentioned above, I have made a big effort into making my PhD accessible, reproducible and more ethical. It has transformed into a case study example of how to establish procedures for more ethical and reproducible research, which means future researchers can efficiently re-use and build up on what I have created.
 
-ADD ETHICS, REPRODUCIBLE OBJECTIVES.
-
 |Wide-view angle of this PhD project| 
 |:---------|
 |**Aims of this PhD:**| 
-| - Explain how specific molecules work together during memory.<br> - Develop new ways of 3D modelling to look at time and space dynamics of molecular interactions.|
+| - Explain how specific molecules work together during memory.<br> - Develop new ways of 3D modelling to look at time and space dynamics of molecular interactions. <br> - Bring awareness of the importance of implementing ethics and reproducibility into a PhD.|
 |**Type of data used:**| 
 | - Kinetic rates of molecule interactions, molecular concentrations collected frm literature and databases. <br> - Numbers obtained from either wet-pab experiments or mathematically calculated.|
 |**Methods:**| 
 | - Models written with standardised open source languages: python, bionetgen Language. <br> - Numbers obtained from either wet-pab experiments or mathematically calculated. <br> - Run locally or in cluster if simulations are more computationally expensive. |
 |**Applications and significance:**| 
-| - Other researchers can build from these models to create further predictions for potential pharmacological applications. <br> - The molecules I look at have been shown to be dysfunctional in Alzheimer's and Huntington's disease {REFERENCE}. |
+| - Other researchers can build from these models to create further predictions for potential pharmacological applications. <br> - Dysregulation of the molecules I look at have been suggested to have a potential impact in Alzheimer's disease, as well associated with multiple forms of spineopathies [@ghosh2015Calcium], [@robison2014Emerging].|
 
 :PhD overview {#tbl-overview}
 
@@ -43,5 +41,3 @@ Some of the main reasons for using modelling are:
 3.	Related to point one, models then serve to combine knowledge from different published research, and make biological predictions which can then serve as hypothesis to be tested empirically by experimentalists.
 
 4.	Computer-simulated experiments can help guide the wet-lab process by narrowing the experimental search space, enabling more cost, time-effective and waste-free research, as well as more ethical research too as we reduce animal suffering through reduction of animal research.
-
-LINK TO NEXT SECTION.
