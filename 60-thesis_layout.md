@@ -1,6 +1,5 @@
 # Thesis layout
 
-# BACKGROUND	
 1.1.  Report style and philosophy	3
 
 1.1.1.	Unusual stylistic choices in this report	3

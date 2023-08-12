@@ -26,9 +26,9 @@ These are the biological prompts that I look at when creating 3D models of the m
 
 So that you can get a better idea of what the modelling might look like, I drew @fig-cellblender, which shows a somewhat simplified version of what the graphical user interface of CellBlender can look like. It includes molecules and reactions going in, as well as placement in a 3D cell.
 
-![A 3D model of a postsynaptic dendritic head, in a schematic of what CellBlender looks like, simplified.](mcell_doodle.jpg){#fig-cellblender}
-
 **TLDR: I create 3D models which simulate interactions between CaMKII and NMDAR in the postsynaptic neuron, to understand how memory works in animal brains.**
+
+{{< pagebreak >}}
 
 ## Why use Computational Modelling to study biological systems?
 
@@ -41,3 +41,5 @@ Some of the main reasons for using modelling are:
 3.	Related to point one, models then serve to combine knowledge from different published research, and make biological predictions which can then serve as hypothesis to be tested empirically by experimentalists.
 
 4.	Computer-simulated experiments can help guide the wet-lab process by narrowing the experimental search space, enabling more cost, time-effective and waste-free research, as well as more ethical research too as we reduce animal suffering through reduction of animal research.
+
+![A 3D model of a postsynaptic dendritic head, in a schematic of what CellBlender looks like, simplified.](mcell_doodle.jpg){#fig-cellblender}

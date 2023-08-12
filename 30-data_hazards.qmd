@@ -152,4 +152,6 @@ blablabla where does text and table render in pdf? text to test this
 
 ## Data Hazards Workshops
 
-Talk about application of DH into different workshop setups, in COMBINE and Turing Institute.
+- Talk about application of DH into different workshop setups, in COMBINE and Turing Institute.
+
+- Most info available here: https://github.com/Susana465/Data_Hazards_workshops, re-write.
