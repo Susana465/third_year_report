@@ -3,11 +3,11 @@
 ## Software used: BioNetGen and MCell
 
 ### BioNetGen and how rule-based modelling can help with combinatorial complexity. 
-BioNetGen is a set of software tools which facilitate a rule-based approach to modelling biochemical reaction kinetics, where we can largely overcome the problem of combinatorial complexity that arises when modelling CaMKII. It has been calculated that CaMKII as a dodecamer can approximately have 10<sup>20</sup> possible states [@pharris2019MultistateModelCaMKII]; this, coupled with the potential of a full reaction network for each simulation (an added factor of combinatorial complexity), can render the model computationally intractable. BioNetGen can help us deal with this combinatorial complexity thanks to its rule-based modelling (RBM) "don't care, don't write" capabilities.
+BioNetGen is a set of software tools which facilitate a rule-based approach to modelling biochemical reaction kinetics, where we can largely overcome the problem of combinatorial complexity that arises when modelling CaMKII. It has been calculated that CaMKII as a dodecamer can approximately have 10^20^ possible states [@pharris2019MultistateModelCaMKII]; this, together with the potential of a full reaction network for each simulation (an added factor of combinatorial complexity), can render the model computationally intractable. BioNetGen can help us deal with this combinatorial complexity thanks to its rule-based modelling (RBM) "don't care, don't write" capabilities. And as we will see later MCell can help with modelling network-free simulations.
 
 BioNetGen language (BNGL) is a formal language which uses the BioNetGen software [@faeder2009Rulebased]. It allows for site-specific details of protein-protein interactions to be captured in models for the dynamics of these interactions in a systematic fashion, which also alleviates nomenclature and reusability issues. 
 
-Hence, using this RBM approach is notable as it facilitates writing of multi-state modelling and can significantly, reduce the number of reactions that need to be written due to its “don’t write, don’t care” characteristic. Thereby dramatically improving the ability to model CaMKII as a dodecamer; I can make a model with multistate molecules, and specify the states of the reactants that are relevant for a particular reaction, and leave the rest unspecified. 
+Hence, using this RBM approach is notable as it facilitates writing of multi-state modelling and can significantly, reduce the number of reactions that need to be written due to its “don’t write, don’t care” characteristic. Thereby dramatically improving the ability to model CaMKII as a dodecamer; I can make a model with multistate molecules, and specify the states of the reactants that are relevant for a particular reaction, and leave the rest unspecified. Below I provide an example of what a simple BNGL model can look like.
 
 ```
 # BioNetGen code which shows a simple model of A, B,C molecules \
@@ -78,8 +78,12 @@ simulate({method=>"ssa",t_end=>10,n_steps=>100})
 
 ```
 
+To interact with this code, you can have a look and download a jupyter notebook I have created [here](https://github.com/Susana465/Dontcaredontwrite_bngl_example), where I also describe some of the ways in which the model can be simulated, with stochastic simulation algorithms (SSAs) or ordinary differential equations (ODEs). See screenshot from notebook in @fig-ode_bngl below.
+
+![What an ODE output from the model above looks like, shown as output is created in jupyter notebook.](ode_bngl.PNG){#fig-ode_bngl} 
+
 ### MCell (Monte Carlo Cell) and how it simulates reactions in 3D
-Is a biochemistry simulation tool that uses spatially realistic 3D cellular models and stochastic Monte Carlo algorithms to simulate the movements and interactions of discrete molecules within and between cells, [@bartol2000Monte], [@kerr2008FAST], [@bartol2015Computational]. MCell is a particle-based simulator that represents molecules as point particles in 3D space. At every time step in an MCell simulation, each particle can move, collide with other particles or surfaces, and undergo bimolecular and unimolecular reactions. The basic elements of a simulation step are as seen in @fig-mcell_comp taken from @gupta2018Spatial.
+MCell is a biochemistry simulation tool that uses spatially realistic 3D cellular models and stochastic Monte Carlo algorithms to simulate the movements and interactions of discrete molecules within and between cells, [@bartol2000Monte], [@kerr2008FAST], [@bartol2015Computational]. MCell is a particle-based simulator that represents molecules as point particles in 3D space. At every time step in an MCell simulation, each particle can move, collide with other particles or surfaces, and undergo bimolecular and unimolecular reactions. The basic elements of a simulation step are as seen in @fig-mcell_comp taken from @gupta2018Spatial.
 
 ![MCell Components. (A) Volume Molecules diffusing in free space. (B) Mesh Object defined by a Plane with Surface Molecules diffusing on it. (C) Mesh Object defined by a complex closed mesh with multiple defined Surface  Regions, in which Surface Molecules have different diffusion constants, as defined by corresponding Surface Classes.](mcell_comp.png){#fig-mcell_comp} 
 
@@ -87,25 +91,15 @@ Briefly, MCell operates as follows: as a volume molecule diffuses, all molecules
 
 There is no volume exclusion for molecules diffusing in 3D volumes, and molecules on surfaces occupy a  fixed area. MCell allows defining arbitrary geometry @fig-mcell_comp (C), and complex models such as a 180μm3 3DEM reconstruction of hippocampal neuropil have been used to construct a geometrically-precise simulation of 100s of neuronal synapses at once [@bartol2015Computational]. A detailed description of mathematical foundations of MCell’s algorithms can be found here: @bartol2000Monte, @kerr2008FAST, @bartol2015Computational.
 
-MCell4, version used for this project, provides a versatile Python interface, which is very useful for writing models with said interface and running mcell models this way.  MCell 4 provides two different user experiences, one through its visual interface as an add-on in Blender 2.93, known as CellBlender (see back at @fig-cellblender), the other user experience one through a new Python interface. This provides users with the flexibility to change between both experiences, or to run the simulations using Python and visualize the simulations in Blender. 
+MCell4, version used for this project, provides a versatile Python interface, which is very useful for writing models with said interface and running mcell models this way.  MCell4 provides two different user experiences, one through its visual interface as an add-on in Blender 2.93, known as CellBlender (see back at @fig-cellblender), the other user experience one through a new Python interface. This provides users with the flexibility to change between both experiences, or to run the simulations using Python and visualize the simulations in Blender (@fig-python-bngl-cellblender). 
 
-Testing to see if I can make a visual diagram of how this works.
-```{mermaid}
-flowchart LR
-  A(Python code 'model.py')--> |execute model with|B(MCell)
-  B--> |can visualize|C[CellBlender]
-  D(BioNetGen model 'model.bngl')--> A(Python code 'model.py')
-```
-
+![Diagram of what workflow of this project can look like, it is not exhaustive of all the ways in which these software can interact. Diagram was made with Lucid.](python-bngl-cellblender.png){#fig-python-bngl-cellblender} 
 
 ## Model description
-
-(from last years report, needs updating)
-I have constructed the models at different scales to validate CaMKII interactions with other molecules like calmodulin and NMDARs, at increasing levels of complexity. First I re-created a model of CaMKII as a monomer that was previously completed in 2017. The model created uses cBNGL and represents CaMKII as monomers to serve as a proof of concept as well as a starting validation point, as dynamics of this model were previously shown to be within biologically accurate limits. Secondly, I created a model of CaMKII as a hexamer since modelling this molecule as a dodecamer gave rise to a combinatorial explosion due to the high number of possible states and the network of interactions generated. This is currently in the works of being resolved as I run the model using the network-free simulation using MCell. We will then be able to model CaMKII as a dodecamer. Finally, I aim to validate this work against a model from Ordyan et al., 2020, where they successfully modelled CaMKII as a twelve subunit holoenzyme using BioNetGen simulations. 
-
-As explained in the introduction of this report, CaMKII is a dodecameric molecule, meaning it’s composed of twelve subunits. Ideally, I would like to model CaMKII as a dodecamer since this would allow us to infer more accurately any emergent behaviour of the protein. However, due to combinatorial explosion, running a CaMKII as a dodecamer takes a really long time: 6+ hours without finalising run time, using a cBNG, SSA simulation. These simulations include only calcium binding to CaM, and CaM binding to CaMKII as a dodecamer, without further reactions added to avoid further complexity. The machine being used for these simulations is a x64-based laptop, with specs: 11th Gen Intel® Core™ i5-1145G7@2.60GHz, 1498Mhz, 4Core(s), 8 Logical Processors. SSA simulations generate a full network of reactions and causes the simulation to slow down considerably. At the moment, compartmental BNGL does not allow for NFsim simulations to be ran. This can be overcome by running the model with MCell as it provides a network free simulation capability. An alternative so far has also been to run the model with CaMKII as a hexamer. However, it still causes combinatorial explosion when generating network reactions. This should be resolved by running the model as a network free simulation in MCell.
-
+I have constructed the models at different scales to validate CaMKII interactions with other molecules like calmodulin and NMDARs, at increasing levels of complexity. First I re-created a model of CaMKII as a monomer that was previously completed in 2017. The model created uses cBNGL and represents CaMKII as monomers to serve as a proof of concept as well as a starting validation point, as dynamics of this model were previously shown to be within biologically accurate limits. Secondly, I created a model of CaMKII as a hexamer since modelling this molecule as a dodecamer gave rise to a combinatorial explosion due to the high number of possible states and the network of interactions generated. This was them resolved as I run the model using the network-free simulation capabalities using MCell. This has then resulted in being able to create a (still in the workd) model of CaMKII as a dodecamer.  These simulations include only calcium binding to CaM, and CaM binding to CaMKII as a dodecamer, without further reactions added to avoid further complexity. Finally, I aim to validate this work against a model from Ordyan et al., 2020, where they successfully modelled CaMKII as a twelve subunit holoenzyme using BioNetGen simulations. 
+ 
 ### Model of CaMKII as a dodecamer
+For brevity's sake, I have chosen to not go into details of CaMKII, as that was discussed in depth in the pasy 2 yearly reports. CaMKII is a dodecameric molecule, meaning it’s composed of twelve subunits. Modelling it as a dodecamer  allow us to infer more accurately any emergent behaviour of the protein.
 
 ## Model development and validation
 Following from what I did last year, show results, copy what's on github https://github.com/Susana465/CaMKII_hexa_bgnl_to_mcell
