@@ -184,7 +184,11 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#software-used-mcell-and-bionetgen" id="toc-software-used-mcell-and-bionetgen" class="nav-link active" data-scroll-target="#software-used-mcell-and-bionetgen"><span class="header-section-number">4.1</span> Software used: MCell and Bionetgen</a></li>
+  <li><a href="#software-used-bionetgen-and-mcell" id="toc-software-used-bionetgen-and-mcell" class="nav-link active" data-scroll-target="#software-used-bionetgen-and-mcell"><span class="header-section-number">4.1</span> Software used: BioNetGen and MCell</a>
+  <ul class="collapse">
+  <li><a href="#bionetgen-and-how-rule-based-modelling-can-help-with-combinatorial-complexity." id="toc-bionetgen-and-how-rule-based-modelling-can-help-with-combinatorial-complexity." class="nav-link" data-scroll-target="#bionetgen-and-how-rule-based-modelling-can-help-with-combinatorial-complexity."><span class="header-section-number">4.1.1</span> BioNetGen and how rule-based modelling can help with combinatorial complexity.</a></li>
+  <li><a href="#mcell-monte-carlo-cell-and-how-it-simulates-reactions-in-3d" id="toc-mcell-monte-carlo-cell-and-how-it-simulates-reactions-in-3d" class="nav-link" data-scroll-target="#mcell-monte-carlo-cell-and-how-it-simulates-reactions-in-3d"><span class="header-section-number">4.1.2</span> MCell (Monte Carlo Cell) and how it simulates reactions in 3D</a></li>
+  </ul></li>
   <li><a href="#model-description" id="toc-model-description" class="nav-link" data-scroll-target="#model-description"><span class="header-section-number">4.2</span> Model description</a>
   <ul class="collapse">
   <li><a href="#model-of-camkii-as-a-dodecamer" id="toc-model-of-camkii-as-a-dodecamer" class="nav-link" data-scroll-target="#model-of-camkii-as-a-dodecamer"><span class="header-section-number">4.2.1</span> Model of CaMKII as a dodecamer</a></li>
@@ -216,9 +220,83 @@ div.csl-indent {
 
 </header>
 
-<section id="software-used-mcell-and-bionetgen" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="software-used-mcell-and-bionetgen"><span class="header-section-number">4.1</span> Software used: MCell and Bionetgen</h2>
-<p>MCell (Monte Carlo Cell) is a biochemistry simulation tool that uses spatially realistic 3D cellular models and stochastic Monte Carlo algorithms to simulate the movements and interactions of discrete molecules within and between cells, <span class="citation" data-cites="bartol2000Monte">(<a href="references.html#ref-bartol2000Monte" role="doc-biblioref">Bartol and Stiles 2000</a>)</span>, <span class="citation" data-cites="kerr2008FAST">(<a href="references.html#ref-kerr2008FAST" role="doc-biblioref">Kerr et al. 2008</a>)</span>, <span class="citation" data-cites="bartol2015Computational">(<a href="references.html#ref-bartol2015Computational" role="doc-biblioref">Bartol et al. 2015</a>)</span>. MCell is a particle-based simulator that represents molecules as point particles in 3D space. At every time step in an MCell simulation, each particle can move, collide with other particles or surfaces, and undergo bimolecular and unimolecular reactions. The basic elements of a simulation step are as seen in <a href="#fig-mcell_comp">Figure&nbsp;<span>4.1</span></a> taken from <span class="citation" data-cites="gupta2018Spatial">Gupta et al. (<a href="references.html#ref-gupta2018Spatial" role="doc-biblioref">2018</a>)</span>.</p>
+<section id="software-used-bionetgen-and-mcell" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="software-used-bionetgen-and-mcell"><span class="header-section-number">4.1</span> Software used: BioNetGen and MCell</h2>
+<section id="bionetgen-and-how-rule-based-modelling-can-help-with-combinatorial-complexity." class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="bionetgen-and-how-rule-based-modelling-can-help-with-combinatorial-complexity."><span class="header-section-number">4.1.1</span> BioNetGen and how rule-based modelling can help with combinatorial complexity.</h3>
+<p>BioNetGen is a set of software tools which facilitate a rule-based approach to modelling biochemical reaction kinetics, where we can largely overcome the problem of combinatorial complexity that arises when modelling CaMKII. It has been calculated that CaMKII as a dodecamer can approximately have 10<sup>20</sup> possible states <span class="citation" data-cites="pharris2019MultistateModelCaMKII">(<a href="references.html#ref-pharris2019MultistateModelCaMKII" role="doc-biblioref">Pharris et al. 2019</a>)</span>; this, coupled with the potential of a full reaction network for each simulation (an added factor of combinatorial complexity), can render the model computationally intractable. BioNetGen can help us deal with this combinatorial complexity thanks to its rule-based modelling (RBM) “don’t care, don’t write” capabilities.</p>
+<p>BioNetGen language (BNGL) is a formal language which uses the BioNetGen software <span class="citation" data-cites="faeder2009Rulebased">(<a href="references.html#ref-faeder2009Rulebased" role="doc-biblioref">Faeder, Blinov, and Hlavacek 2009</a>)</span>. It allows for site-specific details of protein-protein interactions to be captured in models for the dynamics of these interactions in a systematic fashion, which also alleviates nomenclature and reusability issues.</p>
+<p>Hence, using this RBM approach is notable as it facilitates writing of multi-state modelling and can significantly, reduce the number of reactions that need to be written due to its “don’t write, don’t care” characteristic. Thereby dramatically improving the ability to model CaMKII as a dodecamer; I can make a model with multistate molecules, and specify the states of the reactants that are relevant for a particular reaction, and leave the rest unspecified.</p>
+<pre><code># BioNetGen code which shows a simple model of A, B,C molecules \
+that is helpful for understanding the "don't care, don't write" \
+capacity of rule based modelling.
+
+begin model
+
+begin parameters
+# Define initial number of molecules released
+  A_i 150
+  B_i 150
+  C_i 100
+
+#Define reaction rates
+  kon 1e-2
+  koff 1e-3
+  k_P 1e1
+end parameters
+
+begin molecule types
+# Define the molecules and the possible states and \
+binding sites they can have:
+
+# Molecule A has a binding site (a), and a Phosphorylation site \
+which can be unphosphorylated (~0) or phosphorylated (~P)
+    A(a,T286~0~P)
+# Molecule B has a binding site (b)
+    B(b)
+# Molecule C has no binding sites
+    C()
+end molecule types
+
+begin species
+# Molecule A starts with binding site a free, \
+and with phosphorylation site unphosphorylated
+    A(a,T286~0) A_i 
+# Molecule B starts with binding site b free
+    B(b) B_i
+# Molecule C has no binding sites so it starts as it is
+    C() C_i
+end species
+
+begin reaction rules
+# A_free and B_free can resversbly bind to give AB_complex
+# Don't need to specify, if I'm not interested, status of \
+phosphorylation for molecule A. Note how it is not written \
+in the rule definition  (don't care, don't write)
+    A(a) + B(b) &lt;-&gt; A(a!1).B(b!1) kon, koff
+
+# If A is unphosphorylated, it can become phoshorylated \
+by the presence of C. Don't need to specify status of \ 
+binding site 'a' (don't care, don't write)
+    A(T286~0) + C() -&gt; A(T286~P) k_P
+
+end reaction rules
+
+begin observables
+  Molecules AB_complex A(a!1).B(b!1)
+  Molecules A_phosphorylated A(T286~P)
+  Molecules A A(a)
+  Molecules B B(b)
+  Molecules C C()
+end observables
+
+end model
+simulate({method=&gt;"ssa",t_end=&gt;10,n_steps=&gt;100})
+</code></pre>
+</section>
+<section id="mcell-monte-carlo-cell-and-how-it-simulates-reactions-in-3d" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="mcell-monte-carlo-cell-and-how-it-simulates-reactions-in-3d"><span class="header-section-number">4.1.2</span> MCell (Monte Carlo Cell) and how it simulates reactions in 3D</h3>
+<p>Is a biochemistry simulation tool that uses spatially realistic 3D cellular models and stochastic Monte Carlo algorithms to simulate the movements and interactions of discrete molecules within and between cells, <span class="citation" data-cites="bartol2000Monte">(<a href="references.html#ref-bartol2000Monte" role="doc-biblioref">Bartol and Stiles 2000</a>)</span>, <span class="citation" data-cites="kerr2008FAST">(<a href="references.html#ref-kerr2008FAST" role="doc-biblioref">Kerr et al. 2008</a>)</span>, <span class="citation" data-cites="bartol2015Computational">(<a href="references.html#ref-bartol2015Computational" role="doc-biblioref">Bartol et al. 2015</a>)</span>. MCell is a particle-based simulator that represents molecules as point particles in 3D space. At every time step in an MCell simulation, each particle can move, collide with other particles or surfaces, and undergo bimolecular and unimolecular reactions. The basic elements of a simulation step are as seen in <a href="#fig-mcell_comp">Figure&nbsp;<span>4.1</span></a> taken from <span class="citation" data-cites="gupta2018Spatial">Gupta et al. (<a href="references.html#ref-gupta2018Spatial" role="doc-biblioref">2018</a>)</span>.</p>
 <div id="fig-mcell_comp" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="mcell_comp.png" class="img-fluid figure-img"></p>
@@ -242,6 +320,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="model-description" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="model-description"><span class="header-section-number">4.2</span> Model description</h2>
@@ -275,6 +354,9 @@ Bartol, Thomas M., Daniel X. Keller, Justin P. Kinney, Chandrajit L. Bajaj, Kris
 <div id="ref-bartol2000Monte" class="csl-entry" role="listitem">
 Bartol, Thomas M., and Joel R Stiles. 2000. <em>Monte <span>Carlo Methods</span> for <span>Simulating Realistic Synaptic Microphysiology Using MCell</span></em>. Vol. chapter 4. <span>CRC Press</span>. <a href="https://books.google.com?id=8TLpBwAAQBAJ">https://books.google.com?id=8TLpBwAAQBAJ</a>.
 </div>
+<div id="ref-faeder2009Rulebased" class="csl-entry" role="listitem">
+Faeder, James R., Michael L. Blinov, and William S. Hlavacek. 2009. <span>“Rule-Based Modeling of Biochemical Systems with <span>BioNetGen</span>.”</span> <em>Methods Mol Biol</em> 500: 113–67. <a href="https://doi.org/10.1007/978-1-59745-525-1_5">https://doi.org/10.1007/978-1-59745-525-1_5</a>.
+</div>
 <div id="ref-gupta2018Spatial" class="csl-entry" role="listitem">
 Gupta, Sanjana, Jacob Czech, Robert Kuczewski, Thomas M. Bartol, Terrence J. Sejnowski, Robin E. C. Lee, and James R. Faeder. 2018. <span>“Spatial <span>Stochastic Modeling</span> with <span>MCell</span> and <span>CellBlender</span>.”</span> September 30, 2018. <a href="https://doi.org/10.48550/arXiv.1810.00499">https://doi.org/10.48550/arXiv.1810.00499</a>.
 </div>
@@ -283,6 +365,9 @@ Husar, Adam, Mariam Ordyan, Guadalupe C. Garcia, Joel G. Yancey, Ali S. Saglam, 
 </div>
 <div id="ref-kerr2008FAST" class="csl-entry" role="listitem">
 Kerr, Rex A., Thomas M. Bartol, Boris Kaminsky, Markus Dittrich, Jen-Chien Jack Chang, Scott B. Baden, Terrence J. Sejnowski, and Joel R. Stiles. 2008. <span>“<span>FAST MONTE CARLO SIMULATION METHODS FOR BIOLOGICAL REACTION-DIFFUSION SYSTEMS IN SOLUTION AND ON SURFACES</span>.”</span> <em>SIAM J Sci Comput</em> 30 (6): 3126. <a href="https://doi.org/10.1137/070692017">https://doi.org/10.1137/070692017</a>.
+</div>
+<div id="ref-pharris2019MultistateModelCaMKII" class="csl-entry" role="listitem">
+Pharris, Matthew C., Neal M. Patel, Tyler G. VanDyk, Thomas M. Bartol, Terrence J. Sejnowski, Mary B. Kennedy, Melanie I. Stefan, and Tamara L. Kinzer-Ursem. 2019. <span>“A Multi-State Model of the <span>CaMKII</span> Dodecamer Suggests a Role for Calmodulin in Maintenance of Autophosphorylation.”</span> <em>PLOS Computational Biology</em> 15 (12): e1006941. <a href="https://doi.org/10.1371/journal.pcbi.1006941">https://doi.org/10.1371/journal.pcbi.1006941</a>.
 </div>
 </div>
 </section>

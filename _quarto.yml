@@ -26,6 +26,7 @@ link-citations: true
 
 format:
   html:
+    code-overflow: wrap
     theme: pulse
     mermaid: 
       theme: forest
