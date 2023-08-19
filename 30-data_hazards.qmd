@@ -54,7 +54,7 @@ To help visualize where and when Data Hazards can be used in your workflow, belo
 
 ### Reporting:
 
--   When reporting your results, you can think of applying and reporting the Data Hazard labels that are relevant for your project; examples of how others have done this can be found here \[link to self reflection and case studie(s)\]. Labeling your project with Data Hazards should also include considerations of mitigations to these risks. This would then be helpful for people who see your outputs in the future. They can be aware of potential risks as they proceed with the project, and continue to think of solutions to any issues related to the research topic.
+-   When reporting your results, you can think of applying and reporting the Data Hazard labels that are relevant for your project; examples of how I've done this can be found below in @tbl-datahazards-phd. Labeling your project with Data Hazards should also include considerations of mitigations to these risks. This would then be helpful for people who see your outputs in the future. They can be aware of potential risks as they proceed with the project, and continue to think of solutions to any issues related to the research topic.
 
 ## Application into my PhD project: Presenting my PhD as a case study at AI UK conference
 
@@ -144,14 +144,20 @@ MAKE A TABLE OF DATA HAZARDS -md or html or python?
 |                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | -   Ensure code is well documented with accompanying and/or inline documentation.                                                                                                                                                    |
 +----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-: Caption
+: Caption {#tbl-datahazards-phd}
 
 blablabla where does text and table render in pdf? text to test this
 
 {{< pagebreak >}}
 
 ## Data Hazards Workshops
+In order to showcase how to implement the Data Hazards, there is a template in the website which showcases a template on [how to run workshops](https://datahazards.com/contents/materials/workshop.html) to learn about the project. I organised and facilitated two Data Hazards workshops during my third PhD year:
 
-- Talk about application of DH into different workshop setups, in COMBINE and Turing Institute.
+- **Workshop at [COMBINE (Computational Modeling in Biology) conference](https://reproduciblebiomodels.org/combine-2022/) in Berlin, October 2022.** 
 
-- Most info available here: https://github.com/Susana465/Data_Hazards_workshops, re-write.
+This was an in person event, which I co-facilitated with my supervisor Melanie Stefan. Melanie presented a project study for the participants to then think what potential Data Hazard labels applied to it. We had 12 participants, who discussed and labelled the project during the workshop. Topics of interest at COMBINE included discussion of data exchange, pipelines and discussing standardizing methods for computer modelling of systems biology. Data Hazards have the potential to become a standard practice for modelling systems biology research. This session wowasa good opportunity to discuss how to make Data Hazards assessments a standard part of the information shared with computational models. The materials used for this workshop can be found in this [GitHub repository](https://github.com/Susana465/Data_Hazards_workshops).
+
+- **Organising the [Data Hazards, Ethics and Reproducibility Symposium](https://www.eventbrite.com/e/in-person-data-hazards-ethics-and-reproducibility-one-day-symposium-tickets-516803953537), Alan Turing Institute, London, March 2023.**
+
+Together with Ceilidh Welsh, we co-organised a hybrid, one day symposium at the Alan Turing Institute (ATI) HQ in London. This was possible thanks to the Enrichment scheme we were part of, and thanks to the funding provided by the ATI.
+
