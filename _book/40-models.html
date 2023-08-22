@@ -180,10 +180,9 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#software-used-bionetgen-and-mcell" id="toc-software-used-bionetgen-and-mcell" class="nav-link active" data-scroll-target="#software-used-bionetgen-and-mcell"><span class="header-section-number">4.1</span> Software used: BioNetGen and MCell</a>
+  <li><a href="#bionetgen-and-how-rule-based-modelling-can-help-with-combinatorial-complexity." id="toc-bionetgen-and-how-rule-based-modelling-can-help-with-combinatorial-complexity." class="nav-link active" data-scroll-target="#bionetgen-and-how-rule-based-modelling-can-help-with-combinatorial-complexity."><span class="header-section-number">4.1</span> BioNetGen and how rule-based modelling can help with combinatorial complexity.</a>
   <ul class="collapse">
-  <li><a href="#bionetgen-and-how-rule-based-modelling-can-help-with-combinatorial-complexity." id="toc-bionetgen-and-how-rule-based-modelling-can-help-with-combinatorial-complexity." class="nav-link" data-scroll-target="#bionetgen-and-how-rule-based-modelling-can-help-with-combinatorial-complexity."><span class="header-section-number">4.1.1</span> BioNetGen and how rule-based modelling can help with combinatorial complexity.</a></li>
-  <li><a href="#mcell-monte-carlo-cell-and-how-it-simulates-reactions-in-3d" id="toc-mcell-monte-carlo-cell-and-how-it-simulates-reactions-in-3d" class="nav-link" data-scroll-target="#mcell-monte-carlo-cell-and-how-it-simulates-reactions-in-3d"><span class="header-section-number">4.1.2</span> MCell (Monte Carlo Cell) and how it simulates reactions in 3D</a></li>
+  <li><a href="#mcell-monte-carlo-cell-and-how-it-simulates-reactions-in-3d" id="toc-mcell-monte-carlo-cell-and-how-it-simulates-reactions-in-3d" class="nav-link" data-scroll-target="#mcell-monte-carlo-cell-and-how-it-simulates-reactions-in-3d"><span class="header-section-number">4.1.1</span> MCell (Monte Carlo Cell) and how it simulates reactions in 3D</a></li>
   </ul></li>
   <li><a href="#model-description" id="toc-model-description" class="nav-link" data-scroll-target="#model-description"><span class="header-section-number">4.2</span> Model description</a>
   <ul class="collapse">
@@ -216,18 +215,16 @@ div.csl-indent {
 
 </header>
 
-<section id="software-used-bionetgen-and-mcell" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="software-used-bionetgen-and-mcell"><span class="header-section-number">4.1</span> Software used: BioNetGen and MCell</h2>
-<section id="bionetgen-and-how-rule-based-modelling-can-help-with-combinatorial-complexity." class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="bionetgen-and-how-rule-based-modelling-can-help-with-combinatorial-complexity."><span class="header-section-number">4.1.1</span> BioNetGen and how rule-based modelling can help with combinatorial complexity.</h3>
+<p>As described in the introduction <a href="10-whatsmyphd.html"><span>Chapter&nbsp;1</span></a> of this report, I use computer models to study interactions between specific postsynaptic molecules; below I describe what these models look like and what software I use.</p>
+<section id="bionetgen-and-how-rule-based-modelling-can-help-with-combinatorial-complexity." class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="bionetgen-and-how-rule-based-modelling-can-help-with-combinatorial-complexity."><span class="header-section-number">4.1</span> BioNetGen and how rule-based modelling can help with combinatorial complexity.</h2>
 <p>BioNetGen is a set of software tools which facilitate a rule-based approach to modelling biochemical reaction kinetics, where we can largely overcome the problem of combinatorial complexity that arises when modelling CaMKII. It has been calculated that CaMKII as a dodecamer can approximately have 10<sup>20</sup> possible states <span class="citation" data-cites="pharris2019MultistateModelCaMKII">(<a href="references.html#ref-pharris2019MultistateModelCaMKII" role="doc-biblioref">Pharris et al. 2019</a>)</span>; this, together with the potential of a full reaction network for each simulation (an added factor of combinatorial complexity), can render the model computationally intractable. BioNetGen can help us deal with this combinatorial complexity thanks to its rule-based modelling (RBM) “don’t care, don’t write” capabilities. And as we will see later MCell can help with modelling network-free simulations.</p>
 <p>BioNetGen language (BNGL) is a formal language which uses the BioNetGen software <span class="citation" data-cites="faeder2009Rulebased">(<a href="references.html#ref-faeder2009Rulebased" role="doc-biblioref">Faeder, Blinov, and Hlavacek 2009</a>)</span>. It allows for site-specific details of protein-protein interactions to be captured in models for the dynamics of these interactions in a systematic fashion, which also alleviates nomenclature and reusability issues.</p>
-<p>Hence, using this RBM approach is notable as it facilitates writing of multi-state modelling and can significantly, reduce the number of reactions that need to be written due to its “don’t write, don’t care” characteristic. Thereby dramatically improving the ability to model CaMKII as a dodecamer; I can make a model with multistate molecules, and specify the states of the reactants that are relevant for a particular reaction, and leave the rest unspecified. Below I provide an example of what a simple BNGL model can look like.</p>
-<pre><code># BioNetGen code which shows a simple model of A, B,C molecules \
-that is helpful for understanding the "don't care, don't write" \
-capacity of rule based modelling.
-
-begin model
+<p>Hence, using this RBM approach is notable as it facilitates writing of multi-state modelling and can significantly, reduce the number of reactions that need to be written due to its “don’t write, don’t care” characteristic. Thereby dramatically improving the ability to model CaMKII as a dodecamer; I can make a model with multistate molecules, and specify the states of the reactants that are relevant for a particular reaction, and leave the rest unspecified (see <a href="#fig-bngl-abc-model">Figure&nbsp;<span>4.1</span></a>)</p>
+<div id="fig-bngl-abc-model" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<div class="cell-output cell-output-stdout">
+<pre><code>begin model
 
 begin parameters
 # Define initial number of molecules released
@@ -242,38 +239,40 @@ begin parameters
 end parameters
 
 begin molecule types
-# Define the molecules and the possible states and \
-binding sites they can have:
-
-# Molecule A has a binding site (a), and a Phosphorylation site \
-which can be unphosphorylated (~0) or phosphorylated (~P)
+# Here we define the molecules and the possible states and
+binding sites they can have
+# Molecule A has a binding site (a), and a Phosphorylation
+site which can be unphosphorylated (~0) or phosphorylated
+(~P):
     A(a,T286~0~P)
-# Molecule B has a binding site (b)
+# Molecule B has a binding site (b):
     B(b)
-# Molecule C has no binding sites
+# Molecule C has no binding sites:
     C()
 end molecule types
 
+
 begin species
-# Molecule A starts with binding site a free, \
-and with phosphorylation site unphosphorylated
-    A(a,T286~0) A_i 
+# Molecule A starts with binding site a free, and with
+phosphorylation site unphosphorylated
+    A(a,T286~0) A_i
 # Molecule B starts with binding site b free
     B(b) B_i
 # Molecule C has no binding sites so it starts as it is
     C() C_i
 end species
 
+
 begin reaction rules
 # A_free and B_free can resversbly bind to give AB_complex
-# Don't need to specify, if I'm not interested, status of \
-phosphorylation for molecule A. Note how it is not written \
-in the rule definition  (don't care, don't write)
+# Don't need to specify, if I'm not interested, status of
+phosphorylation for molecule A. Note how it is not written
+in the rule definition (don't care, don't write):
     A(a) + B(b) &lt;-&gt; A(a!1).B(b!1) kon, koff
-
-# If A is unphosphorylated, it can become phoshorylated \
-by the presence of C. Don't need to specify status of \ 
-binding site 'a' (don't care, don't write)
+# If A is unphosphorylated, it can become phoshorylated by
+the presence of C
+# Don't need to specify status of binding site 'a' (don't
+care, don't write):
     A(T286~0) + C() -&gt; A(T286~P) k_P
 
 end reaction rules
@@ -287,32 +286,34 @@ begin observables
 end observables
 
 end model
-simulate({method=&gt;"ssa",t_end=&gt;10,n_steps=&gt;100})
-</code></pre>
-<p>To interact with this code, you can have a look and download a jupyter notebook I have created <a href="https://github.com/Susana465/Dontcaredontwrite_bngl_example">here</a>, where I also describe some of the ways in which the model can be simulated, with stochastic simulation algorithms (SSAs) or ordinary differential equations (ODEs). See screenshot from notebook in <a href="#fig-ode_bngl">Figure&nbsp;<span>4.1</span></a> below.</p>
+simulate({method=&gt;"ssa",t_end=&gt;10,n_steps=&gt;100})</code></pre>
+</div>
+<figcaption class="figure-caption">Figure&nbsp;4.1: <strong>?(caption)</strong></figcaption>
+</figure>
+</div>
+<p>To interact with this code, you can have a look and download a jupyter notebook I have created <a href="https://github.com/Susana465/Dontcaredontwrite_bngl_example">here</a>, where I also describe some of the ways in which the model can be simulated, with stochastic simulation algorithms (SSAs) or ordinary differential equations (ODEs). See screenshot from notebook in <a href="#fig-ode_bngl">Figure&nbsp;<span>4.2</span></a> below.</p>
 <div id="fig-ode_bngl" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ode_bngl.PNG" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;4.1: What an ODE output from the model above looks like, shown as output is created in jupyter notebook.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;4.2: What an ODE output from the model above looks like, shown as output is created in jupyter notebook.</figcaption>
 </figure>
 </div>
-</section>
-<section id="mcell-monte-carlo-cell-and-how-it-simulates-reactions-in-3d" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="mcell-monte-carlo-cell-and-how-it-simulates-reactions-in-3d"><span class="header-section-number">4.1.2</span> MCell (Monte Carlo Cell) and how it simulates reactions in 3D</h3>
-<p>MCell is a biochemistry simulation tool that uses spatially realistic 3D cellular models and stochastic Monte Carlo algorithms to simulate the movements and interactions of discrete molecules within and between cells, <span class="citation" data-cites="bartol2000Monte">(<a href="references.html#ref-bartol2000Monte" role="doc-biblioref">Bartol and Stiles 2000</a>)</span>, <span class="citation" data-cites="kerr2008FAST">(<a href="references.html#ref-kerr2008FAST" role="doc-biblioref">Kerr et al. 2008</a>)</span>, <span class="citation" data-cites="bartol2015Computational">(<a href="references.html#ref-bartol2015Computational" role="doc-biblioref">Bartol et al. 2015</a>)</span>. MCell is a particle-based simulator that represents molecules as point particles in 3D space. At every time step in an MCell simulation, each particle can move, collide with other particles or surfaces, and undergo bimolecular and unimolecular reactions. The basic elements of a simulation step are as seen in <a href="#fig-mcell_comp">Figure&nbsp;<span>4.2</span></a> taken from <span class="citation" data-cites="gupta2018Spatial">Gupta et al. (<a href="references.html#ref-gupta2018Spatial" role="doc-biblioref">2018</a>)</span>.</p>
+<section id="mcell-monte-carlo-cell-and-how-it-simulates-reactions-in-3d" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="mcell-monte-carlo-cell-and-how-it-simulates-reactions-in-3d"><span class="header-section-number">4.1.1</span> MCell (Monte Carlo Cell) and how it simulates reactions in 3D</h3>
+<p>MCell is a biochemistry simulation tool that uses spatially realistic 3D cellular models and stochastic Monte Carlo algorithms to simulate the movements and interactions of discrete molecules within and between cells, <span class="citation" data-cites="bartol2000Monte">(<a href="references.html#ref-bartol2000Monte" role="doc-biblioref">Bartol and Stiles 2000</a>)</span>, <span class="citation" data-cites="kerr2008FAST">(<a href="references.html#ref-kerr2008FAST" role="doc-biblioref">Kerr et al. 2008</a>)</span>, <span class="citation" data-cites="bartol2015Computational">(<a href="references.html#ref-bartol2015Computational" role="doc-biblioref">Bartol et al. 2015</a>)</span>. MCell is a particle-based simulator that represents molecules as point particles in 3D space. At every time step in an MCell simulation, each particle can move, collide with other particles or surfaces, and undergo bimolecular and unimolecular reactions. The basic elements of a simulation step are as seen in <a href="#fig-mcell_comp">Figure&nbsp;<span>4.3</span></a> taken from <span class="citation" data-cites="gupta2018Spatial">Gupta et al. (<a href="references.html#ref-gupta2018Spatial" role="doc-biblioref">2018</a>)</span>.</p>
 <div id="fig-mcell_comp" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="mcell_comp.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;4.2: MCell Components. (A) Volume Molecules diffusing in free space. (B) Mesh Object defined by a Plane with Surface Molecules diffusing on it. (C) Mesh Object defined by a complex closed mesh with multiple defined Surface Regions, in which Surface Molecules have different diffusion constants, as defined by corresponding Surface Classes.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;4.3: MCell Components. (A) Volume Molecules diffusing in free space. (B) Mesh Object defined by a Plane with Surface Molecules diffusing on it. (C) Mesh Object defined by a complex closed mesh with multiple defined Surface Regions, in which Surface Molecules have different diffusion constants, as defined by corresponding Surface Classes.</figcaption>
 </figure>
 </div>
 <p>Briefly, MCell operates as follows: as a volume molecule diffuses, all molecules within a given radius along its trajectory, or at the point of collision on a surface, are considered for a reaction. For surface molecules (in membranes), the molecule first diffuses, and then its neighbours are evaluated for reaction.</p>
-<p>There is no volume exclusion for molecules diffusing in 3D volumes, and molecules on surfaces occupy a fixed area. MCell allows defining arbitrary geometry <a href="#fig-mcell_comp">Figure&nbsp;<span>4.2</span></a> (C), and complex models such as a 180μm3 3DEM reconstruction of hippocampal neuropil have been used to construct a geometrically-precise simulation of 100s of neuronal synapses at once <span class="citation" data-cites="bartol2015Computational">(<a href="references.html#ref-bartol2015Computational" role="doc-biblioref">Bartol et al. 2015</a>)</span>. A detailed description of mathematical foundations of MCell’s algorithms can be found here: <span class="citation" data-cites="bartol2000Monte">Bartol and Stiles (<a href="references.html#ref-bartol2000Monte" role="doc-biblioref">2000</a>)</span>, <span class="citation" data-cites="kerr2008FAST">Kerr et al. (<a href="references.html#ref-kerr2008FAST" role="doc-biblioref">2008</a>)</span>, <span class="citation" data-cites="bartol2015Computational">Bartol et al. (<a href="references.html#ref-bartol2015Computational" role="doc-biblioref">2015</a>)</span>.</p>
-<p>MCell4, version used for this project, provides a versatile Python interface, which is very useful for writing models with said interface and running mcell models this way. MCell4 provides two different user experiences, one through its visual interface as an add-on in Blender 2.93, known as CellBlender (see back at <a href="10-whatsmyphd.html#fig-cellblender">Figure&nbsp;<span>1.1</span></a>), the other user experience one through a new Python interface. This provides users with the flexibility to change between both experiences, or to run the simulations using Python and visualize the simulations in Blender (<a href="#fig-python-bngl-cellblender">Figure&nbsp;<span>4.3</span></a>).</p>
+<p>There is no volume exclusion for molecules diffusing in 3D volumes, and molecules on surfaces occupy a fixed area. MCell allows defining arbitrary geometry <a href="#fig-mcell_comp">Figure&nbsp;<span>4.3</span></a> (C), and complex models such as a 180μm3 3DEM reconstruction of hippocampal neuropil have been used to construct a geometrically-precise simulation of 100s of neuronal synapses at once <span class="citation" data-cites="bartol2015Computational">(<a href="references.html#ref-bartol2015Computational" role="doc-biblioref">Bartol et al. 2015</a>)</span>. A detailed description of mathematical foundations of MCell’s algorithms can be found here: <span class="citation" data-cites="bartol2000Monte">Bartol and Stiles (<a href="references.html#ref-bartol2000Monte" role="doc-biblioref">2000</a>)</span>, <span class="citation" data-cites="kerr2008FAST">Kerr et al. (<a href="references.html#ref-kerr2008FAST" role="doc-biblioref">2008</a>)</span>, <span class="citation" data-cites="bartol2015Computational">Bartol et al. (<a href="references.html#ref-bartol2015Computational" role="doc-biblioref">2015</a>)</span>.</p>
+<p>MCell4, version used for this project, provides a versatile Python interface, which is very useful for writing models with said interface and running mcell models this way. MCell4 provides two different user experiences, one through its visual interface as an add-on in Blender 2.93, known as CellBlender (see back at <a href="10-whatsmyphd.html#fig-cellblender">Figure&nbsp;<span>1.1</span></a>), the other user experience one through a new Python interface. This provides users with the flexibility to change between both experiences, or to run the simulations using Python and visualize the simulations in Blender (<a href="#fig-python-bngl-cellblender">Figure&nbsp;<span>4.4</span></a>).</p>
 <div id="fig-python-bngl-cellblender" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="python-bngl-cellblender.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;4.3: Diagram of what workflow of this project can look like, it is not exhaustive of all the ways in which these software can interact. Diagram was made with Lucid.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;4.4: Diagram of what workflow of this project can look like, it is not exhaustive of all the ways in which these software can interact. Diagram was made with Lucid.</figcaption>
 </figure>
 </div>
 </section>

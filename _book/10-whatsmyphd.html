@@ -180,8 +180,7 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#an-overview" id="toc-an-overview" class="nav-link active" data-scroll-target="#an-overview"><span class="header-section-number">1.1</span> An overview:</a></li>
-  <li><a href="#why-use-computational-modelling-to-study-biological-systems" id="toc-why-use-computational-modelling-to-study-biological-systems" class="nav-link" data-scroll-target="#why-use-computational-modelling-to-study-biological-systems"><span class="header-section-number">1.2</span> Why use Computational Modelling to study biological systems?</a></li>
+  <li><a href="#why-use-computational-modelling-to-study-biological-systems" id="toc-why-use-computational-modelling-to-study-biological-systems" class="nav-link active" data-scroll-target="#why-use-computational-modelling-to-study-biological-systems"><span class="header-section-number">1.1</span> Why use Computational Modelling to study biological systems?</a></li>
   </ul>
 </nav>
     </div>
@@ -190,7 +189,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is my PhD research question?</span></h1>
+<h1 class="title"><span id="sec-whats-my-phd" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is my PhD research question?</span></span></h1>
 </div>
 
 
@@ -207,11 +206,9 @@ div.csl-indent {
 
 <p>The biological question that started this PhD was how do Calcium/calmodulin-dependent protein kinase II (CaMKII) and N-methyl-D-aspartate receptor (NMDARs) in the postsynaptic neuron interact and enable the processes of learning and memory?</p>
 <p>But as time went by, I realised more and more how important looking at the ethics of the research that we do is. How biased science actually is, and how we continue to carry these if we don’t look at them in the face. Additionally, how much research time and money is wasted by doing experiments which cannot be reproduced or replicated later on. Hence my emphasis on these topics.</p>
-<p>I have made it a purpose of this PhD project to highlight and talk about some of the things I care most in research: making it transparent, inclusive, and accessible.</p>
-<section id="an-overview" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="an-overview"><span class="header-section-number">1.1</span> An overview:</h2>
-<p>When studying learning and memory at the molecular level, in health and disease, it has been shown that NMDAR and CaMKII together with their interactions with other proteins within neuronal spines, can influence their shape and size <span class="citation" data-cites="fink2002MolecularMechanismsCaMKII">(<a href="references.html#ref-fink2002MolecularMechanismsCaMKII" role="doc-biblioref">Fink and Meyer 2002</a>)</span>. Long-term modifications of synaptic strength, such as LTD (Long Term Depression) and LTP (Long Term Potentiation) involve diverse chemical pathways and have been the primary mechanisms used to study the molecular basis of learning and memory <span class="citation" data-cites="blundon2008DissectingComponentsLongTerm">(<a href="references.html#ref-blundon2008DissectingComponentsLongTerm" role="doc-biblioref">Blundon and Zakharenko 2008</a>)</span>. So what exactly is happening at the cellular and molecular level during memory formation?</p>
-<p>These are the biological prompts that I look at when creating 3D models of the molecules in question. I use mainly <a href="https://mcell.org/">mcell</a> and python to do so. In order to give you a better overview of the aims, types of data used, methods and applications of this research, please see below <a href="#tbl-overview">Table&nbsp;<span>1.1</span></a>. In addition to the biological aspects of this PhD, as mentioned above, I have made a big effort into making my PhD accessible, reproducible and more ethical. It has transformed into a case study example of how to establish procedures for more ethical and reproducible research, which means future researchers can efficiently re-use and build up on what I have created.</p>
+<p>An additional, and important, aim of this PhD project to highlight and talk about some of the things I care most in research: making it transparent, inclusive, and accessible.</p>
+<p>When studying learning and memory at the molecular level, in health and disease, it has been shown that NMDAR and CaMKII together with their interactions with other proteins within neuronal spines can influence their shape and size <span class="citation" data-cites="fink2002MolecularMechanismsCaMKII">(<a href="references.html#ref-fink2002MolecularMechanismsCaMKII" role="doc-biblioref">Fink and Meyer 2002</a>)</span>. Long-term modifications of synaptic strength, such as LTD (Long Term Depression) and LTP (Long Term Potentiation), involve diverse chemical pathways and have been the primary mechanisms used to study the molecular basis of learning and memory <span class="citation" data-cites="blundon2008DissectingComponentsLongTerm">(<a href="references.html#ref-blundon2008DissectingComponentsLongTerm" role="doc-biblioref">Blundon and Zakharenko 2008</a>)</span>. So what exactly is happening at the cellular and molecular level during memory formation?</p>
+<p>These are the biological prompts that I look at when creating 3D models of the molecules in question. I use mainly <a href="https://mcell.org/">MCell</a> and python to do so. In order to give you a better overview of the aims, types of data used, methods and applications of this research, please see below <a href="#tbl-overview">Table&nbsp;<span>1.1</span></a>. In addition to the biological aspects of this PhD, as mentioned above, I have made a big effort into making my PhD accessible, reproducible and more ethical. It has transformed into a case study example of how to establish procedures for more ethical and reproducible research, which means future researchers can efficiently re-use and build up on what I have created.</p>
 <div id="tbl-overview" class="anchored">
 <table class="table">
 <caption>Table&nbsp;1.1: PhD overview</caption>
@@ -257,15 +254,14 @@ div.csl-indent {
 </tbody>
 </table>
 </div>
-<p>So that you can get a better idea of what the modelling might look like, I drew <a href="#fig-cellblender">Figure&nbsp;<span>1.1</span></a>, which shows a somewhat simplified version of what the graphical user interface of CellBlender can look like. It includes molecules and reactions going in, as well as placement in a 3D cell.</p>
-<p><strong>TLDR: I create 3D models which simulate interactions between CaMKII and NMDAR in the postsynaptic neuron, to understand how memory works in animal brains.</strong></p>
+<p>To give a better idea of what the modelling might look like, I drew <a href="#fig-cellblender">Figure&nbsp;<span>1.1</span></a>, which shows a somewhat simplified version of what the graphical user interface of CellBlender can look like. It includes molecules and reactions, as well as placement in a 3D cell.</p>
+<p><strong>In brief, I create 3D models which simulate interactions between CaMKII and NMDAR in the postsynaptic neuron, to understand how memory works in animal brains.</strong></p>
 <div style="page-break-after: always;"></div>
-</section>
-<section id="why-use-computational-modelling-to-study-biological-systems" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="why-use-computational-modelling-to-study-biological-systems"><span class="header-section-number">1.2</span> Why use Computational Modelling to study biological systems?</h2>
+<section id="why-use-computational-modelling-to-study-biological-systems" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="why-use-computational-modelling-to-study-biological-systems"><span class="header-section-number">1.1</span> Why use Computational Modelling to study biological systems?</h2>
 <p>Some of the main reasons for using modelling are:</p>
 <ol type="1">
-<li><p>Biological systems are complex and multiscale, models can help us to integrate experimental data, facilitating theoretical hypotheses, and addressing what if questions.</p></li>
+<li><p>Biological systems are complex and multiscale. Models can help us to integrate experimental data, facilitating theoretical hypotheses, and addressing “what if” questions.</p></li>
 <li><p>Models aim to make clear the current state of knowledge regarding a particular system, by attempting to be precise about the elements involved and the interactions between them. Doing this can be an effective way to highlight gaps in understanding.</p></li>
 <li><p>Related to point one, models then serve to combine knowledge from different published research, and make biological predictions which can then serve as hypothesis to be tested empirically by experimentalists.</p></li>
 <li><p>Computer-simulated experiments can help guide the wet-lab process by narrowing the experimental search space, enabling more cost, time-effective and waste-free research, as well as more ethical research too as we reduce animal suffering through reduction of animal research.</p></li>
@@ -273,7 +269,7 @@ div.csl-indent {
 <div id="fig-cellblender" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="mcell_doodle.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;1.1: A 3D model of a postsynaptic dendritic head, in a schematic of what CellBlender looks like, simplified.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;1.1: A 3D model of a postsynaptic dendritic head, in a schematic of the CellBlender interface.</figcaption>
 </figure>
 </div>
 
