@@ -42,6 +42,7 @@ format:
 
 geometry: 
   - textwidth=6in
+  - top=25mm
 
 execute:
   freeze: auto # Re-compute previously generated computational output only in case their source file changes

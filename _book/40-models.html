@@ -155,7 +155,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./50-activities.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Activities</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Activities involved with 2022/23</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -186,12 +186,10 @@ div.csl-indent {
   </ul></li>
   <li><a href="#model-description" id="toc-model-description" class="nav-link" data-scroll-target="#model-description"><span class="header-section-number">4.2</span> Model description</a>
   <ul class="collapse">
-  <li><a href="#model-of-camkii-as-a-dodecamer" id="toc-model-of-camkii-as-a-dodecamer" class="nav-link" data-scroll-target="#model-of-camkii-as-a-dodecamer"><span class="header-section-number">4.2.1</span> Model of CaMKII as a dodecamer</a></li>
+  <li><a href="#model-development-and-validation-camkii-modelled-as-a-dodecamer" id="toc-model-development-and-validation-camkii-modelled-as-a-dodecamer" class="nav-link" data-scroll-target="#model-development-and-validation-camkii-modelled-as-a-dodecamer"><span class="header-section-number">4.2.1</span> Model development and validation: CaMKII modelled as a dodecamer</a></li>
+  <li><a href="#a-reproducible-model" id="toc-a-reproducible-model" class="nav-link" data-scroll-target="#a-reproducible-model"><span class="header-section-number">4.2.2</span> A reproducible model</a></li>
   </ul></li>
-  <li><a href="#model-development-and-validation" id="toc-model-development-and-validation" class="nav-link" data-scroll-target="#model-development-and-validation"><span class="header-section-number">4.3</span> Model development and validation</a>
-  <ul class="collapse">
-  <li><a href="#a-reproducible-model" id="toc-a-reproducible-model" class="nav-link" data-scroll-target="#a-reproducible-model"><span class="header-section-number">4.3.1</span> A reproducible model</a></li>
-  </ul></li>
+  <li><a href="#advantages-and-limitations" id="toc-advantages-and-limitations" class="nav-link" data-scroll-target="#advantages-and-limitations"><span class="header-section-number">4.3</span> Advantages and limitations</a></li>
   </ul>
 </nav>
     </div>
@@ -215,7 +213,7 @@ div.csl-indent {
 
 </header>
 
-<p>As described in the introduction <a href="10-whatsmyphd.html"><span>Chapter&nbsp;1</span></a> of this report, I use computer models to study interactions between specific postsynaptic molecules; below I describe what these models look like and what software I use.</p>
+<p>As mentioned in the introduction <a href="10-whatsmyphd.html"><span>Chapter&nbsp;1</span></a> of this report, I use computer models to study interactions between specific postsynaptic molecules; below I describe what these models look like and what software I use. Likewise I also explain how I have been working on creating a reproducible model and the validation steps taken to achieve this.</p>
 <section id="bionetgen-and-how-rule-based-modelling-can-help-with-combinatorial-complexity." class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="bionetgen-and-how-rule-based-modelling-can-help-with-combinatorial-complexity."><span class="header-section-number">4.1</span> BioNetGen and how rule-based modelling can help with combinatorial complexity.</h2>
 <p>BioNetGen is a set of software tools which facilitate a rule-based approach to modelling biochemical reaction kinetics, where we can largely overcome the problem of combinatorial complexity that arises when modelling CaMKII. It has been calculated that CaMKII as a dodecamer can approximately have 10<sup>20</sup> possible states <span class="citation" data-cites="pharris2019MultistateModelCaMKII">(<a href="references.html#ref-pharris2019MultistateModelCaMKII" role="doc-biblioref">Pharris et al. 2019</a>)</span>; this, together with the potential of a full reaction network for each simulation (an added factor of combinatorial complexity), can render the model computationally intractable. BioNetGen can help us deal with this combinatorial complexity thanks to its rule-based modelling (RBM) “don’t care, don’t write” capabilities. And as we will see later MCell can help with modelling network-free simulations.</p>
@@ -225,58 +223,48 @@ div.csl-indent {
 <figure class="figure">
 <div class="cell-output cell-output-stdout">
 <pre><code>begin model
-
 begin parameters
 # Define initial number of molecules released
   A_i 150
   B_i 150
   C_i 100
-
 #Define reaction rates
   kon 1e-2
   koff 1e-3
   k_P 1e1
 end parameters
-
 begin molecule types
-# Here we define the molecules and the possible states and
-binding sites they can have
-# Molecule A has a binding site (a), and a Phosphorylation
-site which can be unphosphorylated (~0) or phosphorylated
-(~P):
+# Here we define the molecules and the possible states and binding sites
+they can have
+# Molecule A has a binding site (a), and a Phosphorylation site which can
+be unphosphorylated (~0) or phosphorylated (~P):
     A(a,T286~0~P)
 # Molecule B has a binding site (b):
     B(b)
 # Molecule C has no binding sites:
     C()
 end molecule types
-
-
 begin species
-# Molecule A starts with binding site a free, and with
-phosphorylation site unphosphorylated
+# Molecule A starts with binding site a free, and with phosphorylation site
+unphosphorylated
     A(a,T286~0) A_i
 # Molecule B starts with binding site b free
     B(b) B_i
 # Molecule C has no binding sites so it starts as it is
     C() C_i
 end species
-
-
 begin reaction rules
 # A_free and B_free can resversbly bind to give AB_complex
-# Don't need to specify, if I'm not interested, status of
-phosphorylation for molecule A. Note how it is not written
-in the rule definition (don't care, don't write):
-    A(a) + B(b) &lt;-&gt; A(a!1).B(b!1) kon, koff
-# If A is unphosphorylated, it can become phoshorylated by
-the presence of C
-# Don't need to specify status of binding site 'a' (don't
+# Don't need to specify, if I'm not interested, status of phosphorylation
+for molecule A. Note how it is not written in the rule definition (don't
 care, don't write):
+    A(a) + B(b) &lt;-&gt; A(a!1).B(b!1) kon, koff
+# If A is unphosphorylated, it can become phoshorylated by the presence of
+C
+# Don't need to specify status of binding site 'a' (don't care, don't
+write):
     A(T286~0) + C() -&gt; A(T286~P) k_P
-
 end reaction rules
-
 begin observables
   Molecules AB_complex A(a!1).B(b!1)
   Molecules A_phosphorylated A(T286~P)
@@ -284,7 +272,6 @@ begin observables
   Molecules B B(b)
   Molecules C C()
 end observables
-
 end model
 simulate({method=&gt;"ssa",t_end=&gt;10,n_steps=&gt;100})</code></pre>
 </div>
@@ -310,10 +297,11 @@ simulate({method=&gt;"ssa",t_end=&gt;10,n_steps=&gt;100})</code></pre>
 <p>Briefly, MCell operates as follows: as a volume molecule diffuses, all molecules within a given radius along its trajectory, or at the point of collision on a surface, are considered for a reaction. For surface molecules (in membranes), the molecule first diffuses, and then its neighbours are evaluated for reaction.</p>
 <p>There is no volume exclusion for molecules diffusing in 3D volumes, and molecules on surfaces occupy a fixed area. MCell allows defining arbitrary geometry <a href="#fig-mcell_comp">Figure&nbsp;<span>4.3</span></a> (C), and complex models such as a 180μm3 3DEM reconstruction of hippocampal neuropil have been used to construct a geometrically-precise simulation of 100s of neuronal synapses at once <span class="citation" data-cites="bartol2015Computational">(<a href="references.html#ref-bartol2015Computational" role="doc-biblioref">Bartol et al. 2015</a>)</span>. A detailed description of mathematical foundations of MCell’s algorithms can be found here: <span class="citation" data-cites="bartol2000Monte">Bartol and Stiles (<a href="references.html#ref-bartol2000Monte" role="doc-biblioref">2000</a>)</span>, <span class="citation" data-cites="kerr2008FAST">Kerr et al. (<a href="references.html#ref-kerr2008FAST" role="doc-biblioref">2008</a>)</span>, <span class="citation" data-cites="bartol2015Computational">Bartol et al. (<a href="references.html#ref-bartol2015Computational" role="doc-biblioref">2015</a>)</span>.</p>
 <p>MCell4, version used for this project, provides a versatile Python interface, which is very useful for writing models with said interface and running mcell models this way. MCell4 provides two different user experiences, one through its visual interface as an add-on in Blender 2.93, known as CellBlender (see back at <a href="10-whatsmyphd.html#fig-cellblender">Figure&nbsp;<span>1.1</span></a>), the other user experience one through a new Python interface. This provides users with the flexibility to change between both experiences, or to run the simulations using Python and visualize the simulations in Blender (<a href="#fig-python-bngl-cellblender">Figure&nbsp;<span>4.4</span></a>).</p>
+<p>Significantly, in MCell4 the reaction language is BNGL; making MCell4 fully support rule-based reactions and allowing all models to use this feature. The support for BNGL and network-free simulations of MCell4 allows direct, agent-based evaluation of reaction rules and thus enables spatially-resolved network-free simulations of interactions between and among volume and surface molecules. The CaMKII models I developed during this PhD would not be possible without the spatial network-free simulation allowed by MCell4.</p>
 <div id="fig-python-bngl-cellblender" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="python-bngl-cellblender.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;4.4: Diagram of what workflow of this project can look like, it is not exhaustive of all the ways in which these software can interact. Diagram was made with Lucid.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;4.4: Diagram of what workflow of this project can look like, it is not exhaustive of all the ways in which these software can interact. Diagram was made with the softare Lucid.</figcaption>
 </figure>
 </div>
 </section>
@@ -321,26 +309,58 @@ simulate({method=&gt;"ssa",t_end=&gt;10,n_steps=&gt;100})</code></pre>
 <section id="model-description" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="model-description"><span class="header-section-number">4.2</span> Model description</h2>
 <p>I have constructed the models at different scales to validate CaMKII interactions with other molecules like calmodulin and NMDARs, at increasing levels of complexity. First I re-created a model of CaMKII as a monomer that was previously completed in 2017. The model created uses cBNGL and represents CaMKII as monomers to serve as a proof of concept as well as a starting validation point, as dynamics of this model were previously shown to be within biologically accurate limits. Secondly, I created a model of CaMKII as a hexamer since modelling this molecule as a dodecamer gave rise to a combinatorial explosion due to the high number of possible states and the network of interactions generated. This was them resolved as I run the model using the network-free simulation capabalities using MCell. This has then resulted in being able to create a (still in the workd) model of CaMKII as a dodecamer. These simulations include only calcium binding to CaM, and CaM binding to CaMKII as a dodecamer, without further reactions added to avoid further complexity. Finally, I aim to validate this work against a model from Ordyan et al., 2020, where they successfully modelled CaMKII as a twelve subunit holoenzyme using BioNetGen simulations.</p>
-<section id="model-of-camkii-as-a-dodecamer" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="model-of-camkii-as-a-dodecamer"><span class="header-section-number">4.2.1</span> Model of CaMKII as a dodecamer</h3>
-<p>For brevity’s sake, I have chosen to not go into details of CaMKII, as that was discussed in depth in the pasy 2 yearly reports. CaMKII is a dodecameric molecule, meaning it’s composed of twelve subunits. Modelling it as a dodecamer allow us to infer more accurately any emergent behaviour of the protein.</p>
+<section id="model-development-and-validation-camkii-modelled-as-a-dodecamer" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="model-development-and-validation-camkii-modelled-as-a-dodecamer"><span class="header-section-number">4.2.1</span> Model development and validation: CaMKII modelled as a dodecamer</h3>
+<p>CaMKII is a dodecameric molecule, meaning it’s composed of twelve subunits. In the past I have modelled CaMKII as a monomer and as a hexamer, building up the models and validating with existing published research. Now, modelling it as a dodecamer allows us to infer more accurately any emergent behaviour of this protein.</p>
+<p>In order to replicate and validate the results obtained from the CaMKII monomer in 2017, I have been re-writing all reactions into a cBNGL model using the same parameters used originally, then building CaMKII as a dodecamer instead of a monomer. I define a volume previously modelled of 0.5μm3, which is within ranges of spine volume of 0.004 to 0.6 μm3 in hippocampal CA1 neurons (Harris and Stevens, 1989). Using cBNGL, I can specify the above mentioned 3D volume, with a 2D surface compartment acting as the cell membrane, where NMDARs can diffuse.</p>
+<p>As well as modelling the multimeric properties of our molecules of interest, an aim of this project has been to further refine the spatial computational model to check if the prediction of the distribution of phosphorylated CaMKII is still valid, as described in 2017 model, and if so incorporate existing biological data. Previously, the head of dendritic spine was modelled as the cell, with a PSD shown in blue where there was a higher number of NMDARs (<a href="#fig-dendritic-head">Figure&nbsp;<span>4.5</span></a>). The prediction made was that if CaMKII binding to NMDA receptors is disrupted, we get more CaMKII activation overall, this was a counterintuitive result because NMDA receptor binding is known to activate CaMKII, so their disruption was assumed to have decreased CaMKII activation. It will be interesting to see if these results replicate with CaMKII as a hexamer, or if not then it might show new insights as to how CaMKII and NMDAR abolition results in the new models.</p>
+<div id="fig-dendritic-head" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="dendritic_head.png" class="img-fluid figure-img" width="400"></p>
+<figcaption class="figure-caption">Figure&nbsp;4.5: Head of dendritic spine modelled as the cell, with PSD shown in blue, modelled in MCell/CellBlender for the 2017 dissertation project.</figcaption>
+</figure>
+</div>
+<p>Parameters used in this project so far requires further analysis, as well as additional investigation of specific reaction parameters. As mentioned in the introduction section, finding parameters, if any, for computer models is a challenging as they tend to vary from publication to publication. For now, I used the validated parameters used for my thesis in 2017 (table 1). I hope to run sensitivity analysis to determine how much parameters used affect model behaviour.</p>
+<p>An important part for the last part of this project has been to validate CaMKII holoenzyme activity against the model published by <span class="citation" data-cites="ordyan2020Interactions">Ordyan et al. (<a href="references.html#ref-ordyan2020Interactions" role="doc-biblioref">2020</a>)</span>. As well as an extended model published in 2022 <span class="citation" data-cites="husar2022MCell4">(<a href="references.html#ref-husar2022MCell4" role="doc-biblioref">Husar et al. 2022</a>)</span> where they observe the effects of the geometry of the compartment on the simulation results thanks to MCell4. Their work adopts a RBM approach through the Monte Carlo method to study the effect of Ca2+ signals on the dynamics of CaMKII phosphorylation in the postsynaptic density. Their study looks at calcium surges in synaptic spines during an EPSP and back-propagating action potential due to the opening of NMDA receptors and voltage dependent calcium channels. Using agent-based models, they computationally investigate the dynamics of phosphorylation of CaMKII monomers and dodecameric holoenzymes. This model is very useful to have as a validation point, firstly to see if my results compare to what they observed, and hence enabling reproducibility of results. It is also helpful to have a model which looks at CaMKII but focuses on its interactions with other molecules, as this adds further to the narrative of how CaMKII functions.</p>
+<p>One of the main questions of the research is to look at the dynamics of interactions between NMDARs and CaMKII in the postsynaptic neuron. The models created will state the predictions which will then enable us to generate hypothesis for system dynamics behaviour. It would not make sense to start asking questions about this if the basis of the model is not coherent and cannot replicate baseline molecular behaviour. Therefore, it is very important that validation of the model build up is carried out meticulously and reasoning as to why each step and decision was made is explained.</p>
+<p>need to potentially make: Biologist friendly description of the model.</p>
 </section>
-</section>
-<section id="model-development-and-validation" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="model-development-and-validation"><span class="header-section-number">4.3</span> Model development and validation</h2>
-<p>Following from what I did last year, show results, copy what’s on github https://github.com/Susana465/CaMKII_hexa_bgnl_to_mcell</p>
-<p>Develop the description of how the models work – model description and results. Biologist friendly description of the model.</p>
-<p>talk about roustness, generalisable, environments</p>
-<p>Write abstract for each chapter, then merge them altogether.</p>
-<section id="a-reproducible-model" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="a-reproducible-model"><span class="header-section-number">4.3.1</span> A reproducible model</h3>
-<p>The same processes used in software development can also be applied to biological model development. Therefore, when developing the models in this project, four main points were considered throughout, as suggested by <span class="citation" data-cites="husar2022MCell4">Husar et al. (<a href="references.html#ref-husar2022MCell4" role="doc-biblioref">2022</a>)</span>:</p>
+<section id="a-reproducible-model" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="a-reproducible-model"><span class="header-section-number">4.2.2</span> A reproducible model</h3>
+<p>With the idea of making reproducible research, it is good to build up step by step a model, and the same processes used in software development can also be applied to biological model development. Therefore, when developing the models in this project, four main points were considered throughout, as suggested by <span class="citation" data-cites="husar2022MCell4">Husar et al. (<a href="references.html#ref-husar2022MCell4" role="doc-biblioref">2022</a>)</span>:</p>
 <ol type="1">
 <li><p>Create incremental development where the model is built step by step, relying on solid foundations of modelling done and validated before,</p></li>
 <li><p>Create a modularity that provides the capability to create self-contained, reusable libraries,</p></li>
 <li><p>Perform unit testing and validation to verify that parts of the model behave as expected and,</p></li>
 <li><p>Create human-readable and writable model code that can be stored using git or other code version control software which also allows code reviews so that other team members can inspect the latest changes to the model.</p></li>
 </ol>
+<p>With this and robustness, replicability, reproducbility and generalisability (as defined in <a href="20-ethics_reproducible.html"><span>Chapter&nbsp;2</span></a>) in mind, I managed to make a model which was successfully reproduced in other people’s machines. This means that the results of the model (<a href="#fig-out-gdat">Figure&nbsp;<span>4.6</span></a>), where able to be reproduced by someone else using the same dataset which consistently produced the same answer.</p>
+<div id="fig-out-gdat" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="out_gdat.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;4.6: Sequence of modelled molecules interacting in a model of CaMKII as a hexamer (dodecamer should also reproduce as it’s built off of this)</figcaption>
+</figure>
+</div>
+<p>This was possible thanks to the efforts put into creating detailed step by step instructions on how to implement and run the model. These instructions currently live in a private repository in GitHub, which hopefully will evolve into something publishable. This repository includes a README.md file that allows you to know how to:</p>
+<ol type="1">
+<li>Install MCell/CellBlender v4.0.6 bundle with Blender 2.93.</li>
+<li>Set up MCell4 Python in your machine and why this is necessary.</li>
+<li>Set up a python environment with any potential dependencies required to run the code.</li>
+<li>Run the code and what output is expected for comparison.</li>
+</ol>
+</section>
+</section>
+<section id="advantages-and-limitations" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="advantages-and-limitations"><span class="header-section-number">4.3</span> Advantages and limitations</h2>
+<p>This work has, therefore, this PhD project is eqquipped with strong advantages for future, trustworthy research done by other people, as well as for myself as I am able to keep cleaner, more neat track of what exactly I am developing. Some of these advantages include:</p>
+<ul>
+<li><strong>Ensuring continuity of work.</strong> By following guidelines for reproducibility, I can easily communicate work with different stakeholders whether that’s my supervisors, future funders, reviewers, students, and potential collaborators. This aspect of reproducibility increases the usefulness of this research by allowing others to easily build on our results, and re-use the research materials I created. This ensures the continuity of a research idea and can even, hopefully, find fresh applications in other contexts.</li>
+<li><strong>Being able to track a complete history of my research.</strong> By storing a complete track-record of my work, I can ensure research sustainability, fair citation/acknowledgement, and usefulness of my and others’ work in our research fields.</li>
+<li><strong>Facilitation of collaboration and review process.</strong> Reproducible workflows have facilitated the peer review process tremendously by allowing other people not directly involved with the project to have access to the different parts of the projects that are necessary to validate the research outcomes.</li>
+<li><strong>Writing papers, thesis and reports efficiently.</strong> Putting an effort in maintaining documentation of methods and analyses helps in maintaining easy access to all the results generated in the project that can then be written up efficiently. Additionally, by making available the underlying dataset and methods makes it more easy to comply with the highest-level journal guidelines.</li>
+<li><strong>Get credits for work fairly and more often.</strong> Applying reproducibility practices separately on different parts of the project such as data, independently executable codes and scripts, protocols, and reports allow other researchers to test and reuse our work in their research and brings fair recognition for our work. Researchers who publish their work with the underlying information, get cited more often as their research outcome can be broadly replicated and trusted (NEED REFERENCE).</li>
+</ul>
+<p>It has been challenging (and fulfilling) to learn and apply reproducibility practices. Learning to create reproducible research that also thinks about its ethical connotations takes time. This has meant that most of my third PhD year has been spent interacting with different communities (see chapter ON ACTIVITIES), creating contacts that can inspire and help me in creating quality research, and also getting hands on experience on creating bits of reproducible, accessible and open research - as exemplified throyghout this report. This also means that I have had to balance my time between creating reproducible models, as well as the models having a significant biological outcome that is valid and can help further understand the mechanisms of how CaMKII and NMDARs interact in the postsynaptic neuron during memory. Now that this project has strong pillars to build up-on, I hope to be able to focus more time on looking at the biological aspects of these models.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
@@ -362,11 +382,13 @@ Husar, Adam, Mariam Ordyan, Guadalupe C. Garcia, Joel G. Yancey, Ali S. Saglam, 
 <div id="ref-kerr2008FAST" class="csl-entry" role="listitem">
 Kerr, Rex A., Thomas M. Bartol, Boris Kaminsky, Markus Dittrich, Jen-Chien Jack Chang, Scott B. Baden, Terrence J. Sejnowski, and Joel R. Stiles. 2008. <span>“<span>FAST MONTE CARLO SIMULATION METHODS FOR BIOLOGICAL REACTION-DIFFUSION SYSTEMS IN SOLUTION AND ON SURFACES</span>.”</span> <em>SIAM J Sci Comput</em> 30 (6): 3126. <a href="https://doi.org/10.1137/070692017">https://doi.org/10.1137/070692017</a>.
 </div>
+<div id="ref-ordyan2020Interactions" class="csl-entry" role="listitem">
+Ordyan, Mariam, Tom Bartol, Mary Kennedy, Padmini Rangamani, and Terrence Sejnowski. 2020. <span>“Interactions Between Calmodulin and Neurogranin Govern the Dynamics of <span>CaMKII</span> as a Leaky Integrator.”</span> <em>PLOS Computational Biology</em> 16 (7): e1008015. <a href="https://doi.org/10.1371/journal.pcbi.1008015">https://doi.org/10.1371/journal.pcbi.1008015</a>.
+</div>
 <div id="ref-pharris2019MultistateModelCaMKII" class="csl-entry" role="listitem">
 Pharris, Matthew C., Neal M. Patel, Tyler G. VanDyk, Thomas M. Bartol, Terrence J. Sejnowski, Mary B. Kennedy, Melanie I. Stefan, and Tamara L. Kinzer-Ursem. 2019. <span>“A Multi-State Model of the <span>CaMKII</span> Dodecamer Suggests a Role for Calmodulin in Maintenance of Autophosphorylation.”</span> <em>PLOS Computational Biology</em> 15 (12): e1006941. <a href="https://doi.org/10.1371/journal.pcbi.1006941">https://doi.org/10.1371/journal.pcbi.1006941</a>.
 </div>
 </div>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -611,7 +633,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./50-activities.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Activities</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Activities involved with 2022/23</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

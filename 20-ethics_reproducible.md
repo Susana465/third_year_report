@@ -1,6 +1,5 @@
----
-title: "Ethics and Reproducibility emphasis in this PhD and why it matters"
----
+# Ethics and Reproducibility emphasis in this PhD and why it matters {#sec-ethics-reproducibility}
+
 The work I have carried out through this PhD so far, has had a very heavy focus on thinking about Ethics and Reproducibility as an embedded part of my research, not as a last minute add-on. This is because I believe it is of utmost importance that there is a shift in how we proceed with science. A science that currently works under a capitalistic mechanism which advocates for mass production of positivist, fast research that historically has benefitted some groups disproportionately (usually cis-male, white, able-bodied individuals [^1]) [@webb2022Addressing], [@diogo2023Not], [@branch2022Discussions]. 
 
 [^1]: This bias towards benefiting cis-male, white, able-bodied people does not mean they do not suffer, and does not negate the existence of the issues they may experience too. For more information on how society is biased in a way that provides privileges in a certain order/hierarchy, and how to handle it, see [@diangelo2018White],or [@delgado2022Owning].  
