@@ -10,6 +10,10 @@ This is a report written using a [Quarto book](https://quarto.org/docs/books/). 
 
  - [`_publish.yml`](_publish.yml) : this file is used to specify the publishing destination of the project. This file is automatically created (or updated) whenever you execute the quarto `publish command`, and is located within the project or document directory.
 
+### Output directory:
+
+- [`/_book`](/_book/): By default, [quarto book output](https://quarto.org/docs/books/book-output.html) is written to the _book directory of your project, this is where the final rendered [`.pdf`](/_book/3rd-Year-Report.pdf) lives.
+
 ### Markdown files
 
 - `.qmd` and `.md` files: are markdown documents. Quarto `.qmd` files can contain a combination of markdown and executable code cells. I have some files in .qmd and others with simple .md format depending on whether I need the quarto functionality to run them or not.
