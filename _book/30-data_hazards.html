@@ -233,7 +233,7 @@ div.csl-indent {
 <h2 data-number="3.1" class="anchored" data-anchor-id="example-label-high-environmental-cost"><span class="header-section-number">3.1</span> Example label: high environmental cost</h2>
 <div id="fig-environment" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="environment.png" class="img-fluid figure-img" width="150"></p>
+<p><img src="images/environment.png" class="img-fluid figure-img" width="150"></p>
 <figcaption class="figure-caption">Figure&nbsp;3.1: “High Environmental Impact” Data Hazard Label</figcaption>
 </figure>
 </div>
@@ -273,7 +273,7 @@ div.csl-indent {
 <p>As part of a <a href="https://the-turing-way.netlify.app/community-handbook/bookdash.html">Turing Way Book Dash</a> hosted in May 2023, I worked together with a team to create a chapter on Data Hazards for the Turing Way Book. This chapter is still in <a href="https://hackmd.io/ZoJpaBsnTBuAfwGWnMCwGg">draft form</a>, as part of this experience we worked with an artist from Scriberia, to make an illustration of the Data Hazards application (<a href="#fig-DH_application">Figure&nbsp;<span>3.2</span></a>).</p>
 <div id="fig-DH_application" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="DH_application.jpg" class="img-fluid figure-img" width="450"></p>
+<p><img src="images/DH_application.jpg" class="img-fluid figure-img" width="450"></p>
 <figcaption class="figure-caption">Figure&nbsp;3.2: Data Hazards Application Cycle <span class="citation" data-cites="community2023Illustrations">(<a href="references.html#ref-community2023Illustrations" role="doc-biblioref">Community and Scriberia 2023</a>)</span>.</figcaption>
 </figure>
 </div>
@@ -320,7 +320,7 @@ div.csl-indent {
 <p>As can be seen in <a href="#fig-DHCS_AIUK">Figure&nbsp;<span>3.4</span></a> (before end of the day), people were adding stickers to record which data hazard labels they thought applied to my PhD project. At the end of the day, I recorded final numbers and the results can be seen in the barchart below <a href="#fig-barchart">Figure&nbsp;<span>3.5</span></a>.</p>
 <div id="fig-posterAIUK" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><a href="https://github.com/Susana465/DH_Project_CaseStudy"><img src="poster_AIUK.png" class="img-fluid figure-img"></a></p>
+<p><a href="https://github.com/Susana465/DH_Project_CaseStudy"><img src="images/poster_AIUK.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption">Figure&nbsp;3.3: PhD Project decription - Case Study, to see GitHub repo, click on this figure.</figcaption>
 </figure>
 </div>
@@ -344,7 +344,7 @@ div.csl-indent {
 </ul>
 <p>The next most chosen label was “high environmental impact”. The models created during my project have the potential to require a high degree of energy consumption, and therefore a potentially high environmental impact. As the models become too large to run in my own machine, running them in high performance computing clusters (HPCs) such as the University of Edinburgh’s <a href="https://digitalresearchservices.ed.ac.uk/resources/eddie#product-features">Eddie</a> can mean I don’t have to run the model in my own machine for 4+ hours, instead I can access the cluster and run it there. Using HPCs means a variety of environmental impacts: energy production, hardware manufacturing, long-term storage management, cooling, maintenance, and more. Calculating the exact environmental impact of the models I run can be difficult, as it is a challenge to find exact spefications of Eddie, and what are its energy sources. I could not find exact speficications of Eddie. However, I found that it uses “several thousand Intel Xeon cores [and a] significant number of NVIDIA GPUs” (see <a href="https://www.ed.ac.uk/files/atoms/files/digital-research-servicesv2_0.pdf">here</a>), as well as the default storage space for research groups being 200GB. With this restricted information, I used a <a href="http://calculator.green-algorithms.org/">free online calculator</a> to do an estimation of carbon emissions of one model run <span class="citation" data-cites="lannelongue2021Green">Lannelongue, Grealey, and Inouye (<a href="references.html#ref-lannelongue2021Green" role="doc-biblioref">2021</a>)</span>.</p>
 <p>The result estimate, with an assumption of 3500 CPUs Xeon E5-4620 and 3500 GPUs NVIDIA Titan V <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, based in the United Kingdom, is that a model which takes 4 hours to run would have a carbon footprint of 1.42 T CO2e, which is equivalent to a 8090km car jorney, or 61% of a flight trip from NYC to Melbourne, or 128.66 tree years <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
-<p>These are just estimates, however they shed some light on the fact that this project, like many others, has an environmental impact that we may not have realised at first glance. Unless we stop and reflect, this kind od hazard may not have seemed as apparent as the loud computer tours with countless cables and noisy fans are tucked away in a data centre where we can more easily forget about the resources used behind the scenes. This is why taking the time to write optimised code that runs faster with fewer resources can save both money and the planet. Likewise, thinking about what jobs <em>really</em> need to be run can also be a way to reduce waste during research.</p>
+<p>These are just estimates, however they shed some light on the fact that this project, like many others, has an environmental impact that we may not have realised at first glance. Unless we stop and reflect, this kind od hazard may not have seemed as apparent as the loud computer tours with countless cables and noisy fans are tucked away in a data centre where we can more easily forget about these. This is why taking the time to write optimised code that runs faster with fewer resources can save both money and the planet. Likewise, thinking about what jobs <em>really</em> need to be run can also be a way to reduce waste during research.</p>
 <ul>
 <li><strong>Danger of misuse:</strong></li>
 </ul>
@@ -406,7 +406,7 @@ div.csl-indent {
 <section id="workshop-at-combine-conference-berlin-october-2022" class="level3" data-number="3.5.1">
 <h3 data-number="3.5.1" class="anchored" data-anchor-id="workshop-at-combine-conference-berlin-october-2022"><span class="header-section-number">3.5.1</span> Workshop at COMBINE conference (Berlin, October 2022)</h3>
 <p>The <a href="https://reproduciblebiomodels.org/combine-2022/">COMBINE (Computational Modeling in Biology) conference</a> was an in person event, where I proposed, ran and co-facilitated a Data Hazards workshop with my supervisor Melanie Stefan. Melanie presented a project study for the participants to then think what potential Data Hazard labels applied to it. We had 12 participants, who discussed and labelled the project during the workshop.</p>
-<p>Topics of interest at COMBINE included discussion of data exchange, pipelines and discussing standardizing methods for computer modelling of systems biology. Data Hazards have the potential to become a standard practice for modelling systems biology research. This session wowasa good opportunity to discuss how to make Data Hazards assessments a standard part of the information shared with computational models. The materials used for this workshop can be found in this <a href="https://github.com/Susana465/Data_Hazards_workshops">GitHub repository</a>.</p>
+<p>Topics of interest at COMBINE included discussion of data exchange, pipelines and discussing standardizing methods for computer modelling of systems biology. Data Hazards have the potential to become a standard practice for modelling systems biology research. This session was a good opportunity to discuss how to make Data Hazards assessments a standard part of the information shared with computational models. The materials used for this workshop can be found in this <a href="https://github.com/Susana465/Data_Hazards_workshops">GitHub repository</a>.</p>
 <p>The workshops I have ran have had the following types of roles:</p>
 <p><strong>Facilitators:</strong></p>
 <p>– There to run the workshop and help everyone get the most out of it.</p>
@@ -512,7 +512,7 @@ Lannelongue, Loïc, Jason Grealey, and Michael Inouye. 2021. <span>“Green <spa
 <hr>
 <ol>
 <li id="fn1"><p>The specifications of the type of NVIDIA AND Xeon processors were assumed, as this was not publicly available information. This means that if an NVIDIA Jetson AGX Xacier was used in comparison to NVIDIA Titan, for example, there would be a drastic difference in their power draw. The former draws 30W, whereas the latter draws 250W. I have emailed the people who maintain Eddie to request this information.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>The specifications of the type of NVIDIA AND Xeon processors were assumed, as this was not publicly available information. This means that if an NVIDIA Jetson AGX Xacier was used in comparison to NVIDIA Titan, for example, there would be a drastic difference in their power draw. The former draws 30W, whereas the latter draws 250W. I have emailed the people who maintain Eddie to request this information.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Tree years is the amount of CO2 sequestered by a tree in a year. The calculator uses it to measure how long it would take to a mature tree to absorb the CO2 emitted by an algorithm/model. The green-algorithm calculator use the value of 11 kg CO2/year.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

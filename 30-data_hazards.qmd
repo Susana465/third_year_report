@@ -6,7 +6,7 @@ The Data Hazards Project has created a community-developed shared vocabulary of 
 
 ## Example label: high environmental cost
 
-!["High Environmental Impact" Data Hazard Label](environment.png){#fig-environment width="150"}
+!["High Environmental Impact" Data Hazard Label](images/environment.png){#fig-environment width="150"}
 
 ### Description
 
@@ -37,7 +37,7 @@ This spells LARD 🧈, which makes it pretty easy to remember! It is however an 
 
 As part of a [Turing Way Book Dash](https://the-turing-way.netlify.app/community-handbook/bookdash.html) hosted in May 2023, I worked together with a team to create a chapter on Data Hazards for the Turing Way Book. This chapter is still in [draft form](https://hackmd.io/ZoJpaBsnTBuAfwGWnMCwGg), as part of this experience we worked with an artist from Scriberia, to make an illustration of the Data Hazards application (@fig-DH_application).
 
-![Data Hazards Application Cycle [@community2023Illustrations].](DH_application.jpg){#fig-DH_application width="450" fig-pos="h"}
+![Data Hazards Application Cycle [@community2023Illustrations].](images/DH_application.jpg){#fig-DH_application width="450" fig-pos="h"}
 
 ## Application example into Research life-cycle
 
@@ -82,7 +82,7 @@ During the poster presentation, people talked about the project, had a look at t
 
 As can be seen in @fig-DHCS_AIUK (before end of the day), people were adding stickers to record which data hazard labels they thought applied to my PhD project. At the end of the day, I recorded final numbers and the results can be seen in the barchart below @fig-barchart.
 
-[![PhD Project decription - Case Study, to see GitHub repo, click on this figure.](poster_AIUK.png){#fig-posterAIUK fig-pos="t"}](https://github.com/Susana465/DH_Project_CaseStudy)
+[![PhD Project decription - Case Study, to see GitHub repo, click on this figure.](images/poster_AIUK.png){#fig-posterAIUK fig-pos="t"}](https://github.com/Susana465/DH_Project_CaseStudy)
 
 ![Data Hazards Case Study Poster at AI UK](DHCS_AIUK.jpeg){#fig-DHCS_AIUK width="400" fig-pos="t"}
 
@@ -106,7 +106,7 @@ The result estimate, with an assumption of 3500 CPUs Xeon E5-4620 and 3500 GPUs 
 
 [^30-data_hazards-2]: Tree years is the amount of CO2 sequestered by a tree in a year. The calculator uses it to measure how long it would take to a mature tree to absorb the CO2 emitted by an algorithm/model. The green-algorithm calculator use the value of 11 kg CO2/year.
 
-These are just estimates, however they shed some light on the fact that this project, like many others, has an environmental impact that we may not have realised at first glance. Unless we stop and reflect, this kind od hazard may not have seemed as apparent as the loud computer tours with countless cables and noisy fans are tucked away in a data centre where we can more easily forget about the resources used behind the scenes. This is why taking the time to write optimised code that runs faster with fewer resources can save both money and the planet. Likewise, thinking about what jobs *really* need to be run can also be a way to reduce waste during research.
+These are just estimates, however they shed some light on the fact that this project, like many others, has an environmental impact that we may not have realised at first glance. Unless we stop and reflect, this kind od hazard may not have seemed as apparent as the loud computer tours with countless cables and noisy fans are tucked away in a data centre where we can more easily forget about these. This is why taking the time to write optimised code that runs faster with fewer resources can save both money and the planet. Likewise, thinking about what jobs *really* need to be run can also be a way to reduce waste during research.
 
 -   **Danger of misuse:**
 
@@ -168,7 +168,7 @@ In order to showcase how to implement the Data Hazards, there is a template in t
 
 The [COMBINE (Computational Modeling in Biology) conference](https://reproduciblebiomodels.org/combine-2022/) was an in person event, where I proposed, ran and co-facilitated a Data Hazards workshop with my supervisor Melanie Stefan. Melanie presented a project study for the participants to then think what potential Data Hazard labels applied to it. We had 12 participants, who discussed and labelled the project during the workshop.
 
-Topics of interest at COMBINE included discussion of data exchange, pipelines and discussing standardizing methods for computer modelling of systems biology. Data Hazards have the potential to become a standard practice for modelling systems biology research. This session wowasa good opportunity to discuss how to make Data Hazards assessments a standard part of the information shared with computational models. The materials used for this workshop can be found in this [GitHub repository](https://github.com/Susana465/Data_Hazards_workshops).
+Topics of interest at COMBINE included discussion of data exchange, pipelines and discussing standardizing methods for computer modelling of systems biology. Data Hazards have the potential to become a standard practice for modelling systems biology research. This session was a good opportunity to discuss how to make Data Hazards assessments a standard part of the information shared with computational models. The materials used for this workshop can be found in this [GitHub repository](https://github.com/Susana465/Data_Hazards_workshops).
 
 The workshops I have ran have had the following types of roles:
 

@@ -62,4 +62,4 @@ Some of the main reasons for using modelling are:
 
 4.  Computer-simulated experiments can help guide the wet-lab process by narrowing the experimental search space, enabling more cost, time-effective and waste-free research, as well as more ethical research too as we reduce animal suffering through reduction of animal research.
 
-![A 3D model of a postsynaptic dendritic head, in a schematic of the CellBlender interface.](mcell_doodle.jpg){#fig-cellblender}
+![A 3D model of a postsynaptic dendritic head, in a schematic of the CellBlender interface.](images/mcell_doodle.jpg){#fig-cellblender}

@@ -38,7 +38,7 @@ These terms have been used interchangeably for a while, or their meanings being 
 
 Here, we use the definition used by [@turingwaycommunity2019TuringWayHandbook], where reproducible research is understood as work that can be independently recreated from the same data and the same code that the original team used. Reproducible is distinct from replicable, robust and generalisable as described in the table below (@fig-rep_table).
 
-![How the Turing Way defines reproducible research.](reproducibility_terms.jpg){#fig-rep_table}
+![How the Turing Way defines reproducible research.](images/reproducibility_terms.jpg){#fig-rep_table}
 
 The different dimensions of reproducible research described in the matrix above have the following definitions, taken from the Turing Way booklet:
 
