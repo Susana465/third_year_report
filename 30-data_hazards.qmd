@@ -4,25 +4,33 @@ The ethical implications that ought to be considered when doing research, usuall
 
 The Data Hazards Project has created a community-developed shared vocabulary of data science risks. The vocabulary presents data ethics concepts in the form of [Data Hazard Labels](https://datahazards.com/contents/data-hazards.html), similarly to chemical hazard labels. This project exists to facilitate material for interdisciplinary discussions and self-reflection about all kinds of data ethics risks. How do these labels look like and how can they be implemeted? Let's go through some examples to show how.
 
-## Example label: high environmental cost
+There are 11 data hazards at the moment (@fig-eleven_dh), which include a label description, examples and general safety precautions to showcase how we might go about thinking about these risks. In the following sections in this chapter I will go through some specific examples of what using these labels can look like.
+
+!["There are 11 Data Hazard labels defined [@cara2021Data]](images/eleven_dh.png){#fig-eleven_dh}
+
+First of all, to show what the label, plus decription plus mitigations might look like I have chosen the 'High environmental' label. 
+
+- **Example label: high environmental cost**
+
+First of all, it has a visual label which looks like @fig-environment.
 
 !["High Environmental Impact" Data Hazard Label](images/environment.png){#fig-environment width="150"}
 
-### Description
+- **Description**
 
 This hazard is appropriate where methodologies are energy-hungry, data-hungry (requiring more and more computation), or require special hardware that require rare materials.
 
-### Examples
+- **Example**
 
--   Example: Running computer models in super computers requires vast energy usage.
+     - Running computer models in super computers requires vast energy usage.
 
-### Safety Precautions
+- **Safety Precautions**
 
--   Consider in what circumstances it is worthwhile to use this type of methodology.
-    -   To communicate the scale of the issue to other stakeholders, you may want to [convert units of energy into more relatable units]().
-    -   Find out [if your cloud provider uses renewable energy]().
-    -   Consider profiling your code, and rewriting it to use less energy.
--   Consider future work that would reduce the need to use increasingly more resources.
+     - Consider in what circumstances it is worthwhile to use this type of methodology.
+     - To communicate the scale of the issue to other stakeholders, you may want to [convert units of energy into more relatable units]().
+     - Find out [if your cloud provider uses renewable energy]().
+     - Consider profiling your code, and rewriting it to use less energy.
+     - Consider future work that would reduce the need to use increasingly more resources.
 
 ## How to use the Data Hazards Project
 
@@ -110,7 +118,7 @@ These are just estimates, however they shed some light on the fact that this pro
 
 -   **Danger of misuse:**
 
-I would say that this hazard label links with the two mentioned above. I would argue that research that is potentially difficult to understand, has the potential to therefore be misinterpreted. Statements of what and how this research can and should be applied should be made explicit and clear. Additionally, the fact that future models could be built from this one, means someone could make a model that has an even higher environmental impact. In discussing these, it does not mean they will necessarily happen, but if at least discussed, they could be prevented or circumvented. A potential danger of misuse that is even more likely, is *in vitro* animal testing. Animal testing brings the creatures being tested stress and pain. Generally, when articles report on these experiments, they mention them as “animals”, instead of specifying the kind of animal, which further perpetuates the bias that they are “just animals”, hence continuing an “othering” from human animals. It also allows for a vague assumption that the results of these “animal” studies may be extrapolated to humans or other species too. The fact that rats, mice and rabbits are raised and killed as babies, most likely through CO2 asphyxiation and how this has been shown to cause suffering (Wong and Weary, 2013), is rarely mentioned in studies where they use their hippocampal slices. . The most common way of killing rodents in science is either through carbon dioxide or decapitation, as reported by a review in 2013 in nature, and still are regularly used (Cressey, 2013)(Campagnol, 2022). Therefore, when using biological predictions that these models might make, I argue that there is a need to really stop and think of the potential consequences on other beings too.
+I would say that this hazard label links with the two mentioned above. I would argue that research that is potentially difficult to understand, has the potential to therefore be misinterpreted. Statements of what and how this research can and should be applied should be made explicit and clear. Additionally, the fact that future models could be built from this one, means someone could make a model that has an even higher environmental impact. In discussing these, it does not mean they will necessarily happen, but if at least discussed, they could be prevented or circumvented. A potential danger of misuse that is even more likely, is *in vitro* animal testing. Animal testing brings the creatures being tested stress and pain. Generally, when articles report on these experiments, they mention them as “animals”, instead of specifying the kind of animal, which further perpetuates the bias that they are “just animals”, hence continuing an “othering” from human animals. It also allows for a vague assumption that the results of these “animal” studies may be extrapolated to humans or other species too. The fact that rats, mice and rabbits are raised and killed as babies, most likely through CO2 asphyxiation and how this has been shown to cause suffering (Wong and Weary, 2013), is rarely mentioned in studies where they use their hippocampal slices. The most common way of killing rodents in science is either through carbon dioxide or decapitation, as reported by a review in 2013 in nature, and still are regularly used [@cressey2013Best], [@dalnegroPractical]. Therefore, when using biological predictions that these models might make, I argue that there is a need to really stop and think of the potential consequences on other beings too.
 
 ```{python}
 #| label: fig-barchart

@@ -9,15 +9,13 @@ At this point in time I am in a place where I have started writing my thesis in 
 
 This document is written using a Quarto book. Quarto allows for a dynamic implementation of different types of files that can be version controlled, which is extremely helpful to create a pipeline of work all in one place and that is traceable too. 
 
-Quarto is an open-source scientific and technical publishing system built on [Pandoc](https://pandoc.org/). It allows you to weave together narrative text and code to produce elegantly formatted output as documents, web pages, blog posts, books and more. 
+Quarto is an open-source scientific and technical publishing system built on [Pandoc](https://pandoc.org/).Pandoc acts kind of like a swiss-army knife (a tool that can be used for multiple tasks), it converts files from one markup format to another, which makes working with Quarto a smooth experience. You can create your outputs in multiple formats such as documents, web pages, books and more. This is showcased in how this report can be viewed on dfferent modes (pdf, web, and source code in GitHub).
 
-Quarto is at its core multi-language and multi-engine (supporting [Knitr](https://yihui.org/knitr/), [Jupyter](https://jupyter.org/), and [Observable](https://quarto.org/docs/computations/ojs.html) today and potentially other engines in the future); where you can have all your code and narrative text in one. For a full breakdown and FAQs of how Quarto works, you can have a look [here](https://quarto.org/docs/faq/rmarkdown.html).
-
-The good thing for me personally, is that, thanks to Quarto, I can write my thesis chapters using [markdown](https://www.markdownguide.org/getting-started/), which is a lot more intuitive than LaTeX, in my opinion. Moreover, it allows for much better version control compared to Microsoft Word, and allows for helpful traceability of materials included in the document I am writing; which in itself has many benefits as it immensely helps to be able to go back to a previous version where everything was working before I broke the code (yet again).
+Quarto is at its core multi-language and multi-engine (supporting [Knitr](https://yihui.org/knitr/), [Jupyter](https://jupyter.org/), and [Observable](https://quarto.org/docs/computations/ojs.html); where you can have all your code and narrative text in one place. The good thing for me personally, is that, thanks to Quarto, I can write my thesis chapters using [markdown](https://www.markdownguide.org/getting-started/), which is a lot more intuitive than LaTeX, in my opinion. Moreover, it allows for much better version control compared to Microsoft Word, and allows for helpful traceability of materials included in the document I am writing; which in itself has many benefits as it immensely helps to be able to go back to a previous version where everything was working before I broke the code (yet again).
 
 Part of my work includes work which runs with different python scripts, and using Quarto means that I can embed python code if needed to explain how certain functionalities of the models work. It also allows for code using R to run within a Quarto document, as well as Jupyter Notebooks, and includes HTML implementations, which can all help with functionalities such as creating tables, adding images, and rendering the document in different formats (website html, or pdf, for example).
 
-## Different modes to view this report
+## Different modes to view this report {#diff-modes}
 - **In an internet browser**: through this [url](https://susana465.quarto.pub/3rd-year-report).
 
 - **In `.pdf` format**:  If you are viewing this document in your browser through a url, you can click on the top left icons of the document to download it.
