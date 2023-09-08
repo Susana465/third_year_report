@@ -1,4 +1,4 @@
-# Activities involved with 2022/23
+# Activities involved with 2022/23 {#sec-activities}
 In order to give an overview of what activities I have been involved during my 3rd year, please see a summary below.
 
 I should make it more descriptive but haven't had the time to do so yet.
