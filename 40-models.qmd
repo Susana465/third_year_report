@@ -21,7 +21,7 @@ with open('simple_dcdw.bngl', 'r') as file:
 
 To interact with this code, you can have a look and download a jupyter notebook I have created [here](https://github.com/Susana465/Dontcaredontwrite_bngl_example), where I also describe some of the ways in which the model can be simulated, with stochastic simulation algorithms (SSAs) or ordinary differential equations (ODEs). See screenshot from notebook in @fig-ode_bngl below.
 
-![What an ODE output from the model above looks like, shown as output is created in jupyter notebook.](ode_bngl.PNG){#fig-ode_bngl} 
+![What an ODE output from the model above looks like, shown as output is created in jupyter notebook.](images/ode_bngl.PNG){#fig-ode_bngl} 
 
 ### MCell (Monte Carlo Cell) and how it simulates reactions in 3D
 MCell is a biochemistry simulation tool that uses spatially realistic 3D cellular models and stochastic Monte Carlo algorithms to simulate the movements and interactions of discrete molecules within and between cells, [@bartol2000Monte], [@kerr2008FAST], [@bartol2015Computational]. MCell is a particle-based simulator that represents molecules as point particles in 3D space. At every time step in an MCell simulation, each particle can move, collide with other particles or surfaces, and undergo bimolecular and unimolecular reactions. The basic elements of a simulation step are as seen in @fig-mcell_comp taken from @gupta2018Spatial.
@@ -36,7 +36,7 @@ MCell4, version used for this project, provides a versatile Python interface, wh
 
 Significantly, in MCell4 the reaction language is BNGL; making MCell4 fully support rule-based reactions and allowing all models to use this feature. The support for BNGL and network-free simulations of MCell4 allows direct, agent-based evaluation of reaction rules and thus enables spatially-resolved network-free simulations of interactions between and among volume and surface molecules. The CaMKII models I developed during this PhD would not be possible without the spatial network-free simulation allowed by MCell4.
 
-![Diagram of what workflow of this project can look like, it is not exhaustive of all the ways in which these software can interact. Diagram was made with the softare Lucid.](python-bngl-cellblender.png){#fig-python-bngl-cellblender} 
+![Diagram of what workflow of this project can look like, it is not exhaustive of all the ways in which these software can interact. Diagram was made with the softare Lucid.](images/python-bngl-cellblender.png){#fig-python-bngl-cellblender} 
 
 ## Model description
 I have constructed the models at different scales to validate CaMKII interactions with other molecules like calmodulin and NMDARs, at increasing levels of complexity. First I re-created a model of CaMKII as a monomer that was previously completed in 2017. The model created uses cBNGL and represents CaMKII as monomers to serve as a proof of concept as well as a starting validation point, as dynamics of this model were previously shown to be within biologically accurate limits. Secondly, I created a model of CaMKII as a hexamer since modelling this molecule as a dodecamer gave rise to a combinatorial explosion due to the high number of possible states and the network of interactions generated. This was them resolved as I run the model using the network-free simulation capabalities using MCell. This has then resulted in being able to create a (still in the workd) model of CaMKII as a dodecamer. These simulations include only calcium binding to CaM, and CaM binding to CaMKII as a dodecamer, without further reactions added to avoid further complexity. Finally, I aim to validate this work against a model from Ordyan et al., 2020, where they successfully modelled CaMKII as a twelve subunit holoenzyme using BioNetGen simulations. 
@@ -48,7 +48,7 @@ In order to replicate and validate the results obtained from the CaMKII monomer 
 
 As well as modelling the multimeric properties of our molecules of interest, an aim of this project has been to further refine the spatial computational model to check if the prediction of the distribution of phosphorylated CaMKII is still valid, as described in 2017 model, and if so incorporate existing biological data. Previously, the head of dendritic spine was modelled as the cell, with a PSD shown in blue where there was a higher number of NMDARs (@fig-dendritic-head). The prediction made was that if CaMKII binding to NMDA receptors is disrupted, we get more CaMKII activation overall, this was a counterintuitive result because NMDA receptor binding is known to activate CaMKII, so their disruption was assumed to have decreased CaMKII activation. It will be interesting to see if these results replicate with CaMKII as a hexamer, or if not then it might show new insights as to how CaMKII and NMDAR abolition results in the new models.
 
-![Head of dendritic spine modelled as the cell, with PSD shown in blue, modelled in MCell/CellBlender for the 2017 dissertation project.](dendritic_head.png){#fig-dendritic-head width=400} 
+![Head of dendritic spine modelled as the cell, with PSD shown in blue, modelled in MCell/CellBlender for the 2017 dissertation project.](images/dendritic_head.png){#fig-dendritic-head width=400} 
 
 Parameters used in this project so far requires further analysis, as well as additional investigation of specific reaction parameters. As mentioned in the introduction section,  finding parameters, if any, for computer models is a challenging as they tend to vary from publication to publication. For now, I used the validated parameters used for my thesis in 2017 (table 1). I hope to run sensitivity analysis to determine how much parameters used affect model behaviour.
 
@@ -72,7 +72,7 @@ With the idea of making reproducible research, it is good to build up step by st
 
 With this and robustness, replicability, reproducibility and generalisability (as defined in @sec-ethics-reproducibility) in mind, I managed to make a model which was successfully reproduced in other people's machines. This means that the results of the model (@fig-out-gdat), where able to be reproduced by someone else using the same dataset which consistently produced the same answer. 
 
-![Sequence of modelled molecules interacting in a model of CaMKII as a hexamer (dodecamer should also reproduce as it's built off of this)](out_gdat.png){#fig-out-gdat} 
+![Sequence of modelled molecules interacting in a model of CaMKII as a hexamer (dodecamer should also reproduce as it's built off of this)](images/out_gdat.png){#fig-out-gdat} 
 
 This was possible thanks to the efforts put into creating detailed step by step instructions on how to implement and run the model. These instructions currently live in a private repository in GitHub, which hopefully will evolve into something publishable. This repository includes a README.md file that allows you to know how to:
 

@@ -58,7 +58,7 @@ Thinking about reproducibility can in turn help to think how you will share your
 
 I created this poster because I wanted to showcase, at a conference full of scientists at different stages of their research, how I take into account bias an reproducibility in my research, and how they could too.
 
-[![Poster about bias and reproducibility, showing research cycle as a journey which starts with design, then data collection, data analysis and final reporting, and compares this through images to growing an apple tree, collecting the apples and then selling them.](20221006_poster_phd_journey.jpg){#fig-posterPhDjourney fig-pos="h" width=500}](https://github.com/Susana465/Bias-and-Reproducibility-Poster/blob/main/20221006_poster_phd_journey.jpg)
+[![Poster about bias and reproducibility, showing research cycle as a journey which starts with design, then data collection, data analysis and final reporting, and compares this through images to growing an apple tree, collecting the apples and then selling them.](images/20221006_poster_phd_journey.jpg){#fig-posterPhDjourney fig-pos="h" width=500}](https://github.com/Susana465/Bias-and-Reproducibility-Poster/blob/main/20221006_poster_phd_journey.jpg)
 
 
 Working with ethics, philosophy, reproducibility and an openness to discuss the wider context of where our research rests, may add a bit of time to the research timeline, but can very much enrich a fuller and more complex understanding of the shortcomings of our research and how to do better moving forward. 

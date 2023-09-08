@@ -281,7 +281,7 @@ simulate({method=&gt;"ssa",t_end=&gt;10,n_steps=&gt;100})</code></pre>
 <p>To interact with this code, you can have a look and download a jupyter notebook I have created <a href="https://github.com/Susana465/Dontcaredontwrite_bngl_example">here</a>, where I also describe some of the ways in which the model can be simulated, with stochastic simulation algorithms (SSAs) or ordinary differential equations (ODEs). See screenshot from notebook in <a href="#fig-ode_bngl">Figure&nbsp;<span>4.2</span></a> below.</p>
 <div id="fig-ode_bngl" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="ode_bngl.PNG" class="img-fluid figure-img"></p>
+<p><img src="images/ode_bngl.PNG" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;4.2: What an ODE output from the model above looks like, shown as output is created in jupyter notebook.</figcaption>
 </figure>
 </div>
@@ -300,7 +300,7 @@ simulate({method=&gt;"ssa",t_end=&gt;10,n_steps=&gt;100})</code></pre>
 <p>Significantly, in MCell4 the reaction language is BNGL; making MCell4 fully support rule-based reactions and allowing all models to use this feature. The support for BNGL and network-free simulations of MCell4 allows direct, agent-based evaluation of reaction rules and thus enables spatially-resolved network-free simulations of interactions between and among volume and surface molecules. The CaMKII models I developed during this PhD would not be possible without the spatial network-free simulation allowed by MCell4.</p>
 <div id="fig-python-bngl-cellblender" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="python-bngl-cellblender.png" class="img-fluid figure-img"></p>
+<p><img src="images/python-bngl-cellblender.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;4.4: Diagram of what workflow of this project can look like, it is not exhaustive of all the ways in which these software can interact. Diagram was made with the softare Lucid.</figcaption>
 </figure>
 </div>
@@ -316,7 +316,7 @@ simulate({method=&gt;"ssa",t_end=&gt;10,n_steps=&gt;100})</code></pre>
 <p>As well as modelling the multimeric properties of our molecules of interest, an aim of this project has been to further refine the spatial computational model to check if the prediction of the distribution of phosphorylated CaMKII is still valid, as described in 2017 model, and if so incorporate existing biological data. Previously, the head of dendritic spine was modelled as the cell, with a PSD shown in blue where there was a higher number of NMDARs (<a href="#fig-dendritic-head">Figure&nbsp;<span>4.5</span></a>). The prediction made was that if CaMKII binding to NMDA receptors is disrupted, we get more CaMKII activation overall, this was a counterintuitive result because NMDA receptor binding is known to activate CaMKII, so their disruption was assumed to have decreased CaMKII activation. It will be interesting to see if these results replicate with CaMKII as a hexamer, or if not then it might show new insights as to how CaMKII and NMDAR abolition results in the new models.</p>
 <div id="fig-dendritic-head" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="dendritic_head.png" class="img-fluid figure-img" width="400"></p>
+<p><img src="images/dendritic_head.png" class="img-fluid figure-img" width="400"></p>
 <figcaption class="figure-caption">Figure&nbsp;4.5: Head of dendritic spine modelled as the cell, with PSD shown in blue, modelled in MCell/CellBlender for the 2017 dissertation project.</figcaption>
 </figure>
 </div>
@@ -337,7 +337,7 @@ simulate({method=&gt;"ssa",t_end=&gt;10,n_steps=&gt;100})</code></pre>
 <p>With this and robustness, replicability, reproducibility and generalisability (as defined in <a href="20-ethics_reproducible.html"><span>Chapter&nbsp;2</span></a>) in mind, I managed to make a model which was successfully reproduced in other people’s machines. This means that the results of the model (<a href="#fig-out-gdat">Figure&nbsp;<span>4.6</span></a>), where able to be reproduced by someone else using the same dataset which consistently produced the same answer.</p>
 <div id="fig-out-gdat" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="out_gdat.png" class="img-fluid figure-img"></p>
+<p><img src="images/out_gdat.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;4.6: Sequence of modelled molecules interacting in a model of CaMKII as a hexamer (dodecamer should also reproduce as it’s built off of this)</figcaption>
 </figure>
 </div>
