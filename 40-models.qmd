@@ -1,6 +1,8 @@
 # Computer models of CaMKII/NMDAR interactions
 
-As mentioned in the introduction @sec-whats-my-phd of this report, I use computer models to study interactions between specific postsynaptic molecules; below I describe what these models look like and what software I use. Likewise I also explain how I have been working on creating a reproducible model and the validation steps taken to achieve this.
+As mentioned in the introduction @sec-whats-my-phd of this report, I use computer models to study interactions between specific postsynaptic molecules; below I describe what these models look like and what software I use. Likewise I also explain how I have been working on creating a reproducible model and the validation steps taken to achieve this. The aim is to model CaMKII as a dodecamer molecule, including effects of space in it's interactions with NMDAR during NMDAR-dependent LTP. A list of components and interactions represented is not available at this time, but I aim to create a list and/or table listing all known phenomena that the model should replicate in the near future. As an example of what the components, interactions and 3D space can look like, see  @fig-mcell_doodle2.
+
+![A 3D model of a postsynaptic dendritic head, in a schematic of the CellBlender interface.](images/mcell_doodle.jpg){#fig-mcell_doodle2} 
 
 ## BioNetGen and how rule-based modelling can help with combinatorial complexity. 
 BioNetGen is a set of software tools which facilitate a rule-based approach to modelling biochemical reaction kinetics, where we can largely overcome the problem of combinatorial complexity that arises when modelling CaMKII. It has been calculated that CaMKII as a dodecamer can approximately have 10^20^ possible states [@pharris2019MultistateModelCaMKII]; this, together with the potential of a full reaction network for each simulation (an added factor of combinatorial complexity), can render the model computationally intractable. BioNetGen can help us deal with this combinatorial complexity thanks to its rule-based modelling (RBM) "don't care, don't write" capabilities. And as we will see later MCell can help with modelling network-free simulations.
@@ -39,6 +41,18 @@ Significantly, in MCell4 the reaction language is BNGL; making MCell4 fully supp
 ![Diagram of what workflow of this project can look like, it is not exhaustive of all the ways in which these software can interact. Diagram was made with the softare Lucid.](images/python-bngl-cellblender.png){#fig-python-bngl-cellblender} 
 
 ## Model description
+With the idea of making reproducible research, it is good to build up step by step a model, and the same processes used in software development can also be applied to biological model development. Therefore, when developing the models in this project, four main points were considered throughout, as suggested by @husar2022MCell4:
+
+1.	Create incremental development where the model is built step by step, relying on solid foundations of modelling done and validated before, 
+
+2.	Create a modularity that provides the capability to create self-contained, reusable libraries,
+
+3.	Perform unit testing and validation to verify that parts of the model behave as expected and,
+
+4.	Create human-readable and writable model code that can be stored using git or other code version control software which also allows code reviews so that other team members can inspect the latest changes to the model.
+
+With this and robustness, replicability, reproducibility and generalisability (as defined in @sec-ethics-reproducibility) in mind, I managed to make a model which was successfully reproduced in other people's machines. This means that the results of the model (@fig-out-gdat), where able to be reproduced by someone else using the same dataset which consistently produced the same answer. 
+
 I have constructed the models at different scales to validate CaMKII interactions with other molecules like calmodulin and NMDARs, at increasing levels of complexity. First I re-created a model of CaMKII as a monomer that was previously completed in 2017. The model created uses cBNGL and represents CaMKII as monomers to serve as a proof of concept as well as a starting validation point, as dynamics of this model were previously shown to be within biologically accurate limits. Secondly, I created a model of CaMKII as a hexamer since modelling this molecule as a dodecamer gave rise to a combinatorial explosion due to the high number of possible states and the network of interactions generated. This was them resolved as I run the model using the network-free simulation capabalities using MCell. This has then resulted in being able to create a (still in the workd) model of CaMKII as a dodecamer. These simulations include only calcium binding to CaM, and CaM binding to CaMKII as a dodecamer, without further reactions added to avoid further complexity. Finally, I aim to validate this work against a model from Ordyan et al., 2020, where they successfully modelled CaMKII as a twelve subunit holoenzyme using BioNetGen simulations. 
  
 ### Model development and validation: CaMKII modelled as a dodecamer
@@ -56,21 +70,7 @@ An important part for the last part of this project has been to validate CaMKII 
 
 One of the main questions of the research is to look at the dynamics of interactions between NMDARs and CaMKII in the postsynaptic neuron. The models created will state the predictions which will then enable us to generate hypothesis for system dynamics behaviour. It would not make sense to start asking questions about this if the basis of the model is not coherent and cannot replicate baseline molecular behaviour. Therefore, it is very important that validation of the model build up is carried out meticulously and reasoning as to why each step and decision was made is explained.  
 
-need to potentially make: Biologist friendly description of the model. 
-
-### A reproducible model
-
-With the idea of making reproducible research, it is good to build up step by step a model, and the same processes used in software development can also be applied to biological model development. Therefore, when developing the models in this project, four main points were considered throughout, as suggested by @husar2022MCell4:
-
-1.	Create incremental development where the model is built step by step, relying on solid foundations of modelling done and validated before, 
-
-2.	Create a modularity that provides the capability to create self-contained, reusable libraries,
-
-3.	Perform unit testing and validation to verify that parts of the model behave as expected and,
-
-4.	Create human-readable and writable model code that can be stored using git or other code version control software which also allows code reviews so that other team members can inspect the latest changes to the model.
-
-With this and robustness, replicability, reproducibility and generalisability (as defined in @sec-ethics-reproducibility) in mind, I managed to make a model which was successfully reproduced in other people's machines. This means that the results of the model (@fig-out-gdat), where able to be reproduced by someone else using the same dataset which consistently produced the same answer. 
+### Some results
 
 ![Sequence of modelled molecules interacting in a model of CaMKII as a hexamer (dodecamer should also reproduce as it's built off of this)](images/out_gdat.png){#fig-out-gdat} 
 
