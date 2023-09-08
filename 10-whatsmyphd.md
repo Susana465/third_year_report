@@ -6,6 +6,8 @@ But as time went by, I realised more and more how important looking at the ethic
 
 An additional, and important, aim of this PhD project to highlight and talk about some of the things I care most in research: making it transparent, inclusive, and accessible.
 
+First, let's look at a brief description of the type of interactions I am interested in looking at, and why I model them with computer models.
+
 ## What molecular interactions am I modelling?
 
 When studying learning and memory at the molecular level, in health and disease, it has been shown that NMDAR and CaMKII together with their interactions with other proteins within neuronal spines can influence their shape and size [@fink2002Molecular]. Long-term modifications of synaptic strength, such as LTD (Long Term Depression) and LTP (Long Term Potentiation), involve diverse chemical pathways and have been the primary mechanisms used to study the molecular basis of learning and memory [@blundon2008DissectingComponentsLongTerm]. So what exactly is happening at the cellular and molecular level during memory formation?

@@ -70,7 +70,9 @@ An important part for the last part of this project has been to validate CaMKII 
 
 One of the main questions of the research is to look at the dynamics of interactions between NMDARs and CaMKII in the postsynaptic neuron. The models created will state the predictions which will then enable us to generate hypothesis for system dynamics behaviour. It would not make sense to start asking questions about this if the basis of the model is not coherent and cannot replicate baseline molecular behaviour. Therefore, it is very important that validation of the model build up is carried out meticulously and reasoning as to why each step and decision was made is explained.  
 
-### Some results
+### Results
+
+CaMKII modelled as a dodecamer runs, below I just show a sequence of reactions, not all molecules to be modelled are shown. Following the step by step validation of a model, these results were able to be reproduced by Nicola Romano on a different machine, with a different operating system to mine. 
 
 ![Sequence of modelled molecules interacting in a model of CaMKII as a hexamer (dodecamer should also reproduce as it's built off of this)](images/out_gdat.png){#fig-out-gdat} 
 

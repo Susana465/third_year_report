@@ -6,7 +6,7 @@ The Data Hazards Project has created a community-developed shared vocabulary of 
 
 There are 11 data hazards at the moment (@fig-eleven_dh), which include a label description, examples and general safety precautions to showcase how we might go about thinking about these risks. In the following sections in this chapter I will go through some specific examples of what using these labels can look like.
 
-!["There are 11 Data Hazard labels defined [@cara2021Data]](images/eleven_dh.png){#fig-eleven_dh}
+!["There are 11 Data Hazard labels defined [@cara2021Data].](images/eleven_dh.png){#fig-eleven_dh}
 
 First of all, to show what the label, plus decription plus mitigations might look like I have chosen the 'High environmental' label. 
 
